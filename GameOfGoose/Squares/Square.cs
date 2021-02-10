@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameOfGoose.Squares
+namespace GameOfGoose
 {
-    class Square
+    class Square : ISquare
     {
-        private void AssignPawnImage()
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public void AssignPawnImage()
         {
 
         }

@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameOfGoose.Squares
+namespace GameOfGoose
 {
-    class Goose
+    class GooseSquare : ISquare
     {
+        public int ID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void AssignPawnImage()
+        {
+            throw new NotImplementedException();
+        }
+
         private void CheckGooseSquare()
         {
             switch (squareCounter) //5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59
