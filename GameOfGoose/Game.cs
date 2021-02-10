@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -7,6 +8,7 @@ namespace GameOfGoose
     public class Game
     {
         private ObservableCollection<Player> players;
+        private ObservableCollection<ISquare> squares;
         private Player currentPlayer;
         private int totalRounds;
         private int diceResult;
@@ -45,6 +47,7 @@ namespace GameOfGoose
 
             MovePawn(diceResult)
                 extra effect? => show info about the special location (new screen/pop-up)
+                -> MovePawnToSpecificSquare(currentPlayer.PawnLocation);
                 -> special square uitvoeren specialMove.methodeVanToepassing() of goose.MovePawnToSpecificLocation()
 
             show relaxed goose in pop-up
@@ -161,6 +164,80 @@ namespace GameOfGoose
             };
 
             return players;
+        }
+
+        private ObservableCollection<Player> GenerateGameBoard()
+        {
+            var squares = new ObservableCollection<ISquare>
+            {
+                new NormalSquare(), //0
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new GooseSquare(), //5
+                new SpecialSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new GooseSquare(),
+                new NormalSquare(), //10
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new GooseSquare(),
+                new NormalSquare(), //15
+                new NormalSquare(),
+                new NormalSquare(),
+                new GooseSquare(),
+                new SpecialSquare(),
+                new NormalSquare(), //20
+                new NormalSquare(),
+                new NormalSquare(),
+                new GooseSquare(),
+                new NormalSquare(),
+                new NormalSquare(), //25
+                new NormalSquare(),
+                new GooseSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(), //30
+                new SpecialSquare(),
+                new GooseSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(), //35
+                new GooseSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(), //40
+                new GooseSquare(),
+                new SpecialSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new GooseSquare(), //45
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new NormalSquare(),
+                new GooseSquare(), //50
+                new NormalSquare(),
+                new SpecialSquare(),
+                new NormalSquare(),
+                new GooseSquare(),
+                new NormalSquare(), //55
+                new NormalSquare(),
+                new NormalSquare(),
+                new SpecialSquare(),
+                new GooseSquare(),
+                new NormalSquare(), //60
+                new NormalSquare(),
+                new NormalSquare(),
+                new SpecialSquare(),
+
+            };
+
+            return squares;
         }
     }
 }

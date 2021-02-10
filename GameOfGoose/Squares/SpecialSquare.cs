@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameOfGoose.Squares
+namespace GameOfGoose
 {
-    public class SpecialSquare
+    public class SpecialSquare : ISquare
     {
-        public void MoveToSpecificSquare() //=> Bridge, Maze, Death
+        public int ID { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public void MoveToSpecificSquare(int locatie) //=> Bridge, Maze, Death
         {
-            switch (PawnLocation)
+            switch (locatie)
             {
                 case 6:
                 case 42:
@@ -28,6 +31,11 @@ namespace GameOfGoose.Squares
         public void GameOverCheck() //=> player reaches square 63
         {
             //game.GameOver();
+        }
+
+        public void AssignPawnImage()
+        {
+            throw new NotImplementedException();
         }
     }
 }
