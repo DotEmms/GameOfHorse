@@ -56,14 +56,5 @@ namespace GameOfGoose
                 }
             }
         }
-        //if((check roll(4) + squareCounter(55)) == 63)
-        //{
-	       // GameOver();
-        //} else if((check roll(4) + squareCounter(55)) > 63)
-        //{
-	       // set movement backwards => turn + into -
-        //}
-        //else
-        //MovePawn(roll dice);
     }
 }
