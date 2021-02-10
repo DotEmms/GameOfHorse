@@ -40,12 +40,22 @@ namespace GameOfGoose
             set { _turnPenalty = value; }
         }
 
+        private bool _isFirstRound;
+
+        public bool IsFirstRound
+        {
+            get { return _isFirstRound; }
+            set { _isFirstRound = value; }
+        }
+
+
         public Player(string name)
         {
             Id = counter;
             Name = name;
             PawnLocation = 0;
             TurnPenalty = 0;
+            IsFirstRound = true;
 
             counter++;
         }

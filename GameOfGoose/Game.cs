@@ -37,8 +37,12 @@ namespace GameOfGoose
                 //First turn only
                 if (totalRounds == 1)
                 {
-                    FirstThrowCheck(firstDie, secondDie);
+                    //click button roll
                     diceResult = RollDice();
+                    FirstThrowCheck(firstDie, secondDie);
+                    CheckSquare();
+                    currentPlayer.IsFirstRound = false;
+
                 }
                 //rest of the game
                 else
@@ -47,12 +51,11 @@ namespace GameOfGoose
                     // checkstatus?
                     if (CheckPenalty())
                     {
+                        //click button roll
                         diceResult = RollDice();
-                        //wait until button is pressed
 
                         MovePawn(diceResult);
-                        CheckSquare();
-                                                
+                        CheckSquare();                                                
                     }                    
                 }
                 //assign player for next turn
@@ -158,6 +161,9 @@ namespace GameOfGoose
             {
                 currentPlayer.PawnLocation = 53;
             }
+            else
+                MovePawn(diceResult);
+
         }
 
         private void MovePawn(int steps)
