@@ -7,8 +7,15 @@ namespace GameOfGoose.Squares
     public class SpecialSquare
     {
         public void MoveToSpecificSquare() //=> Bridge, Maze, Death
-        { 
-
+        {
+            switch (PawnLocation)
+            {
+                case 6:
+                case 42:
+                case 58:
+                default:
+                    break;
+            }
         } 
         public void SkipTurns() //=> Inn, Prison
         {

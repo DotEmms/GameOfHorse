@@ -9,23 +9,63 @@ namespace GameOfGoose
         private ObservableCollection<Player> players;
         private Player currentPlayer;
         private int totalRounds;
+        private int diceResult;
+        private int firstDie;
+        private int secondDie;
 
         private void StartGame()
         {
             players = CreatePlayers();
-
-            //turn structure
-            //TurnFlow();
-            StartTurn();
+            currentPlayer = GetPlayer(1);
+            TurnFlow();
         }
 
-        private void TurnFlow(int id)
+        private void TurnFlow()
         {
+
+            //if(totalRounds == 1)
+            //{
+            //    FirstThrowCheck(firstDie, secondDie);
+            //    diceResult = RollDice();                
+            //}
+            //else
+            
+            
+            
+            // click event btnNextPlayer_Click of btnEndTurn_click roept deze methode aan
+            
+            /* STANDARD TURN FLOW
+             
+            Mag ik spelen? (geen beurt overslaan van Inn/Jail/Well)
+            
+            ja? 
+            { 
+            
+            // click event btnRollDice_Click => diceResult = RollDice() => pop-up met aantal ogen dat gegooid is
+
+            MovePawn(diceResult)
+                extra effect? => show info about the special location (new screen/pop-up)
+                -> special square uitvoeren specialMove.methodeVanToepassing() of goose.MovePawnToSpecificLocation()
+
+            show relaxed goose in pop-up
+            Set next player => GetNextPlayerId();
+            }    
+            
+            neen?
+            {
+            show info why not. => new screen/pop-up
+            Set next player.      
+            }
+            
+            
+            */
             
             if (CheckTurn())
             {
-                MovePawn(RollDice());
+                MovePawn(diceResult);
             }
+            
+            currentPlayer = GetPlayer(GetNextPlayerId());
         }
 
         private Player GetPlayer(int id)
@@ -65,11 +105,13 @@ namespace GameOfGoose
 
         private void EndTurn()
         {
+
         }
 
         private void GameOver()
         {
-            VictoryScreen.Show();
+            VictoryScreen victory = new VictoryScreen(currentPlayer)
+            victory.Show();
         }
 
         // button event add player
@@ -77,19 +119,35 @@ namespace GameOfGoose
         private int RollDice()
         {
             Random random1 = new Random();
-            int dice1 = random1.Next(1, 6);
+            int die1 = random1.Next(1, 6);
 
             Random random2 = new Random();
-            int dice2 = random2.Next(1, 6);
+            int die2 = random2.Next(1, 6);
 
-            int result = dice1 + dice2;
-            return result;
+            firstDie = die1;
+            secondDie = die2;
+
+            diceResult = die1 + die2;
+            return diceResult;
+        }
+        private void FirstThrowCheck(int die1, int die2)
+        {
+            if ((die1 == 5 && die2 == 4) || (die1 == 4 && die2 == 5))
+            {
+                currentPlayer.PawnLocation = 26;
+                EndTurn();
+            }
+            else if ((die1 == 6 && die2 == 3) || (die1 == 3 && die2 == 6))
+            {
+                currentPlayer.PawnLocation = 53;
+                EndTurn();
+            }
         }
 
         private void MovePawn(int steps)
         {
             steps = RollDice();
-            player.PawnLocation += steps;
+            currentPlayer.PawnLocation += steps; 
         }
 
         private ObservableCollection<Player> CreatePlayers()
