@@ -6,5 +6,9 @@ namespace GameOfGoose.Squares
 {
     class Square
     {
+        private void AssignPawnImage()
+        {
+
+        }
     }
 }
