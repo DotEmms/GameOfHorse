@@ -10,32 +10,57 @@ namespace GameOfGoose
         private ObservableCollection<Player> players;
         private ObservableCollection<ISquare> squares;
         private Player currentPlayer;
+        private ISquare currentSquare;
         private int totalRounds;
         private int diceResult;
         private int firstDie;
         private int secondDie;
+        private bool isGameOngoing = true;
+
+        public Game()
+        {
+            players = CreatePlayers();
+            squares = GenerateGameBoard();
+        }
 
         private void StartGame()
         {
-            players = CreatePlayers();
             currentPlayer = GetPlayer(1);
             TurnFlow();
         }
 
         private void TurnFlow()
         {
+            //infinite loop while game is ongoing
+            while (isGameOngoing)
+            {
+                //First turn only
+                if (totalRounds == 1)
+                {
+                    FirstThrowCheck(firstDie, secondDie);
+                    diceResult = RollDice();
+                }
+                //rest of the game
+                else
+                {
+                    //can current player play?(not in well/inn/jail)
+                    // checkstatus?
+                    if (CheckPenalty())
+                    {
+                        diceResult = RollDice();
+                        //wait until button is pressed
 
-            //if(totalRounds == 1)
-            //{
-            //    FirstThrowCheck(firstDie, secondDie);
-            //    diceResult = RollDice();                
-            //}
-            //else
-            
-            
-            
+                        MovePawn(diceResult);
+                        CheckSquare();
+                                                
+                    }                    
+                }
+                //assign player for next turn
+                currentPlayer = GetPlayer(GetNextPlayerId());
+            }
+
             // click event btnNextPlayer_Click of btnEndTurn_click roept deze methode aan
-            
+
             /* STANDARD TURN FLOW
              
             Mag ik spelen? (geen beurt overslaan van Inn/Jail/Well)
@@ -58,17 +83,9 @@ namespace GameOfGoose
             {
             show info why not. => new screen/pop-up
             Set next player.      
-            }
-            
-            
+            }       
             */
             
-            if (CheckTurn())
-            {
-                MovePawn(diceResult);
-            }
-            
-            currentPlayer = GetPlayer(GetNextPlayerId());
         }
 
         private Player GetPlayer(int id)
@@ -90,31 +107,29 @@ namespace GameOfGoose
             }
            return nextPlayerId;
         }
-
-        private bool CheckTurn()
+        private ISquare GetSquare(int id)
         {
-            return currentPlayer.IsTurnPlayer;            
+            return squares.FirstOrDefault(x => x.ID == id);
         }
 
-        private bool IsTurnPlayer()
+        private bool CheckPenalty()
         {
-            return false;
-        }
-        private void StartTurn()
-        {
-            GetNextPlayerId();
-            //Do magic
-        }
-
-        private void EndTurn()
-        {
-
+            if(currentPlayer.TurnPenalty == 0)
+            {
+                return true;
+            }
+            else
+            {
+                currentPlayer.TurnPenalty--;
+                return false;
+            }                   
         }
 
         private void GameOver()
         {
-            VictoryScreen victory = new VictoryScreen(currentPlayer)
-            victory.Show();
+            isGameOngoing = false;
+            VictoryScreen victory = new VictoryScreen();
+            //victory.Show();
         }
 
         // button event add player
@@ -138,22 +153,71 @@ namespace GameOfGoose
             if ((die1 == 5 && die2 == 4) || (die1 == 4 && die2 == 5))
             {
                 currentPlayer.PawnLocation = 26;
-                EndTurn();
             }
             else if ((die1 == 6 && die2 == 3) || (die1 == 3 && die2 == 6))
             {
                 currentPlayer.PawnLocation = 53;
-                EndTurn();
             }
         }
 
         private void MovePawn(int steps)
         {
-            steps = RollDice();
-            currentPlayer.PawnLocation += steps; 
+            var value = currentPlayer.PawnLocation + steps;
+            
+                currentPlayer.PawnLocation += value;
+                currentSquare = GetSquare(value);
+            
+        }
+        private void CheckSquare()
+        {
+            if (currentSquare.Name == "Going Steady")
+            {
+                NormalSquare normal = currentSquare as NormalSquare;
+                normal.AssignPawnImage();
+            }else if(currentSquare.Name == "GOOSE!")
+            {
+                GooseSquare goose = currentSquare as GooseSquare;
+                goose.AssignPawnImage();
+                MovePawn(goose.CheckGooseSquare(diceResult, currentPlayer.PawnLocation));
+            }
+            else if (currentSquare.Name == "Bridge" || currentSquare.Name == "Inn" || currentSquare.Name == "Well" || currentSquare.Name == "Maze" || currentSquare.Name == "Prison" || currentSquare.Name == "Death" || currentSquare.Name == "End")
+            {
+                SpecialSquare special = currentSquare as SpecialSquare;
+                switch (currentSquare.Name)
+                {
+                    case "Bridge":
+                    case "Maze":
+                    case "Death":
+                        currentPlayer.PawnLocation = special.MoveToSpecificSquare(currentPlayer.PawnLocation);
+                        break;
+                    case "Inn":
+                    case "Prison":
+                        currentPlayer.TurnPenalty = special.SkipTurns(currentPlayer.PawnLocation);
+                        break;
+                    case "Well":
+                        ResetWellPenalty();
+                        currentPlayer.TurnPenalty = special.WaitForOtherPlayer();
+                        break;
+                    case "End":
+                        GameOver();
+                        break;
+                    default:
+                        break;
+                }
+                special.AssignPawnImage();
+            }
         }
 
-        // button event next player
+        private void ResetWellPenalty()
+        {
+            foreach (var player in players)
+            {
+                if(player.PawnLocation == 31)
+                {
+                    player.TurnPenalty = 0;
+                }
+            }
+        }
 
         // button event roll dice
 
@@ -174,70 +238,70 @@ namespace GameOfGoose
         {
             var squares = new ObservableCollection<ISquare>
             {
-                new NormalSquare(), //0
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new GooseSquare(), //5
-                new SpecialSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new GooseSquare(),
-                new NormalSquare(), //10
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new GooseSquare(),
-                new NormalSquare(), //15
-                new NormalSquare(),
-                new NormalSquare(),
-                new GooseSquare(),
-                new SpecialSquare(),
-                new NormalSquare(), //20
-                new NormalSquare(),
-                new NormalSquare(),
-                new GooseSquare(),
-                new NormalSquare(),
-                new NormalSquare(), //25
-                new NormalSquare(),
-                new GooseSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(), //30
-                new SpecialSquare(),
-                new GooseSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(), //35
-                new GooseSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(), //40
-                new GooseSquare(),
-                new SpecialSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new GooseSquare(), //45
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new NormalSquare(),
-                new GooseSquare(), //50
-                new NormalSquare(),
-                new SpecialSquare(),
-                new NormalSquare(),
-                new GooseSquare(),
-                new NormalSquare(), //55
-                new NormalSquare(),
-                new NormalSquare(),
-                new SpecialSquare(),
-                new GooseSquare(),
-                new NormalSquare(), //60
-                new NormalSquare(),
-                new NormalSquare(),
-                new SpecialSquare(),
+                new NormalSquare(0, "Start"), //0
+                new NormalSquare(1, "Going Steady"),
+                new NormalSquare(2, "Going Steady"),
+                new NormalSquare(3, "Going Steady"),
+                new NormalSquare(4, "Going Steady"),
+                new GooseSquare(5, "GOOSE!"), //5
+                new SpecialSquare(6, "Bridge", "", "./Images/bridge.jpg"),
+                new NormalSquare(7, "Going Steady"),
+                new NormalSquare(8, "Going Steady"),
+                new GooseSquare(9, "GOOSE!"),
+                new NormalSquare(10, "Going Steady"), //10
+                new NormalSquare(11, "Going Steady"),
+                new NormalSquare(12, "Going Steady"),
+                new NormalSquare(13, "Going Steady"),
+                new GooseSquare(14, "GOOSE!"),
+                new NormalSquare(15, "Going Steady"), //15
+                new NormalSquare(16, "Going Steady"),
+                new NormalSquare(17, "Going Steady"),
+                new GooseSquare(18, "GOOSE!"),
+                new SpecialSquare(19, "Inn", "", "./Images/inn.jpg"),
+                new NormalSquare(20, "Going Steady"), //20
+                new NormalSquare(21, "Going Steady"),
+                new NormalSquare(22, "Going Steady"),
+                new GooseSquare(23, "GOOSE!"),
+                new NormalSquare(24, "Going Steady"),
+                new NormalSquare(25, "Going Steady"), //25
+                new NormalSquare(26, "Going Steady"),
+                new GooseSquare(27, "GOOSE!"),
+                new NormalSquare(28, "Going Steady"),
+                new NormalSquare(29, "Going Steady"),
+                new NormalSquare(30, "Going Steady"), //30
+                new SpecialSquare(31, "Well", "" , "./Images/well.jpg"),
+                new GooseSquare(32, "GOOSE!"),
+                new NormalSquare(33, "Going Steady"),
+                new NormalSquare(34, "Going Steady"),
+                new NormalSquare(35, "Going Steady"), //35
+                new GooseSquare(36, "GOOSE!"),
+                new NormalSquare(37, "Going Steady"),
+                new NormalSquare(38, "Going Steady"),
+                new NormalSquare(39, "Going Steady"),
+                new NormalSquare(40, "Going Steady"), //40
+                new GooseSquare(41, "GOOSE!"),
+                new SpecialSquare(42, "Maze","","./Images/maze.jpg"),
+                new NormalSquare(43, "Going Steady"),
+                new NormalSquare(44, "Going Steady"),
+                new GooseSquare(45, "GOOSE!"), //45
+                new NormalSquare(46, "Going Steady"),
+                new NormalSquare(47, "Going Steady"),
+                new NormalSquare(48, "Going Steady"),
+                new NormalSquare(49, "Going Steady"),
+                new GooseSquare(50, "GOOSE!"), //50
+                new NormalSquare(51, "Going Steady"),
+                new SpecialSquare(52, "Prison","","./Images/prison.jpg"),
+                new NormalSquare(53, "Going Steady"),
+                new GooseSquare(54, "GOOSE!"),
+                new NormalSquare(55, "Going Steady"), //55
+                new NormalSquare(56, "Going Steady"),
+                new NormalSquare(57, "Going Steady"),
+                new SpecialSquare(58, "Death","","./Images/death.jpg"),
+                new GooseSquare(59, "GOOSE!"),
+                new NormalSquare(60, "Going Steady"), //60
+                new NormalSquare(61, "Going Steady"),
+                new NormalSquare(62, "Going Steady"),
+                new SpecialSquare(63, "The End","","./Images/end.jpg"),
 
             };
 

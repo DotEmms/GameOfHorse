@@ -32,12 +32,12 @@ namespace GameOfGoose
             set { _pawnLocation = value; }
         }
 
-        private bool _isTurnPlayer;
+        private int _turnPenalty;
 
-        public bool IsTurnPlayer
+        public int TurnPenalty
         {
-            get { return _isTurnPlayer; }
-            set { _isTurnPlayer = value; }
+            get { return _turnPenalty; }
+            set { _turnPenalty = value; }
         }
 
         public Player(string name)
@@ -45,7 +45,7 @@ namespace GameOfGoose
             Id = counter;
             Name = name;
             PawnLocation = 0;
-            IsTurnPlayer = false;
+            TurnPenalty = 0;
 
             counter++;
         }
