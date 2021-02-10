@@ -1,0 +1,70 @@
+﻿Planning Game of Goose
+
+Extra's: 
+- Quit game
+- Restart game 
+- Well => If playerCount == 2, when 1 player arrives on this square with no other player who will reach it => end game
+
+
+
+Beurt structuur?
+- Array? Laten loopen?
+- CheckTurn();
+- EndOfTurn();
+- StartTurn(); => checkt IsTurnPlayer(); => variabele/property aanmaken met true/false, 
+				  => CheckSquare();
+				  => Verandert IsTurnPlayer naar false
+
+
+Paginas (start => player selection, main game => spelbord)
+static status balk
+
+- - - Klassen:
+*Game (players and squares) => onze processor + turns?
+*Player (+ interface, showing off skills)
+	- name
+	- id
+	- pawnLocation (counter)
+	- IsTurnPlayer();
+	
+*Square (interface?)
+	Normal Square
+	Goose Square -> ga het gegooide aantal ogen vooruit (of achteruit) (5, 9, 14, 18, 23, 27, 32, 36, 41, 45, 50, 54, 59), NOOIT stilstaan op een gans
+	Special Square => check-methoden hier
+		Bridge (6) -> go to 12
+		Inn (19) -> Skip 1 turn if(counter < 1) -> next player
+		Well(31) -> wait for other player 
+		Maze(42) -> Go back to 39
+		Prison(52) -> skip 3 turns if(counter < 3) -> next player
+		Death(58) -> back to start => SquareCounter == 0;
+		End(63) -> Wins and ends the game (meer dan 63, stappen terug zetten) checken op basis van modulus?
+
+- - - Speciale methoden binnenin Special Squares:
+- MoveToSpecificSquare(); => Bridge, Maze, Death
+- SkipTurns(); => Inn, Prison
+- WaitForOtherPlayer(); => Well -> if an other player reaches square 31 => first player can move, second player must wait
+- GameOver(); => player reaches square 63
+
+
+- - - Methoden:
+
+*RollDice(): int  (2x random 1-6)
+*MovePawn(int steps)
+*FirstThrowCheck(); => 5+4 (go to space 26), 6+3 (go to space 53) => if (dice1 == 5 && dice2 == 4) => go to specific square
+					if (ThrowCounter == 1) else (continue)
+
+*GameOver() -> Victory Screen:
+*IsGameOver(): bool -> if false -> set movement backwards 
+
+if((check roll(4) + squareCounter(55)) == 63)
+{
+	GameOver();
+} else if((check roll(4) + squareCounter(55)) > 63)
+{
+	set movement backwards => turn + into -
+}
+else 
+	MovePawn(roll dice);
+
+
+
