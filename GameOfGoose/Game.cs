@@ -60,7 +60,7 @@ namespace GameOfGoose
             currentPlayer = GetPlayer(GetNextPlayerId());
         }
 
-        private Player GetPlayer(int id)
+        public Player GetPlayer(int id)
         {
             return players.FirstOrDefault(x => x.Id == id);
         }
@@ -223,12 +223,23 @@ namespace GameOfGoose
             {
                 new Player("Player 1"),
                 new Player("Player 2"),
-                //new Player("Player 3"),
-                //new Player("Player 4")
+                new Player("Player 3"),
+                new Player("Player 4")
             };
-            players.Add(new Player("Player 4"));
+            //players.Add(new Player("Player 4"));
             return players;
         }
+        public Player CreatePlayer(string name)
+        {
+            var player = new Player(name);            
+            return player;
+        }
+
+        public void AddPlayerToGame(Player player)
+        {
+            players.Add(player);
+        }
+
 
         private ObservableCollection<ISquare> GenerateGameBoard()
         {

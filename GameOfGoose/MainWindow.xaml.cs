@@ -28,6 +28,7 @@ namespace GameOfGoose
             game = new Game();
             PlayerSelection playerWindow = new PlayerSelection(game);
             playerWindow.StartGameButtonClicked += StartButtonClickedInPanel;
+            playerWindow.StartGameButtonClicked += SetPlayerNames;
             mainWindow.NavigationService.Navigate(playerWindow);
         }
 
@@ -45,6 +46,34 @@ namespace GameOfGoose
         private void StartButtonClickedInPanel(object sender, EventArgs e)
         {
             btnRollDice.IsEnabled = true;
+            
+        }     
+        
+        private void SetPlayerNames(object sender, EventArgs e)
+        {
+            int amountOfPlayers = game.players.Count;
+
+            switch (amountOfPlayers)
+            {
+                case 2:
+                    lblPlayer1.Content = game.GetPlayer(1).Name;
+                    lblPlayer2.Content = game.GetPlayer(2).Name;
+
+                    break;
+                case 3:
+                    lblPlayer1.Content = game.GetPlayer(1).Name;
+                    lblPlayer2.Content = game.GetPlayer(2).Name;
+                    lblPlayer3.Content = game.GetPlayer(3).Name;
+                    break;
+                case 4:
+                    lblPlayer1.Content = game.GetPlayer(1).Name;
+                    lblPlayer2.Content = game.GetPlayer(2).Name;
+                    lblPlayer3.Content = game.GetPlayer(3).Name;
+                    lblPlayer4.Content = game.GetPlayer(4).Name;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

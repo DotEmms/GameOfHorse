@@ -37,23 +37,22 @@
                  Grid.Row="2"
                  Grid.Column="1"/>
         <!-- Row 3 -->
-        <Label x:Name="txtPlayerTwo"
-               Grid.Row="3"
+        <Label Grid.Row="3"
                Content="Player 2:"/>
-        <TextBox Grid.Row="3"
+        <TextBox x:Name="txtPlayerTwo"
+                 Grid.Row="3"
                  Grid.Column="1"/>
         <!-- Row 4 -->
-        <Label x:Name="txtPlayerThree"
-               Grid.Row="4"
+        <Label Grid.Row="4"
                Content="Player 3:"/>
-        <TextBox Grid.Row="4"
-                 Grid.Column="1"/>
-        
+        <TextBox x:Name="txtPlayerThree"
+                 Grid.Row="4"
+                 Grid.Column="1"/>        
         <!-- Row 5 -->
-        <Label x:Name="txtPlayerFour"
-               Grid.Row="5"
+        <Label Grid.Row="5"
                Content="Player 4:"/>
-        <TextBox Grid.Row="5"
+        <TextBox x:Name="txtPlayerFour"
+                 Grid.Row="5"
                  Grid.Column="1"/>
 
         <!-- Row 6 -->

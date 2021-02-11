@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:GameOfGoose"
         mc:Ignorable="d"
         Title="MainWindow" Height="950" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!--<local:Player x:Key="player"/>--> 
+    </Window.Resources>
     <Grid>
+        <!--<Grid.DataContext>
+            --><!--<Binding Source="{StaticResource player}"/>--><!--
+        </Grid.DataContext>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="0.05*"/>
             <RowDefinition Height="0.1*"/>
@@ -32,11 +38,15 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Center"  
                     HorizontalAlignment="Center">
-            <Label Content="Player 1"/>
-            <Label Content="Player 2"/>
+            <Label x:Name="lblPlayer1"
+                   Content="Player 1"/>
+            <Label x:Name="lblPlayer2"
+                   Content="Player 2"/>
             <Button x:Name="btnRollDice" Content="Roll Dice" IsEnabled="False"/>
-            <Label Content="Player 3"/>
-            <Label Content="Player 4"/>
+            <Label x:Name="lblPlayer3"
+                   Content="Player 3"/>
+            <Label x:Name="lblPlayer4"
+                   Content="Player 4"/>
         </StackPanel>
 
         <!-- Frame -->
