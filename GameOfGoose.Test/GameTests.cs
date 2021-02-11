@@ -11,12 +11,12 @@ namespace GameOfGoose.Test
         {
             // Arrange
             var game = new Game();
-            game.currentPlayer = new Player("test");
-            game.currentPlayer.PawnLocation = 50;
+            game.CurrentPlayer = new Player("test");
+            game.CurrentPlayer.PawnLocation = 50;
             int expectedResult = 57;
             // Act
             game.MovePawn(7);
-            int result = game.currentPlayer.PawnLocation;
+            int result = game.CurrentPlayer.PawnLocation;
 
             // Assert
             Assert.AreEqual(expectedResult,result);
@@ -26,12 +26,12 @@ namespace GameOfGoose.Test
         {
             // Arrange
             var game = new Game();
-            game.currentPlayer = new Player("test");
-            game.currentPlayer.PawnLocation = 60;
+            game.CurrentPlayer = new Player("test");
+            game.CurrentPlayer.PawnLocation = 60;
             int expectedResult = 59;
             // Act
             game.MovePawn(7);
-            int result = game.currentPlayer.PawnLocation;
+            int result = game.CurrentPlayer.PawnLocation;
 
             // Assert
             Assert.AreEqual(expectedResult, result);
@@ -41,12 +41,12 @@ namespace GameOfGoose.Test
         {
             // Arrange
             var game = new Game();            
-            game.currentPlayer = new Player("test");
-            game.currentPlayer.PawnLocation = 60;
+            game.CurrentPlayer = new Player("test");
+            game.CurrentPlayer.PawnLocation = 60;
             int expectedResult = 59;
             // Act
             game.MovePawn(8);
-            int result = game.currentPlayer.PawnLocation;
+            int result = game.CurrentPlayer.PawnLocation;
 
             // Assert
             Assert.AreNotEqual(expectedResult, result);
@@ -56,12 +56,12 @@ namespace GameOfGoose.Test
         {
             // Arrange
             var game = new Game();
-            game.currentPlayer = new Player("test");
-            game.currentPlayer.PawnLocation = 59;
+            game.CurrentPlayer = new Player("test");
+            game.CurrentPlayer.PawnLocation = 59;
             int expectedResult = 51;
             // Act
             game.MovePawn(-8);
-            int result = game.currentPlayer.PawnLocation;
+            int result = game.CurrentPlayer.PawnLocation;
 
             // Assert
             Assert.AreEqual(expectedResult, result);

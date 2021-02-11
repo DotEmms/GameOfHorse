@@ -1,53 +1,54 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Controls;
 
 namespace GameOfGoose
 {
     public class Game
     {
-        public ObservableCollection<Player> players;
-        public ObservableCollection<ISquare> squares;
-        public Player currentPlayer;
-        private ISquare currentSquare;
-        private int totalRounds;
-        public int diceResult;
-        private int firstDie;
-        private int secondDie;       
-        private bool movingBackwards = false;
+        public ObservableCollection<Player> Players;
+        public ObservableCollection<ISquare> Squares;
+        public Player CurrentPlayer;
+        private ISquare _currentSquare;
+        private int _totalRounds;
+        public int DiceResult;
+        private int _firstDie;
+        private int _secondDie;
+        private bool _movingBackwards;
 
         public Game()
         {
-            players = CreatePlayers(); //move to startgame?
-            squares = GenerateGameBoard();
+            Players = CreatePlayers(); //move to startgame?
+            Squares = GenerateGameBoard();
         }
 
         private void StartGame()
         {
             //assign players to list
-            currentPlayer = GetPlayer(1);     
-            
+            CurrentPlayer = GetPlayer(1);
         }
 
         // button event, starts this method for each turn
         private void TurnFlow()
         {
             //First turn only
-            if (totalRounds == 1)
+            if (_totalRounds == 1)
             {
-                diceResult = RollDice();
-                FirstThrowCheck(firstDie, secondDie);
+                DiceResult = RollDice();
+                FirstThrowCheck(_firstDie, _secondDie);
                 CheckSquare();
-                currentPlayer.IsFirstRound = false;
+                CurrentPlayer.IsFirstRound = false;
             }
             //rest of the game
             else
             {
                 if (CheckPenalty())
                 {
-                    diceResult = RollDice();
+                    DiceResult = RollDice();
 
-                    MovePawn(diceResult);
+                    MovePawn(DiceResult);
                     //does this in MovePawn -> CheckSquare();
                 }
                 else
@@ -55,52 +56,51 @@ namespace GameOfGoose
                     //sux to be u
                 }
             }
-            movingBackwards = false;
+            _movingBackwards = false;
             //assign player for next turn
-            currentPlayer = GetPlayer(GetNextPlayerId());
+            CurrentPlayer = GetPlayer(GetNextPlayerId());
         }
 
         private Player GetPlayer(int id)
         {
-            return players.FirstOrDefault(x => x.Id == id);
+            return Players.FirstOrDefault(x => x.Id == id);
         }
 
         private int GetNextPlayerId()
         {
             int nextPlayerId;
-            if (currentPlayer.Id < players.Count())
+            if (CurrentPlayer.Id < Players.Count)
             {
-                nextPlayerId = currentPlayer.Id + 1;
+                nextPlayerId = CurrentPlayer.Id + 1;
             }
             else
             {
                 nextPlayerId = 1;
-                totalRounds++;
+                _totalRounds++;
             }
             return nextPlayerId;
         }
 
         private ISquare GetSquare(int id)
         {
-            return squares.FirstOrDefault(x => x.ID == id);
+            return Squares.FirstOrDefault(x => x.ID == id);
         }
 
         private bool CheckPenalty()
         {
-            if (currentPlayer.TurnPenalty == 0)
+            if (CurrentPlayer.TurnPenalty == 0)
             {
                 return true;
             }
             else
             {
-                currentPlayer.TurnPenalty--;
+                CurrentPlayer.TurnPenalty--;
                 return false;
             }
         }
 
         private void GameOver()
         {
-           
             VictoryScreen victory = new VictoryScreen();
             //victory.Show();
         }
@@ -110,102 +110,100 @@ namespace GameOfGoose
         private int RollDice()
         {
             Random random1 = new Random();
-            firstDie = random1.Next(1, 6);
+            _firstDie = random1.Next(1, 6);
 
             Random random2 = new Random();
-            secondDie = random2.Next(1, 6);
+            _secondDie = random2.Next(1, 6);
 
-            diceResult = firstDie + secondDie;
-            return diceResult;
+            DiceResult = _firstDie + _secondDie;
+            return DiceResult;
         }
 
         private void FirstThrowCheck(int die1, int die2)
         {
             if ((die1 == 5 && die2 == 4) || (die1 == 4 && die2 == 5))
             {
-                currentPlayer.PawnLocation = 26;
+                CurrentPlayer.PawnLocation = 26;
             }
             else if ((die1 == 6 && die2 == 3) || (die1 == 3 && die2 == 6))
             {
-                currentPlayer.PawnLocation = 53;
+                CurrentPlayer.PawnLocation = 53;
             }
             else
-                MovePawn(diceResult);
+                MovePawn(DiceResult);
         }
 
         public void MovePawn(int diceTotal)
         {
-            int tempValue = diceTotal + currentPlayer.PawnLocation;
+            int tempValue = diceTotal + CurrentPlayer.PawnLocation;
             int remainingSteps;
             if (tempValue > 63)
             {
                 int squares = 63 - tempValue;
                 int steps = diceTotal + squares;
                 remainingSteps = squares + steps;
-                movingBackwards = true;
+                _movingBackwards = true;
             }
             else
             {
                 remainingSteps = diceTotal;
             }
 
-            currentPlayer.PawnLocation += remainingSteps;
-            currentSquare = GetSquare(currentPlayer.PawnLocation);
+            CurrentPlayer.PawnLocation += remainingSteps;
+            _currentSquare = GetSquare(CurrentPlayer.PawnLocation);
             CheckSquare();
         }
 
         private void CheckSquare()
         {
-            if (currentSquare.Name == "Going Steady")
+            if (_currentSquare.Name == "Going Steady")
             {
-                NormalSquare normal = currentSquare as NormalSquare;
-                normal.AssignPawnImage();
+                NormalSquare normal = _currentSquare as NormalSquare;
+                normal?.AssignPawnImage();
             }
-            else if (currentSquare.Name == "GOOSE!")
+            else if (_currentSquare.Name == "GOOSE!")
             {
-                GooseSquare goose = currentSquare as GooseSquare;
-                goose.AssignPawnImage();
-                if (movingBackwards)
+                GooseSquare goose = _currentSquare as GooseSquare;
+                goose?.AssignPawnImage();
+                if (_movingBackwards)
                 {
-                    MovePawn(diceResult * -1);
+                    MovePawn(DiceResult * -1);
                 }
-                MovePawn(diceResult);
+                MovePawn(DiceResult);
             }
-            else if (currentSquare.Name == "Bridge" || currentSquare.Name == "Inn" || currentSquare.Name == "Well" || currentSquare.Name == "Maze" || currentSquare.Name == "Prison" || currentSquare.Name == "Death" || currentSquare.Name == "End")
+            else if (_currentSquare.Name == "Bridge" || _currentSquare.Name == "Inn" || _currentSquare.Name == "Well" || _currentSquare.Name == "Maze" || _currentSquare.Name == "Prison" || _currentSquare.Name == "Death" || _currentSquare.Name == "End")
             {
-                SpecialSquare special = currentSquare as SpecialSquare;
-                switch (currentSquare.Name)
+                if (!(_currentSquare is SpecialSquare special)) return;
+                switch (_currentSquare.Name)
                 {
                     case "Bridge":
                     case "Maze":
                     case "Death":
-                        currentPlayer.PawnLocation = special.MoveToSpecificSquare(currentPlayer.PawnLocation);
+                        CurrentPlayer.PawnLocation = special.MoveToSpecificSquare(CurrentPlayer.PawnLocation);
                         break;
 
                     case "Inn":
                     case "Prison":
-                        currentPlayer.TurnPenalty = special.SkipTurns(currentPlayer.PawnLocation);
+                        CurrentPlayer.TurnPenalty = special.SkipTurns(CurrentPlayer.PawnLocation);
                         break;
 
                     case "Well":
                         ResetWellPenalty();
-                        currentPlayer.TurnPenalty = special.WaitForOtherPlayer();
+                        CurrentPlayer.TurnPenalty = special.WaitForOtherPlayer();
                         break;
 
                     case "End":
                         GameOver();
                         break;
-
-                    default:
-                        break;
                 }
+
                 special.AssignPawnImage();
             }
         }
 
         private void ResetWellPenalty()
         {
-            foreach (var player in players)
+            foreach (var player in Players)
             {
                 if (player.PawnLocation == 31)
                 {
@@ -213,7 +211,6 @@ namespace GameOfGoose
                 }
             }
         }
-       
 
         private ObservableCollection<Player> CreatePlayers()
         {

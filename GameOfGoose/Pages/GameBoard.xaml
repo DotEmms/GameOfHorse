@@ -8,7 +8,10 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GameBoard">
 
-    <Grid>
+    <StackPanel x:Name="MyPanel">
+        <Image Source="/Images/normal.jpg"></Image>
+    </StackPanel>
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -35,5 +38,5 @@
         </Grid.Background>
 
         <Label x:Name="one"/>
-    </Grid>
+    </Grid>-->
 </Page>
