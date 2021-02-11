@@ -14,7 +14,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -25,17 +25,40 @@
 
 
         <!-- Row 1 -->
-        <Label Grid.ColumnSpan="2"
+        <Label Grid.Row="1"
+               Grid.ColumnSpan="2"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
             Content="Please enter player information"/>
-
-
+        <!-- Row 2 -->
+        <Label Grid.Row="2"
+               Content="Player 1:"/>
+        <TextBox x:Name="txtPlayerOne"
+                 Grid.Row="2"
+                 Grid.Column="1"/>
+        <!-- Row 3 -->
+        <Label x:Name="txtPlayerTwo"
+               Grid.Row="3"
+               Content="Player 2:"/>
+        <TextBox Grid.Row="3"
+                 Grid.Column="1"/>
+        <!-- Row 4 -->
+        <Label x:Name="txtPlayerThree"
+               Grid.Row="4"
+               Content="Player 3:"/>
+        <TextBox Grid.Row="4"
+                 Grid.Column="1"/>
         
-        
-        <!-- Row 7 -->
-        <Button Grid.Row="7"
-                Grid.Column="1"
+        <!-- Row 5 -->
+        <Label x:Name="txtPlayerFour"
+               Grid.Row="5"
+               Content="Player 4:"/>
+        <TextBox Grid.Row="5"
+                 Grid.Column="1"/>
+
+        <!-- Row 6 -->
+        <Button Grid.Row="6"                
+                Grid.ColumnSpan="2"
                 Content="Start Game!"
                 Click="StartGameButton_Click"/> 
     </Grid>
