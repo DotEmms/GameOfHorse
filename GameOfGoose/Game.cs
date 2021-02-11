@@ -9,13 +9,14 @@ namespace GameOfGoose
     {
         private ObservableCollection<Player> players;
         private ObservableCollection<ISquare> squares;
-        private Player currentPlayer;
+        public Player currentPlayer;
         private ISquare currentSquare;
         private int totalRounds;
-        private int diceResult;
+        public int diceResult;
         private int firstDie;
         private int secondDie;
         private bool isGameOngoing = true;
+        private bool movingBackwards = false;
 
         public Game()
         {
@@ -55,39 +56,13 @@ namespace GameOfGoose
                         diceResult = RollDice();
 
                         MovePawn(diceResult);
-                        CheckSquare();                                                
+                        //does this in MovePawn -> CheckSquare();                                                
                     }                    
                 }
+                movingBackwards = false;
                 //assign player for next turn
                 currentPlayer = GetPlayer(GetNextPlayerId());
-            }
-
-            // click event btnNextPlayer_Click of btnEndTurn_click roept deze methode aan
-
-            /* STANDARD TURN FLOW
-             
-            Mag ik spelen? (geen beurt overslaan van Inn/Jail/Well)
-            
-            ja? 
-            { 
-             StartTurn();
-            // click event btnRollDice_Click => diceResult = RollDice() => pop-up met aantal ogen dat gegooid is
-
-            MovePawn(diceResult)
-                extra effect? => show info about the special location (new screen/pop-up)
-                -> MovePawnToSpecificSquare(currentPlayer.PawnLocation);
-                -> special square uitvoeren specialMove.methodeVanToepassing() of goose.MovePawnToSpecificLocation()
-
-            show relaxed goose in pop-up
-            Set next player => GetNextPlayerId(); => include in btn event next player
-            }    
-            
-            neen?
-            {
-            show info why not. => new screen/pop-up
-            Set next player.      
-            }       
-            */
+            }            
             
         }
 
@@ -140,17 +115,15 @@ namespace GameOfGoose
         private int RollDice()
         {
             Random random1 = new Random();
-            int die1 = random1.Next(1, 6);
+            firstDie = random1.Next(1, 6);
 
             Random random2 = new Random();
-            int die2 = random2.Next(1, 6);
+            secondDie = random2.Next(1, 6);
 
-            firstDie = die1;
-            secondDie = die2;
-
-            diceResult = die1 + die2;
+            diceResult = firstDie + secondDie;
             return diceResult;
         }
+
         private void FirstThrowCheck(int die1, int die2)
         {
             if ((die1 == 5 && die2 == 4) || (die1 == 4 && die2 == 5))
@@ -166,14 +139,27 @@ namespace GameOfGoose
 
         }
 
-        private void MovePawn(int steps)
+        public void MovePawn(int diceTotal)
         {
-            var value = currentPlayer.PawnLocation + steps;
+            int tempValue = diceTotal + currentPlayer.PawnLocation;
+            int remainingSteps;
+            if (tempValue > 63)
+            {
+                int squares = 63 - tempValue;
+                int steps = diceTotal + squares;
+                remainingSteps = squares + steps;
+                movingBackwards = true;
+            }
+            else
+            {
+                remainingSteps = diceTotal;
+            }
             
-                currentPlayer.PawnLocation += value;
-                currentSquare = GetSquare(value);
-            
+            currentPlayer.PawnLocation += remainingSteps;
+            currentSquare = GetSquare(currentPlayer.PawnLocation);
+            CheckSquare();
         }
+
         private void CheckSquare()
         {
             if (currentSquare.Name == "Going Steady")
@@ -184,7 +170,11 @@ namespace GameOfGoose
             {
                 GooseSquare goose = currentSquare as GooseSquare;
                 goose.AssignPawnImage();
-                MovePawn(goose.CheckGooseSquare(diceResult, currentPlayer.PawnLocation));
+                if (movingBackwards)
+                {
+                    MovePawn(diceResult * -1);
+                }
+                MovePawn(diceResult);
             }
             else if (currentSquare.Name == "Bridge" || currentSquare.Name == "Inn" || currentSquare.Name == "Well" || currentSquare.Name == "Maze" || currentSquare.Name == "Prison" || currentSquare.Name == "Death" || currentSquare.Name == "End")
             {
@@ -233,10 +223,10 @@ namespace GameOfGoose
             {
                 new Player("Player 1"),
                 new Player("Player 2"),
-                new Player("Player 3"),
-                new Player("Player 4")
+                //new Player("Player 3"),
+                //new Player("Player 4")
             };
-
+            players.Add(new Player("Player 4"));
             return players;
         }
 

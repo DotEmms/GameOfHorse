@@ -68,3 +68,32 @@ else
 
 
 
+- - - - PLAN OF ACTION - - - -
+
+	// click event btnNextPlayer_Click of btnEndTurn_click roept deze methode aan
+
+            /* STANDARD TURN FLOW
+             
+            Mag ik spelen? (geen beurt overslaan van Inn/Jail/Well)
+            
+            ja? 
+            { 
+             StartTurn();
+            // click event btnRollDice_Click => diceResult = RollDice() => pop-up met aantal ogen dat gegooid is
+
+            MovePawn(diceResult)
+                extra effect? => show info about the special location (new screen/pop-up)
+                -> MovePawnToSpecificSquare(currentPlayer.PawnLocation);
+                -> special square uitvoeren specialMove.methodeVanToepassing() of goose.MovePawnToSpecificLocation()
+
+            show relaxed goose in pop-up
+            Set next player => GetNextPlayerId(); => include in btn event next player
+            }    
+            
+            neen?
+            {
+            show info why not. => new screen/pop-up
+            Set next player.      
+            }       
+            */
+
