@@ -38,13 +38,14 @@ namespace GameOfGoose
             for (int i = 0; i < amountOfRows; i++)
             {
                 var row = new RowDefinition();
-                row.Height = new GridLength(60);
+                row.Height = new GridLength(100);
                 dynamicGrid.RowDefinitions.Add(row);
             }
 
             for (int i = 0; i < amountOfColumns; i++)
             {
                 var column = new ColumnDefinition();
+                column.Width = new GridLength(100);
                 dynamicGrid.ColumnDefinitions.Add(column);
             }
 
