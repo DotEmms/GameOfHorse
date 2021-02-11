@@ -34,7 +34,7 @@
                     HorizontalAlignment="Center">
             <Label Content="Player 1"/>
             <Label Content="Player 2"/>
-            <Button Content="Roll Dice" IsEnabled="False"/>
+            <Button x:Name="btnRollDice" Content="Roll Dice" IsEnabled="False"/>
             <Label Content="Player 3"/>
             <Label Content="Player 4"/>
         </StackPanel>

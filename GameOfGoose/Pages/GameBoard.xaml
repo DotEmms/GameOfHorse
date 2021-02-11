@@ -8,32 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GameBoard">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.Background>
-            <ImageBrush />
-        </Grid.Background>
-
-        <Label x:Name="one"/>
-    </Grid>
+    <StackPanel x:Name="MyPanel">
+        <Image Source="/Images/normal.jpg"/>
+    </StackPanel>
 </Page>
