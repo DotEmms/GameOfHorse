@@ -7,6 +7,43 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+    
+        <!-- Menu -->
+        <DockPanel Grid.Row="0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Game">
+                    <MenuItem Header="_Restart Game"
+                              Click="MenuItemRestartGame_Click"/>
+                    <Separator />
+                    <MenuItem Header="_Exit"
+                              Click="MenuItemExit_Click"/>
+                </MenuItem>          
+            </Menu>
+        </DockPanel>
+        
+        <!-- Header -->
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <Label Content="Player 1"/>
+            <Label Content="Player 2"/>
+            <Button Content="Roll Dice"/>
+            <Label Content="Player 3"/>
+            <Label Content="Player 4"/>
+        </StackPanel>
+        
+        <!-- Frame -->
+        
+        <Frame x:Name="mainWindow" Grid.Row="2" NavigationUIVisibility="Hidden"/>
+
+
 
     </Grid>
 </Window>

@@ -20,9 +20,24 @@ namespace GameOfGoose
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Game game;
+
         public MainWindow()
         {
             InitializeComponent();
+            game = new Game();
+            mainWindow.NavigationService.Navigate(new PlayerSelection(game));
+        }
+
+        private void MenuItemRestartGame_Click(object sender, RoutedEventArgs e)
+        {
+            //restart
+            
+        }
+
+        private void MenuItemExit_Click(object sender, RoutedEventArgs e)
+        {
+            //close app
         }
     }
 }

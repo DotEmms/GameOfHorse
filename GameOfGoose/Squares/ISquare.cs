@@ -1,6 +1,6 @@
 ﻿namespace GameOfGoose
 {
-    interface ISquare
+    public interface ISquare
     {
         int ID { get; set; }
         string Name { get; set; }

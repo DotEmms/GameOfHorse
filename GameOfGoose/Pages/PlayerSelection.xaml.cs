@@ -18,9 +18,17 @@ namespace GameOfGoose
     /// </summary>
     public partial class PlayerSelection : Page
     {
-        public PlayerSelection()
+        private Game game;
+        public PlayerSelection(Game game)
         {
             InitializeComponent();
+            this.game = game;
+        }
+
+        private void StartGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new GameBoard(game));
+            
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GameOfGoose
 {
-    class NormalSquare : ISquare
+    public class NormalSquare : ISquare
     {
         public int ID { get; set; }
         public string Name { get; set; }

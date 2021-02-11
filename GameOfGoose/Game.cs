@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -7,63 +6,58 @@ namespace GameOfGoose
 {
     public class Game
     {
-        private ObservableCollection<Player> players;
-        private ObservableCollection<ISquare> squares;
+        public ObservableCollection<Player> players;
+        public ObservableCollection<ISquare> squares;
         public Player currentPlayer;
         private ISquare currentSquare;
         private int totalRounds;
         public int diceResult;
         private int firstDie;
-        private int secondDie;
-        private bool isGameOngoing = true;
+        private int secondDie;       
         private bool movingBackwards = false;
 
         public Game()
         {
-            players = CreatePlayers();
+            players = CreatePlayers(); //move to startgame?
             squares = GenerateGameBoard();
         }
 
         private void StartGame()
         {
-            currentPlayer = GetPlayer(1);
-            TurnFlow();
+            //assign players to list
+            currentPlayer = GetPlayer(1);     
+            
         }
 
+        // button event, starts this method for each turn
         private void TurnFlow()
         {
-            //infinite loop while game is ongoing
-            while (isGameOngoing)
+            //First turn only
+            if (totalRounds == 1)
             {
-                //First turn only
-                if (totalRounds == 1)
+                diceResult = RollDice();
+                FirstThrowCheck(firstDie, secondDie);
+                CheckSquare();
+                currentPlayer.IsFirstRound = false;
+            }
+            //rest of the game
+            else
+            {
+                if (CheckPenalty())
                 {
-                    //click button roll
                     diceResult = RollDice();
-                    FirstThrowCheck(firstDie, secondDie);
-                    CheckSquare();
-                    currentPlayer.IsFirstRound = false;
 
+                    MovePawn(diceResult);
+                    //does this in MovePawn -> CheckSquare();
                 }
-                //rest of the game
                 else
                 {
-                    //can current player play?(not in well/inn/jail)
-                    // checkstatus?
-                    if (CheckPenalty())
-                    {
-                        //click button roll
-                        diceResult = RollDice();
-
-                        MovePawn(diceResult);
-                        //does this in MovePawn -> CheckSquare();                                                
-                    }                    
+                    //sux to be u
                 }
-                movingBackwards = false;
-                //assign player for next turn
-                currentPlayer = GetPlayer(GetNextPlayerId());
-            }            
-            
+            }
+            movingBackwards = false;
+            //assign player for next turn
+            currentPlayer = GetPlayer(GetNextPlayerId());
         }
 
         private Player GetPlayer(int id)
@@ -78,13 +72,14 @@ namespace GameOfGoose
             {
                 nextPlayerId = currentPlayer.Id + 1;
             }
-            else 
+            else
             {
                 nextPlayerId = 1;
                 totalRounds++;
             }
-           return nextPlayerId;
+            return nextPlayerId;
         }
+
         private ISquare GetSquare(int id)
         {
             return squares.FirstOrDefault(x => x.ID == id);
@@ -92,7 +87,7 @@ namespace GameOfGoose
 
         private bool CheckPenalty()
         {
-            if(currentPlayer.TurnPenalty == 0)
+            if (currentPlayer.TurnPenalty == 0)
             {
                 return true;
             }
@@ -100,12 +95,12 @@ namespace GameOfGoose
             {
                 currentPlayer.TurnPenalty--;
                 return false;
-            }                   
+            }
         }
 
         private void GameOver()
         {
-            isGameOngoing = false;
+           
             VictoryScreen victory = new VictoryScreen();
             //victory.Show();
         }
@@ -136,7 +131,6 @@ namespace GameOfGoose
             }
             else
                 MovePawn(diceResult);
-
         }
 
         public void MovePawn(int diceTotal)
@@ -154,7 +148,7 @@ namespace GameOfGoose
             {
                 remainingSteps = diceTotal;
             }
-            
+
             currentPlayer.PawnLocation += remainingSteps;
             currentSquare = GetSquare(currentPlayer.PawnLocation);
             CheckSquare();
@@ -166,7 +160,8 @@ namespace GameOfGoose
             {
                 NormalSquare normal = currentSquare as NormalSquare;
                 normal.AssignPawnImage();
-            }else if(currentSquare.Name == "GOOSE!")
+            }
+            else if (currentSquare.Name == "GOOSE!")
             {
                 GooseSquare goose = currentSquare as GooseSquare;
                 goose.AssignPawnImage();
@@ -186,17 +181,21 @@ namespace GameOfGoose
                     case "Death":
                         currentPlayer.PawnLocation = special.MoveToSpecificSquare(currentPlayer.PawnLocation);
                         break;
+
                     case "Inn":
                     case "Prison":
                         currentPlayer.TurnPenalty = special.SkipTurns(currentPlayer.PawnLocation);
                         break;
+
                     case "Well":
                         ResetWellPenalty();
                         currentPlayer.TurnPenalty = special.WaitForOtherPlayer();
                         break;
+
                     case "End":
                         GameOver();
                         break;
+
                     default:
                         break;
                 }
@@ -208,14 +207,13 @@ namespace GameOfGoose
         {
             foreach (var player in players)
             {
-                if(player.PawnLocation == 31)
+                if (player.PawnLocation == 31)
                 {
                     player.TurnPenalty = 0;
                 }
             }
         }
-
-        // button event roll dice
+       
 
         private ObservableCollection<Player> CreatePlayers()
         {
@@ -298,7 +296,6 @@ namespace GameOfGoose
                 new NormalSquare(61, "Going Steady"),
                 new NormalSquare(62, "Going Steady"),
                 new SpecialSquare(63, "The End","","./Images/end.jpg"),
-
             };
 
             return squares;

@@ -30,5 +30,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush />
+        </Grid.Background>
+
+        <Label x:Name="one"/>
     </Grid>
 </Page>

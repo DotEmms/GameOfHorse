@@ -9,6 +9,34 @@
       Title="PlayerSelection">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <!-- Row 1 -->
+        <Label Grid.ColumnSpan="2"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+            Content="Please enter player information"/>
+
+
         
+        
+        <!-- Row 7 -->
+        <Button Grid.Row="7"
+                Grid.Column="1"
+                Content="Start Game!"
+                Click="StartGameButton_Click"/> 
     </Grid>
 </Page>
