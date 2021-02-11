@@ -1,22 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GameOfGoose
 {
-    /// <summary>
-    /// Interaction logic for GameBoard.xaml
-    /// </summary>
     public partial class GameBoard : Page
     {
         private Game game;
@@ -25,6 +16,9 @@ namespace GameOfGoose
             InitializeComponent();
             this.game = game;
             SetLabels();
+            var grid = GenerateGrid(game.squares);
+            MyPanel.Children.Add(grid);
+
         }
 
         private void SetLabels()
@@ -32,7 +26,48 @@ namespace GameOfGoose
             var content = game.squares.FirstOrDefault(x => x.ID == 1);
 
 
-            one.Content = content.Name;
+            //one.Content = content.Name;
+        }
+
+
+        private Grid GenerateGrid(IList<ISquare> squares, int amountOfColumns = 8)
+        {
+            var dynamicGrid = new Grid();
+            int amountOfRows = squares.Count / amountOfColumns;
+
+            for (int i = 0; i < amountOfRows; i++)
+            {
+                var row = new RowDefinition();
+                row.Height = new GridLength(60);
+                dynamicGrid.RowDefinitions.Add(row);
+            }
+
+            for (int i = 0; i < amountOfColumns; i++)
+            {
+                var column = new ColumnDefinition();
+                dynamicGrid.ColumnDefinitions.Add(column);
+            }
+
+            dynamicGrid = SetGridParameters(dynamicGrid, squares, amountOfColumns);
+            return dynamicGrid;
+        }
+
+        private Grid SetGridParameters(Grid grid, IList<ISquare> squares, int amountOfColumns)
+        {
+            for (int i = 0; i < grid.RowDefinitions.Count; i++)
+            {
+                ISquare[] squaresInRow = squares.Skip(i * amountOfColumns).Take(amountOfColumns).ToArray();
+
+                for (int j = 0; j < grid.ColumnDefinitions.Count; j++)
+                {
+                    var myLabel = new Label { Content = squaresInRow[j].ID + squaresInRow[j].Name };
+                    Grid.SetRow(myLabel, i);
+                    Grid.SetColumn(myLabel, j);
+                    grid.Children.Add(myLabel);
+                }
+            }
+
+            return grid;
         }
     }
 }

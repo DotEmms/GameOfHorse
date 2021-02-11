@@ -19,10 +19,10 @@ namespace GameOfGoose
     public partial class PlayerSelection : Page
     {
         private Game game;
-        private string playerOne;
-        private string playerTwo;
-        private string playerThree;
-        private string playerFour;
+        //private string playerOne;
+        //private string playerTwo;
+        //private string playerThree;
+        //private string playerFour;
 
         
         public PlayerSelection(Game game)
@@ -35,9 +35,18 @@ namespace GameOfGoose
         {
             //create players
 
-
+            
             game.StartGame();
+
+            //event to enable button
+            OnStartGameButtonClicked(e);
             this.NavigationService.Navigate(new GameBoard(game));            
         }
+
+        public event EventHandler StartGameButtonClicked;
+        protected virtual void OnStartGameButtonClicked(EventArgs e)
+        {
+            StartGameButtonClicked?.Invoke(this, e);
+        }        
     }
 }

@@ -26,7 +26,9 @@ namespace GameOfGoose
         {
             InitializeComponent();
             game = new Game();
-            mainWindow.NavigationService.Navigate(new PlayerSelection(game));
+            PlayerSelection playerWindow = new PlayerSelection(game);
+            playerWindow.StartGameButtonClicked += StartButtonClickedInPanel;
+            mainWindow.NavigationService.Navigate(playerWindow);
         }
 
         private void MenuItemRestartGame_Click(object sender, RoutedEventArgs e)
@@ -38,6 +40,11 @@ namespace GameOfGoose
         private void MenuItemExit_Click(object sender, RoutedEventArgs e)
         {
             //close app
+        }
+
+        private void StartButtonClickedInPanel(object sender, EventArgs e)
+        {
+            btnRollDice.IsEnabled = true;
         }
     }
 }
