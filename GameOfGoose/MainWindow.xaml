@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameOfGoose"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="1000" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.05*"/>
             <RowDefinition Height="0.1*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-    
+
         <!-- Menu -->
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
@@ -22,25 +22,25 @@
                     <Separator />
                     <MenuItem Header="_Exit"
                               Click="MenuItemExit_Click"/>
-                </MenuItem>          
+                </MenuItem>
             </Menu>
         </DockPanel>
-        
+
         <!-- Header -->
 
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Center"  
                     HorizontalAlignment="Center">
             <Label Content="Player 1"/>
             <Label Content="Player 2"/>
-            <Button Content="Roll Dice"/>
+            <Button Content="Roll Dice" IsEnabled="False"/>
             <Label Content="Player 3"/>
             <Label Content="Player 4"/>
         </StackPanel>
-        
+
         <!-- Frame -->
-        
+
         <Frame x:Name="mainWindow" Grid.Row="2" NavigationUIVisibility="Hidden"/>
 
 
