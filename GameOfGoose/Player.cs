@@ -52,7 +52,19 @@
             TurnPenalty = 0;
             IsFirstRound = true;
 
-            counter++;
+            CounterControl();
+        }
+
+        private void CounterControl()
+        {
+            if(counter == 4)
+            {
+                counter = 1;
+            }
+            else
+            {
+                counter++;
+            }
         }
     }
 }

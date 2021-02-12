@@ -17,12 +17,13 @@ namespace GameOfGoose
         private bool movingBackwards = false;
         public Game()
         {
-            players = CreatePlayers(); //move to startgame?
+            players = new ObservableCollection<Player>(); 
             squares = GenerateGameBoard();
         }
 
         public void StartGame()
         {
+
             //assign players to list
             currentPlayer = GetPlayer(1);
         }
@@ -58,9 +59,26 @@ namespace GameOfGoose
             currentPlayer = GetPlayer(GetNextPlayerId());
         }
 
-        private Player GetPlayer(int id)
+        public Player GetPlayer(int id)
         {
-            return players.FirstOrDefault(x => x.Id == id);
+            Player player;
+            if (players == null)
+            {
+                player = null;
+            }
+            else
+            {
+                if (id <= players.Count)
+                {
+                    player = players.FirstOrDefault(x => x.Id == id);
+                }
+                else
+                {
+                    player = null;
+                }
+            }               
+
+            return player;
         }
 
         private int GetNextPlayerId()
@@ -219,12 +237,28 @@ namespace GameOfGoose
             {
                 new Player("Player 1"),
                 new Player("Player 2"),
-                //new Player("Player 3"),
-                //new Player("Player 4")
+                new Player("Player 3"),
+                new Player("Player 4")
             };
-            players.Add(new Player("Player 4"));
+            //players.Add(new Player("Player 4"));
             return players;
         }
+        public Player CreatePlayer(string name)
+        {
+            var player = new Player(name);            
+            return player;
+        }
+
+        public void AddPlayerToGame(Player player)
+        {
+            players.Add(player);
+        }
+
+        public void ResetPlayers()
+        {
+            players.Clear();
+        }
+
 
         private ObservableCollection<ISquare> GenerateGameBoard()
         {
