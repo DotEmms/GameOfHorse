@@ -35,7 +35,11 @@ namespace GameOfGoose
         {
             //create players
             SetPlayers();
-            if(game.players.Count < 2)
+            if(game.players == null)
+            {
+                MessageBox.Show("You need at least 2 players to play!", "No players found", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if(game.players.Count < 2)
             {
                 MessageBox.Show("You need at least 2 players to play!", "Not enough players", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -57,40 +61,40 @@ namespace GameOfGoose
                 var newPlayer1 = game.CreatePlayer(txtPlayerOne.Text);
                 game.AddPlayerToGame(newPlayer1);
             }
-            else
-            {
-                game.GetPlayer(1).Name = txtPlayerOne.Text;
-            }
+            //else
+            //{
+            //    game.GetPlayer(1).Name = txtPlayerOne.Text;
+            //}
             
             if(game.GetPlayer(2) == null && (txtPlayerTwo.Text != ""))
             {
                 var newPlayer2 = game.CreatePlayer(txtPlayerTwo.Text);
                 game.AddPlayerToGame(newPlayer2);
             }
-            else
-            {
-                game.GetPlayer(2).Name = txtPlayerTwo.Text;
-            }
+            //else
+            //{
+            //    game.GetPlayer(2).Name = txtPlayerTwo.Text;
+            //}
             
             if (game.GetPlayer(3) == null && (txtPlayerThree.Text != ""))
             {
                 var newPlayer3 = game.CreatePlayer(txtPlayerThree.Text);
                 game.AddPlayerToGame(newPlayer3);
             }
-            else
-            {
-                game.GetPlayer(3).Name = txtPlayerThree.Text;
-            }
+            //else
+            //{
+            //    game.GetPlayer(3).Name = txtPlayerThree.Text;
+            //}
             
             if (game.GetPlayer(4) == null && (txtPlayerFour.Text != ""))
             {
                 var newPlayer4 = game.CreatePlayer(txtPlayerFour.Text);
                 game.AddPlayerToGame(newPlayer4);
             }
-            else
-            {
-                game.GetPlayer(4).Name = txtPlayerFour.Text;
-            }       
+            //else
+            //{
+            //    game.GetPlayer(4).Name = txtPlayerFour.Text;
+            //}       
         }
 
 

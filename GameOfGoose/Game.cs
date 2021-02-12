@@ -18,14 +18,14 @@ namespace GameOfGoose
 
         public Game()
         {
-            players = CreatePlayers(); //move to startgame?
+            players = new ObservableCollection<Player>(); 
             squares = GenerateGameBoard();
         }
 
         public void StartGame()
         {
             //assign players to list
-            currentPlayer = GetPlayer(1);     
+            currentPlayer = GetPlayer(1);
             
         }
 
@@ -62,7 +62,24 @@ namespace GameOfGoose
 
         public Player GetPlayer(int id)
         {
-            return players.FirstOrDefault(x => x.Id == id);
+            Player player;
+            if (players == null)
+            {
+                player = null;
+            }
+            else
+            {
+                if (id <= players.Count)
+                {
+                    player = players.FirstOrDefault(x => x.Id == id);
+                }
+                else
+                {
+                    player = null;
+                }
+            }               
+
+            return player;
         }
 
         private int GetNextPlayerId()
@@ -217,6 +234,7 @@ namespace GameOfGoose
         }
        
 
+        //testplayers
         private ObservableCollection<Player> CreatePlayers()
         {
             var players = new ObservableCollection<Player>
