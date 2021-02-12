@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace GameOfGoose
@@ -25,8 +26,6 @@ namespace GameOfGoose
         {
             var content = game.squares.FirstOrDefault(x => x.ID == 1);
 
-
-            //one.Content = content.Name;
         }
 
 
@@ -38,14 +37,12 @@ namespace GameOfGoose
             for (int i = 0; i < amountOfRows; i++)
             {
                 var row = new RowDefinition();
-                row.Height = new GridLength(100);
                 dynamicGrid.RowDefinitions.Add(row);
             }
 
             for (int i = 0; i < amountOfColumns; i++)
             {
                 var column = new ColumnDefinition();
-                column.Width = new GridLength(100);
                 dynamicGrid.ColumnDefinitions.Add(column);
             }
 
@@ -61,13 +58,14 @@ namespace GameOfGoose
 
                 for (int j = 0; j < grid.ColumnDefinitions.Count; j++)
                 {
-                    var myLabel = new Label { Content = squaresInRow[j].ID + squaresInRow[j].Name };
+                    var myLabel = new Label { Content = squaresInRow[j].ID };
+                    Uri uri = new Uri ( "Images/normal.jpg" );
                     Grid.SetRow(myLabel, i);
                     Grid.SetColumn(myLabel, j);
                     grid.Children.Add(myLabel);
                 }
             }
-
+            
             return grid;
         }
     }

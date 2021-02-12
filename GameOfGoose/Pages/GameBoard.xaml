@@ -5,10 +5,31 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GameOfGoose"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="850" d:DesignWidth="850"
       Title="GameBoard">
-
-    <StackPanel x:Name="MyPanel">
-        <Image Source="/Images/normal.jpg"/>
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="RowDefinition">
+            <Setter Property="Height" Value="100"/>
+        </Style>
+        <Style TargetType="ColumnDefinition">
+            <Setter Property="Width" Value="100"/>
+        </Style>
+    </Page.Resources>
+    
+    <StackPanel x:Name="MyPanel" >
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/Pages/normal.jpg"/>
+        </StackPanel.Background>
     </StackPanel>
 </Page>
