@@ -81,7 +81,10 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Column="2">
+        <StackPanel Grid.Column="2" >
+            <StackPanel.Background>
+                <ImageBrush ImageSource="./Images/inn.jpg"/>
+            </StackPanel.Background>
             <Label Content="19" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
@@ -163,6 +166,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="./Images/maze.jpg"/>
+            </StackPanel.Background>
             <Label Content="42" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
@@ -325,6 +331,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="2">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="./Images/death.jpg"/>
+            </StackPanel.Background>
             <Label Content="58" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
@@ -335,6 +344,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="3">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="./Images/end.jpg"/>
+            </StackPanel.Background>
             <Label Content="End" Width="45" Padding="5,5,0,0" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
@@ -436,6 +448,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="5">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="./Images/prison.jpg"/>
+            </StackPanel.Background>
             <Label Content="52" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
@@ -588,6 +603,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="4">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="./Images/well.jpg"/>
+            </StackPanel.Background>
             <Label Content="31" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
@@ -689,6 +707,9 @@
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="6">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="./Images/bridge.jpg"/>
+            </StackPanel.Background>
             <Label Content="6" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
