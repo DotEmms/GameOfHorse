@@ -25,6 +25,7 @@
 
         <Style TargetType="Image">
             <Setter Property="Visibility" Value="Hidden" />
+            <Setter Property="Margin" Value="5,25,0,0"/>
             <Setter Property="Height" Value="25" />
         </Style>
     </Page.Resources>
