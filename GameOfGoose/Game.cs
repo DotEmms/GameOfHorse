@@ -13,7 +13,7 @@ namespace GameOfGoose
         private int totalRounds;
         public int diceResult;
         private int firstDie;
-        private int secondDie;       
+        private int secondDie;
         private bool movingBackwards = false;
 
         public Game()
@@ -25,8 +25,7 @@ namespace GameOfGoose
         public void StartGame()
         {
             //assign players to list
-            currentPlayer = GetPlayer(1);     
-            
+            currentPlayer = GetPlayer(1);
         }
 
         // button event, starts this method for each turn
@@ -100,7 +99,6 @@ namespace GameOfGoose
 
         private void GameOver()
         {
-           
             VictoryScreen victory = new VictoryScreen();
             //victory.Show();
         }
@@ -156,7 +154,7 @@ namespace GameOfGoose
 
         private void CheckSquare()
         {
-            //checken op object type 
+            //checken op object type
             if (currentSquare is NormalSquare)
             {
                 NormalSquare normal = currentSquare as NormalSquare;
@@ -215,7 +213,6 @@ namespace GameOfGoose
                 }
             }
         }
-       
 
         private ObservableCollection<Player> CreatePlayers()
         {
@@ -243,7 +240,7 @@ namespace GameOfGoose
                 new NormalSquare(16, "Going Steady"),
                 new NormalSquare(15, "Going Steady"),
                 new GooseSquare(14, "GOOSE!"),
-                
+
                 // Row 2
                 new NormalSquare(22, "Going Steady"),
                 new NormalSquare(43, "Going Steady"),
@@ -253,7 +250,7 @@ namespace GameOfGoose
                 new NormalSquare(39, "Going Steady"),
                 new NormalSquare(38, "Going Steady"),
                 new NormalSquare(13, "Going Steady"),
-                
+
                 // Row 3
                 new GooseSquare(23, "GOOSE!"),
                 new NormalSquare(44, "Going Steady"),

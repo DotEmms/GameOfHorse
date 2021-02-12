@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GameOfGoose
 {
@@ -18,27 +16,32 @@ namespace GameOfGoose
             Description = description;
             Image = image;
         }
+
         public int MoveToSpecificSquare(int locatie) //=> Bridge, Maze, Death
         {
             switch (locatie)
             {
                 case 6:
                     return 12;
+
                 case 42:
                     return 39;
+
                 case 58:
                     return 0;
+
                 default:
                     return -1;
             }
-        } 
+        }
+
         public int SkipTurns(int square) //=> Inn, Prison
         {
-            if(square == 19)
+            if (square == 19)
             {
                 return 1;
             }
-            else if(square == 52)
+            else if (square == 52)
             {
                 return 3;
             }

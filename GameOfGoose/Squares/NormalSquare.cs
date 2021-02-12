@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GameOfGoose
 {
@@ -18,6 +16,7 @@ namespace GameOfGoose
             Description = "Safe zone, well done!";
             Image = "./Images/normal.jpg";
         }
+
         public void AssignPawnImage()
         {
             throw new NotImplementedException();

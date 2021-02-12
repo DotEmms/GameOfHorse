@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GameOfGoose
+﻿namespace GameOfGoose
 {
     public class Player
     {
@@ -21,7 +17,7 @@ namespace GameOfGoose
         {
             get { return _name; }
             set { _name = value; }
-        }        
+        }
 
         //int value for position on the board
         private int _pawnLocation;
@@ -48,7 +44,6 @@ namespace GameOfGoose
             set { _isFirstRound = value; }
         }
 
-
         public Player(string name)
         {
             Id = counter;
@@ -59,6 +54,5 @@ namespace GameOfGoose
 
             counter++;
         }
-       
     }
 }
