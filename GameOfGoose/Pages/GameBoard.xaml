@@ -83,7 +83,7 @@
 
         <StackPanel Grid.Column="2" >
             <StackPanel.Background>
-                <ImageBrush ImageSource="./Images/inn.jpg"/>
+                <ImageBrush ImageSource="../Images/inn.jpg"/>
             </StackPanel.Background>
             <Label Content="19" />
             <StackPanel Orientation="Horizontal">
