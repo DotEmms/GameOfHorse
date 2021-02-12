@@ -8,9 +8,12 @@
       Title="GameBoard">
     <Page.Resources>
         <Style TargetType="Label">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="40" />
             <Setter Property="FontSize" Value="20" />
+            <Setter Property="Padding" Value="7,6,0,0" />
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="BorderBrush" Value="Black" />
             <Setter Property="BorderThickness" Value="1" />
@@ -18,6 +21,11 @@
 
         <Style TargetType="Image">
             <Setter Property="Margin" Value="7,35,0,0" />
+        </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="Visibility" Value="Hidden" />
+            <Setter Property="Height" Value="25" />
         </Style>
     </Page.Resources>
 
@@ -54,80 +62,80 @@
         <StackPanel>
             <Label Content="21" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
             <Label Content="20" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="2">
             <Label Content="19" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="3">
             <Label Content="18" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="4">
             <Label Content="17" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="5">
             <Label Content="16" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="6">
             <Label Content="15" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
-        
+
         <StackPanel Grid.Column="7">
             <Label Content="14" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
@@ -135,80 +143,80 @@
         <StackPanel Grid.Row="1">
             <Label Content="22" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
             <Label Content="43" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2">
             <Label Content="42" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="3">
             <Label Content="41" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="4">
             <Label Content="40" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="5">
             <Label Content="39" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="6">
             <Label Content="38" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="7">
             <Label Content="13" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
@@ -216,80 +224,80 @@
         <StackPanel Grid.Row="2">
             <Label Content="23" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1">
             <Label Content="44" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="2">
             <Label Content="57" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="3">
             <Label Content="56" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="4">
             <Label Content="55" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="5">
             <Label Content="54" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="6">
             <Label Content="37" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="7">
             <Label Content="12" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
@@ -297,80 +305,80 @@
         <StackPanel Grid.Row="3">
             <Label Content="24" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="1">
             <Label Content="45" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="2">
             <Label Content="58" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="3">
-            <Label Content="End" />
+            <Label Content="End" Width="45" Padding="5,5,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="4">
             <Label Content="62" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="5">
             <Label Content="53" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="6">
             <Label Content="36" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="7">
             <Label Content="11" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
@@ -378,80 +386,80 @@
         <StackPanel Grid.Row="4">
             <Label Content="25" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="1">
             <Label Content="46" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="2">
             <Label Content="59" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="3">
             <Label Content="60" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="4">
             <Label Content="61" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="5">
             <Label Content="52" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="6">
             <Label Content="35" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="7">
             <Label Content="10" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
@@ -459,80 +467,80 @@
         <StackPanel Grid.Row="5">
             <Label Content="26" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="1">
             <Label Content="47" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="2">
             <Label Content="48" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="3">
             <Label Content="49" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="4">
             <Label Content="50" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="5">
             <Label Content="51" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="6">
             <Label Grid.Column="6"  Content="34" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="7">
-            <Label Content="9" />
+            <Label Content="9" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
@@ -540,163 +548,162 @@
         <StackPanel Grid.Row="6">
             <Label Content="27" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="1">
             <Label Content="28" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="2">
             <Label Content="29" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="3">
             <Label Content="30" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="4">
             <Label Content="31" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="5">
             <Label Content="32" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="6">
             <Label Content="33" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.Column="7">
-            <Label Content="8" />
+            <Label Content="8" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <!--row 8-->
         <StackPanel Grid.Row="7">
-            <Label Content="Start" />
+            <Label Content="Start" Width="55" Padding="5,5,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="1">
-            <Label Content="1" />
+            <Label Content="1" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="2">
-            <Label Content="2" />
+            <Label Content="2" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="3">
-            <Label Content="3" />
+            <Label Content="3" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="4">
-            <Label Content="4" />
+            <Label Content="4" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="5">
-            <Label Content="5" />
+            <Label Content="5" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="6">
-            <Label Content="6" />
+            <Label Content="6" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="7">
-            <Label Content="7" />
+            <Label Content="7" Padding="12,6,0,0" />
             <StackPanel Orientation="Horizontal">
-                <Image Source="./Images/bluePawn.png"  Height="25" />
-                <Image Source="./Images/redPawn.png"  Height="25" />
-                <Image Source="./Images/greenPawn.png"  Height="25" />
-                <Image Source="./Images/yellowPawn.png"  Height="25" />
+                <Image Source="./Images/bluePawn.png" />
+                <Image Source="./Images/redPawn.png" />
+                <Image Source="./Images/greenPawn.png" />
+                <Image Source="./Images/yellowPawn.png" />
             </StackPanel>
         </StackPanel>
-
     </Grid>
 </Page>
