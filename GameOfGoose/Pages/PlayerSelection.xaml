@@ -9,6 +9,12 @@
       Title="PlayerSelection">
 
     <Grid>
+        <Grid.Background >
+            <LinearGradientBrush>
+                <GradientStop Color="#FFF7F7F7"/>
+                <GradientStop Color="#FF767676" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition/>
@@ -35,20 +41,29 @@
                Content="Player 1:"/>
         <TextBox x:Name="txtPlayerOne"
                  Grid.Row="2"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 Style="{StaticResource playerselectionTextBox}" 
+                 TextChanged="txtPlayerOne_TextChanged"/>
         <!-- Row 3 -->
-        <Label x:Name="txtPlayerTwo"
-               Grid.Row="3"
-               Content="Player 2:"/>
-        <TextBox Grid.Row="3"
-                 Grid.Column="1"/>
+        <Label Grid.Row="3"
+               Content="Player 2:"
+               Style="{StaticResource playerselectionLabels}"/>
+        <TextBox x:Name="txtPlayerTwo"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 Style="{StaticResource playerselectionTextBox}" 
+                 IsEnabled="False"
+                 TextChanged="txtPlayerTwo_TextChanged"/>
         <!-- Row 4 -->
-        <Label x:Name="txtPlayerThree"
-               Grid.Row="4"
-               Content="Player 3:"/>
-        <TextBox Grid.Row="4"
-                 Grid.Column="1"/>
-        
+        <Label Grid.Row="4"
+               Content="Player 3:"
+               Style="{StaticResource playerselectionLabels}"/>
+        <TextBox x:Name="txtPlayerThree"
+                 Grid.Row="4"
+                 Grid.Column="1"
+                 Style="{StaticResource playerselectionTextBox}" 
+                 IsEnabled="False"
+                 TextChanged="txtPlayerThree_TextChanged"/>
         <!-- Row 5 -->
         <Label x:Name="txtPlayerFour"
                Grid.Row="5"
@@ -59,7 +74,10 @@
         <!-- Row 6 -->
         <Button Grid.Row="6"                
                 Grid.ColumnSpan="2"
+                x:Name="btnStartGame"
                 Content="Start Game!"
-                Click="StartGameButton_Click"/> 
+                Click="StartGameButton_Click"
+                Style="{StaticResource headerButton}" 
+                IsEnabled="False"/>
     </Grid>
 </Page>
