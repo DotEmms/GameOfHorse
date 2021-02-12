@@ -32,22 +32,36 @@
             </Menu>
         </DockPanel>
 
-        <!-- Header -->
-
-        <StackPanel Grid.Row="1"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center"  
-                    HorizontalAlignment="Center">
+        <!-- Header -->        
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>            
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>                                    
+                </Grid.ColumnDefinitions>
+            
             <Label x:Name="lblPlayer1"
-                   Content="Player 1"/>
+                   Grid.Column="0"
+                   Content="Player 1"
+                   Style="{StaticResource headerLabels}"/>
             <Label x:Name="lblPlayer2"
-                   Content="Player 2"/>
-            <Button x:Name="btnRollDice" Content="Roll Dice" IsEnabled="False"/>
+                   Grid.Column="1"
+                   Content="Player 2"
+                   Style="{StaticResource headerLabels}"/>
+            <Button x:Name="btnRollDice"
+                    Grid.Column="2" Content="Roll Dice" IsEnabled="False"
+                    Style="{StaticResource headerButton}"/>
             <Label x:Name="lblPlayer3"
-                   Content="Player 3"/>
+                   Grid.Column="3"
+                   Content="Player 3"
+                   Style="{StaticResource headerLabels}"/>
             <Label x:Name="lblPlayer4"
-                   Content="Player 4"/>
-        </StackPanel>
+                   Grid.Column="4"
+                   Content="Player 4"
+                   Style="{StaticResource headerLabels}"/>
+            </Grid>        
 
         <!-- Frame -->
 

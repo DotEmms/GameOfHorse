@@ -58,8 +58,7 @@ namespace GameOfGoose
 
                 for (int j = 0; j < grid.ColumnDefinitions.Count; j++)
                 {
-                    var myLabel = new Label { Content = squaresInRow[j].ID };
-                    Uri uri = new Uri ( "Images/normal.jpg" );
+                    var myLabel = new Label { Content = squaresInRow[j].ID };                    
                     Grid.SetRow(myLabel, i);
                     Grid.SetColumn(myLabel, j);
                     grid.Children.Add(myLabel);

@@ -24,6 +24,7 @@ namespace GameOfGoose
 
         public void StartGame()
         {
+
             //assign players to list
             currentPlayer = GetPlayer(1);            
         }
