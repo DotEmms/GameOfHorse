@@ -25,8 +25,7 @@ namespace GameOfGoose
         public void StartGame()
         {
             //assign players to list
-            currentPlayer = GetPlayer(1);
-            
+            currentPlayer = GetPlayer(1);            
         }
 
         // button event, starts this method for each turn
@@ -256,6 +255,11 @@ namespace GameOfGoose
         public void AddPlayerToGame(Player player)
         {
             players.Add(player);
+        }
+
+        public void ResetPlayers()
+        {
+            players.Clear();
         }
 
 

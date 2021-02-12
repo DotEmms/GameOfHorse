@@ -60,41 +60,22 @@ namespace GameOfGoose
             {
                 var newPlayer1 = game.CreatePlayer(txtPlayerOne.Text);
                 game.AddPlayerToGame(newPlayer1);
-            }
-            //else
-            //{
-            //    game.GetPlayer(1).Name = txtPlayerOne.Text;
-            //}
-            
+            }            
             if(game.GetPlayer(2) == null && (txtPlayerTwo.Text != ""))
             {
                 var newPlayer2 = game.CreatePlayer(txtPlayerTwo.Text);
                 game.AddPlayerToGame(newPlayer2);
             }
-            //else
-            //{
-            //    game.GetPlayer(2).Name = txtPlayerTwo.Text;
-            //}
-            
             if (game.GetPlayer(3) == null && (txtPlayerThree.Text != ""))
             {
                 var newPlayer3 = game.CreatePlayer(txtPlayerThree.Text);
                 game.AddPlayerToGame(newPlayer3);
-            }
-            //else
-            //{
-            //    game.GetPlayer(3).Name = txtPlayerThree.Text;
-            //}
-            
+            }            
             if (game.GetPlayer(4) == null && (txtPlayerFour.Text != ""))
             {
                 var newPlayer4 = game.CreatePlayer(txtPlayerFour.Text);
                 game.AddPlayerToGame(newPlayer4);
-            }
-            //else
-            //{
-            //    game.GetPlayer(4).Name = txtPlayerFour.Text;
-            //}       
+            }               
         }
 
 
