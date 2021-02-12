@@ -62,7 +62,7 @@
         </Grid.Background>
         <!--row 1-->
         <StackPanel>
-            <Label Content="{Binding squares[1].ID}" />
+            <Label Content="{Binding squares[21].ID, FallbackValue=test}" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
                 <Image Source="./Images/redPawn.png" />

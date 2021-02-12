@@ -9,13 +9,12 @@ namespace GameOfGoose
         public ObservableCollection<Player> players;
         public ObservableCollection<ISquare> squares;
         public Player currentPlayer;
-        private ISquare currentSquare;
+        public ISquare currentSquare;
         private int totalRounds;
         public int diceResult;
         private int firstDie;
         private int secondDie;
         private bool movingBackwards = false;
-
         public Game()
         {
             players = CreatePlayers(); //move to startgame?
@@ -79,7 +78,7 @@ namespace GameOfGoose
             return nextPlayerId;
         }
 
-        private ISquare GetSquare(int id)
+        public ISquare GetSquare(int id)
         {
             return squares.FirstOrDefault(x => x.ID == id);
         }
