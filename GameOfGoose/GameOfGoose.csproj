@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\normal.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Pages\normal.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Images\goose.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
