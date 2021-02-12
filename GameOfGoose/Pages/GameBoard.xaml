@@ -3,10 +3,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:Local="clr-namespace:GameOfGoose"
       mc:Ignorable="d"
       d:DesignHeight="800" d:DesignWidth="800"
       Title="GameBoard">
     <Page.Resources>
+        <Local:Game x:Key="GameData"/>
         <Style TargetType="Label">
             <Setter Property="Height" Value="40" />
             <Setter Property="Width" Value="40" />
@@ -20,16 +22,15 @@
         </Style>
 
         <Style TargetType="Image">
-            <Setter Property="Margin" Value="7,35,0,0" />
-        </Style>
-
-        <Style TargetType="Image">
             <Setter Property="Visibility" Value="Hidden" />
             <Setter Property="Margin" Value="5,25,0,0"/>
             <Setter Property="Height" Value="25" />
         </Style>
     </Page.Resources>
-
+    
+    <Page.DataContext>
+        <Binding Source="{StaticResource GameData}"/>
+    </Page.DataContext>
     <!--<StackPanel x:Name="MyPanel">
         <StackPanel.Background>
             <ImageBrush ImageSource="/Pages/normal.jpg" />
@@ -61,7 +62,7 @@
         </Grid.Background>
         <!--row 1-->
         <StackPanel>
-            <Label Content="21" />
+            <Label Content="{Binding squares[1].ID}" />
             <StackPanel Orientation="Horizontal">
                 <Image Source="./Images/bluePawn.png" />
                 <Image Source="./Images/redPawn.png" />
