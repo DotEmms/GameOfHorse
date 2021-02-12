@@ -33,6 +33,7 @@ namespace GameOfGoose
         private void MenuItemRestartGame_Click(object sender, RoutedEventArgs e)
         {     
             game.ResetPlayers();
+            ResetHeaderState();
             GenerateNewPlayerSelectionScreen();
         }
 
@@ -53,6 +54,15 @@ namespace GameOfGoose
             playerWindow.StartGameButtonClicked += SetPlayerNames;
             mainWindow.NavigationService.Navigate(playerWindow);
         }
+
+        private void ResetHeaderState()
+        {
+            lblPlayer1.Visibility = Visibility.Hidden;
+            lblPlayer2.Visibility = Visibility.Hidden;
+            lblPlayer3.Visibility = Visibility.Hidden;
+            lblPlayer4.Visibility = Visibility.Hidden;
+            btnRollDice.IsEnabled = false;
+        }
         
         private void SetPlayerNames(object sender, EventArgs e)
         {
@@ -63,21 +73,27 @@ namespace GameOfGoose
                 case 2:
                     lblPlayer1.Content = game.GetPlayer(1).Name;
                     lblPlayer2.Content = game.GetPlayer(2).Name;
-                    lblPlayer3.Visibility = Visibility.Hidden;
-                    lblPlayer4.Visibility = Visibility.Hidden;
+                    lblPlayer1.Visibility = Visibility.Visible;
+                    lblPlayer2.Visibility = Visibility.Visible;
 
                     break;
                 case 3:
                     lblPlayer1.Content = game.GetPlayer(1).Name;
                     lblPlayer2.Content = game.GetPlayer(2).Name;
                     lblPlayer3.Content = game.GetPlayer(3).Name;
-                    lblPlayer4.Visibility = Visibility.Hidden;
+                    lblPlayer1.Visibility = Visibility.Visible;
+                    lblPlayer2.Visibility = Visibility.Visible;
+                    lblPlayer3.Visibility = Visibility.Visible;
                     break;
                 case 4:
                     lblPlayer1.Content = game.GetPlayer(1).Name;
                     lblPlayer2.Content = game.GetPlayer(2).Name;
                     lblPlayer3.Content = game.GetPlayer(3).Name;
                     lblPlayer4.Content = game.GetPlayer(4).Name;
+                    lblPlayer1.Visibility = Visibility.Visible;
+                    lblPlayer2.Visibility = Visibility.Visible;
+                    lblPlayer3.Visibility = Visibility.Visible;
+                    lblPlayer4.Visibility = Visibility.Visible;
                     break;
                 default:
                     break;

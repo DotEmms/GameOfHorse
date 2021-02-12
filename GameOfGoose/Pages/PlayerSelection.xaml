@@ -9,6 +9,12 @@
       Title="PlayerSelection">
 
     <Grid>
+        <Grid.Background >
+            <LinearGradientBrush>
+                <GradientStop Color="#FFF7F7F7"/>
+                <GradientStop Color="#FF767676" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition/>
@@ -39,7 +45,7 @@
                  Grid.Row="2"
                  Grid.Column="1"
                  Style="{StaticResource playerselectionTextBox}" 
-                 MouseLeftButtonUp="txtPlayerOne_MouseLeftButtonUp"/>
+                 TextChanged="txtPlayerOne_TextChanged"/>
         <!-- Row 3 -->
         <Label Grid.Row="3"
                Content="Player 2:"
@@ -49,7 +55,7 @@
                  Grid.Column="1"
                  Style="{StaticResource playerselectionTextBox}" 
                  IsEnabled="False"
-                 MouseLeftButtonUp="txtPlayerTwo_MouseLeftButtonUp"/>
+                 TextChanged="txtPlayerTwo_TextChanged"/>
         <!-- Row 4 -->
         <Label Grid.Row="4"
                Content="Player 3:"
@@ -59,7 +65,7 @@
                  Grid.Column="1"
                  Style="{StaticResource playerselectionTextBox}" 
                  IsEnabled="False"
-                 MouseLeftButtonUp="txtPlayerThree_MouseLeftButtonUp"/>        
+                 TextChanged="txtPlayerThree_TextChanged"/>
         <!-- Row 5 -->
         <Label Grid.Row="5"
                Content="Player 4:"
@@ -73,8 +79,10 @@
         <!-- Row 6 -->
         <Button Grid.Row="6"                
                 Grid.ColumnSpan="2"
+                x:Name="btnStartGame"
                 Content="Start Game!"
                 Click="StartGameButton_Click"
-                Style="{StaticResource headerButton}"/> 
+                Style="{StaticResource headerButton}" 
+                IsEnabled="False"/>
     </Grid>
 </Page>

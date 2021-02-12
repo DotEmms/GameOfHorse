@@ -85,22 +85,21 @@ namespace GameOfGoose
         protected virtual void OnStartGameButtonClicked(EventArgs e)
         {
             StartGameButtonClicked?.Invoke(this, e);
-        }
+        }       
 
-        private void txtPlayerOne_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+
+        private void txtPlayerOne_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtPlayerTwo.IsEnabled = true;
         }
-
-        private void txtPlayerTwo_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void txtPlayerTwo_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtPlayerThree.IsEnabled = true;
+            btnStartGame.IsEnabled = true;
         }
-
-        private void txtPlayerThree_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void txtPlayerThree_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtPlayerFour.IsEnabled = true;
         }
-        
     }
 }

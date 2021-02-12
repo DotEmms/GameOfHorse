@@ -45,22 +45,26 @@
             <Label x:Name="lblPlayer1"
                    Grid.Column="0"
                    Content="Player 1"
-                   Style="{StaticResource headerLabels}"/>
+                   Style="{StaticResource headerLabels}"
+                   Visibility="Hidden"/>
             <Label x:Name="lblPlayer2"
                    Grid.Column="1"
                    Content="Player 2"
-                   Style="{StaticResource headerLabels}"/>
+                   Style="{StaticResource headerLabels}"
+                   Visibility="Hidden"/>
             <Button x:Name="btnRollDice"
                     Grid.Column="2" Content="Roll Dice" IsEnabled="False"
                     Style="{StaticResource headerButton}"/>
             <Label x:Name="lblPlayer3"
                    Grid.Column="3"
                    Content="Player 3"
-                   Style="{StaticResource headerLabels}"/>
+                   Style="{StaticResource headerLabels}"
+                   Visibility="Hidden"/>
             <Label x:Name="lblPlayer4"
                    Grid.Column="4"
                    Content="Player 4"
-                   Style="{StaticResource headerLabels}"/>
+                   Style="{StaticResource headerLabels}"
+                   Visibility="Hidden"/>
             </Grid>        
 
         <!-- Frame -->
