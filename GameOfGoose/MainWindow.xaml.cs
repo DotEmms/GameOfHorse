@@ -99,5 +99,10 @@ namespace GameOfGoose
                     break;
             }
         }
+
+        private void btnRollDice_Click(object sender, RoutedEventArgs e)
+        {
+            game.TurnFlow();
+        }
     }
 }

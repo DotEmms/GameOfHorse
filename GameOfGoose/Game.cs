@@ -8,18 +8,19 @@ namespace GameOfGoose
     {
         public ObservableCollection<Player> players;
         public ObservableCollection<ISquare> squares;
+        private Dice dice;
         public Player currentPlayer;
         private ISquare currentSquare;
+        
         private int totalRounds;
-        public int diceResult;
-        private int firstDie;
-        private int secondDie;       
+        public int diceResult;     
         private bool movingBackwards = false;
 
         public Game()
         {
             players = new ObservableCollection<Player>(); 
             squares = GenerateGameBoard();
+            dice = new Dice();
         }
 
         public void StartGame()
@@ -30,13 +31,13 @@ namespace GameOfGoose
         }
 
         // button event, starts this method for each turn
-        private void TurnFlow()
+        public void TurnFlow()
         {
             //First turn only
-            if (totalRounds == 1)
+                if (currentPlayer.IsFirstRound)
             {
-                diceResult = RollDice();
-                FirstThrowCheck(firstDie, secondDie);
+                diceResult = dice.RollDice();
+                FirstThrowCheck(dice.firstDie, dice.secondDie);
                 CheckSquare();
                 currentPlayer.IsFirstRound = false;
             }
@@ -45,7 +46,7 @@ namespace GameOfGoose
             {
                 if (CheckPenalty())
                 {
-                    diceResult = RollDice();
+                    diceResult = dice.RollDice();
 
                     MovePawn(diceResult);
                     //does this in MovePawn -> CheckSquare();
@@ -124,17 +125,7 @@ namespace GameOfGoose
 
         // button event add player
 
-        private int RollDice() //moet in een klasse apart!
-        {
-            Random random1 = new Random();
-            firstDie = random1.Next(1, 6);
-
-            Random random2 = new Random();
-            secondDie = random2.Next(1, 6);
-
-            diceResult = firstDie + secondDie;
-            return diceResult;
-        }
+        
 
         private void FirstThrowCheck(int die1, int die2)
         {
@@ -177,12 +168,12 @@ namespace GameOfGoose
             if (currentSquare is NormalSquare)
             {
                 NormalSquare normal = currentSquare as NormalSquare;
-                normal.AssignPawnImage();
+                //normal.AssignPawnImage();
             }
             else if (currentSquare is GooseSquare)
             {
                 GooseSquare goose = currentSquare as GooseSquare;
-                goose.AssignPawnImage();
+                //goose.AssignPawnImage();
                 if (movingBackwards)
                 {
                     MovePawn(diceResult * -1);
@@ -218,7 +209,7 @@ namespace GameOfGoose
                     default:
                         break;
                 }
-                special.AssignPawnImage();
+                //special.AssignPawnImage();
             }
         }
 
@@ -234,19 +225,19 @@ namespace GameOfGoose
         }
        
 
-        //testplayers
-        private ObservableCollection<Player> CreatePlayers()
-        {
-            var players = new ObservableCollection<Player>
-            {
-                new Player("Player 1"),
-                new Player("Player 2"),
-                new Player("Player 3"),
-                new Player("Player 4")
-            };
-            //players.Add(new Player("Player 4"));
-            return players;
-        }
+        ////testplayers
+        //private ObservableCollection<Player> CreatePlayers()
+        //{
+        //    var players = new ObservableCollection<Player>
+        //    {
+        //        new Player("Player 1"),
+        //        new Player("Player 2"),
+        //        new Player("Player 3"),
+        //        new Player("Player 4")
+        //    };
+        //    //players.Add(new Player("Player 4"));
+        //    return players;
+        //}
         public Player CreatePlayer(string name)
         {
             var player = new Player(name);            

@@ -20,7 +20,7 @@ namespace GameOfGoose
         }
         public void AssignPawnImage()
         {
-            throw new NotImplementedException();
+            string image = "/Images/normal.jpg";
         }
     }
 }
