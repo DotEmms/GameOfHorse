@@ -7,9 +7,18 @@ namespace GameOfGoose
     {
         private static int counter = 1;
         private int _id;
-
         private int _col;
+        private int _row;
+        private string _name;
+        private int _pawnLocation;
+        private int _turnPenalty;
+        private bool _isFirstRound;
 
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         public int Column
         {
             get
@@ -22,9 +31,6 @@ namespace GameOfGoose
                 OnPropertyChanged();
             }
         }
-
-        private int _row;
-
         public int Row
         {
             get
@@ -37,42 +43,25 @@ namespace GameOfGoose
                 OnPropertyChanged();
             }
         }
-
-        public Brush Fill { get; set; }
-        public string DisplayedImagePath { get; set; }
-
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
-
-        private string _name;
-
         public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
 
-        //int value for position on the board
-        private int _pawnLocation;
-
+        public string DisplayedImagePath { get; set; }
+        
         public int PawnLocation
         {
             get { return _pawnLocation; }
             set { _pawnLocation = value; }
         }
 
-        private int _turnPenalty;
-
         public int TurnPenalty
         {
             get { return _turnPenalty; }
             set { _turnPenalty = value; }
         }
-
-        private bool _isFirstRound;
 
         public bool IsFirstRound
         {
@@ -103,6 +92,11 @@ namespace GameOfGoose
             {
                 counter++;
             }
+        }
+
+        public void ResetId()
+        {
+            counter = 1;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

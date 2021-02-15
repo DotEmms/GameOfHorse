@@ -19,8 +19,8 @@ namespace GameOfGoose
         }
 
         private void MenuItemRestartGame_Click(object sender, RoutedEventArgs e)
-        {
-            game.ResetPlayers();
+        {            
+            game.ResetPlayers();            
             ResetHeaderState();
             GenerateNewPlayerSelectionScreen();
         }
@@ -109,6 +109,32 @@ namespace GameOfGoose
                     break;
             }
         }
+        
+        private void btnRollDice_Click(object sender, RoutedEventArgs e)
+        {
+            game.TurnFlow();
+
+            if(game.currentSquare.ID == 31)
+            {
+                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to {game.currentSquare.Name}. You're stuck in the Well. Sucks to be you.");
+            }
+            else if(game.currentSquare.ID == 52 || game.currentSquare.ID == 19)
+            {
+                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to { game.currentSquare.Name}. \n Wait {game.previousPlayer.TurnPenalty} more turns to continue playing!");
+            }
+            else
+            {
+                MessageBox.Show($"{game.previousPlayer.Name} rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
+            } 
+
+            if(game.isGameOver)
+            {
+                btnRollDice.IsEnabled = false;
+                mainWindow.NavigationService.Navigate(new VictoryScreen(game));
+            }
+        }
+
+
 
         private string SetAbout()
         {
@@ -136,27 +162,6 @@ namespace GameOfGoose
             return rules;
         }
 
-        private void btnRollDice_Click(object sender, RoutedEventArgs e)
-        {
-            game.TurnFlow();
 
-            if (game.currentSquare.ID == 31)
-            {
-                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to {game.currentSquare.Name}. You're stuck in the Well. Sucks to be you.");
-            }
-            else if (game.currentSquare.ID == 52 || game.currentSquare.ID == 19)
-            {
-                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to { game.currentSquare.Name}. \n Wait {game.previousPlayer.TurnPenalty} more turns to continue playing!");
-            }
-            else
-            {
-                MessageBox.Show($"{game.previousPlayer.Name} rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
-            }
-
-            if (game.isGameOver)
-            {
-                mainWindow.NavigationService.Navigate(new VictoryScreen(game));
-            }
-        }
     }
 }
