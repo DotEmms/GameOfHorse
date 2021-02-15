@@ -8,8 +8,9 @@ namespace GameOfGoose
     {
         public ObservableCollection<Player> players;
         public ObservableCollection<ISquare> squares;
-        private Dice dice;
+        private readonly Dice dice;
         public Player currentPlayer;
+        public Player previousPlayer;
         public ISquare currentSquare;
 
         public int totalTurns = 0;
@@ -63,6 +64,7 @@ namespace GameOfGoose
             //assign player for next turn
             if(isGameOver != true)
             {
+                previousPlayer = currentPlayer;
                 currentPlayer = GetPlayer(GetNextPlayerId());
             }
         }
@@ -126,7 +128,7 @@ namespace GameOfGoose
         {
             isGameOver = true;
             winningPlayer = currentPlayer;
-            CalculateTotalRounds();
+            totalRounds = CalculateTotalRounds();
         }
 
         private void FirstThrowCheck(int die1, int die2)
@@ -134,10 +136,14 @@ namespace GameOfGoose
             if ((die1 == 5 && die2 == 4) || (die1 == 4 && die2 == 5))
             {
                 currentPlayer.PawnLocation = 26;
+                currentSquare = GetSquare(currentPlayer.PawnLocation);
+                UpdateCoordinates();
             }
             else if ((die1 == 6 && die2 == 3) || (die1 == 3 && die2 == 6))
             {
                 currentPlayer.PawnLocation = 53;
+                currentSquare = GetSquare(currentPlayer.PawnLocation);
+                UpdateCoordinates();
             }
             else
                 MovePawn(diceResult);

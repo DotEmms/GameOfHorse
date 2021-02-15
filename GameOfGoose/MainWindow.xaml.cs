@@ -115,17 +115,16 @@ namespace GameOfGoose
 
             if(game.currentSquare.ID == 31)
             {
-                MessageBox.Show($"You're stuck in the Well. Sucks to be you.");
+                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to {game.currentSquare.Name}. You're stuck in the Well. Sucks to be you.");
             }
             else if(game.currentSquare.ID == 52 || game.currentSquare.ID == 19)
             {
-                MessageBox.Show($"You're stuck in {game.currentSquare.Name}. \n Wait {game.currentPlayer.TurnPenalty} more turns to continue playing!");
+                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to { game.currentSquare.Name}. \n Wait {game.previousPlayer.TurnPenalty} more turns to continue playing!");
             }
             else
             {
-                MessageBox.Show($"You rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
-            }      
-            
+                MessageBox.Show($"{game.previousPlayer.Name} rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
+            } 
 
             if(game.isGameOver)
             {
