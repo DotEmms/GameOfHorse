@@ -7,12 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\greenPawn.png" />
+    <None Remove="Images\redPawn.png" />
+    <None Remove="Images\yellowPawn.png" />
     <None Remove="Pages\gameboard" />
     <None Remove="Pages\normal.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\greenPawn.png" />
+    <Resource Include="Images\redPawn.png" />
+    <Resource Include="Images\yellowPawn.png" />
     <Resource Include="Pages\gameboard" />
+    <Resource Include="Images\bluePawn.png" />
     <Resource Include="Pages\normal.jpg" />
   </ItemGroup>
 
