@@ -184,11 +184,15 @@ namespace GameOfGoose
             {
                 if (movingBackwards)
                 {
-                    MessageBox.Show($"Moving backwards with {diceResult}!", "Landed on 'GOOSE!'");
+                    MessageBox.Show($"Moving backwards with {diceResult}!", "Landed on 'GOOSE!'"); //vervangen door event handler
                     MovePawn(diceResult * -1);
                 }
-                MessageBox.Show($"Moving forward with {diceResult}!", "Landed on 'GOOSE!'");
-                MovePawn(diceResult);
+                else 
+                {
+                    MessageBox.Show($"Moving forward with {diceResult}!", "Landed on 'GOOSE!'"); //vervangen door event handler
+                    MovePawn(diceResult);
+                }
+                
             }
             //eigen klasse maken per special square met gedeelde execute methode -> polymorph
             else if (currentSquare is SpecialSquare)
