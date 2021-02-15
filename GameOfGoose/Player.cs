@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Windows.Controls;
+﻿using System.ComponentModel;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace GameOfGoose
 {
@@ -26,11 +21,11 @@ namespace GameOfGoose
         }
         public int Column
         {
-            get 
-            { 
-                return _col; 
+            get
+            {
+                return _col;
             }
-            set 
+            set
             {
                 _col = value;
                 OnPropertyChanged();
@@ -38,12 +33,12 @@ namespace GameOfGoose
         }
         public int Row
         {
-            get 
-            { 
+            get
+            {
                 return _row;
             }
-            set 
-            { 
+            set
+            {
                 _row = value;
                 OnPropertyChanged();
             }
@@ -89,7 +84,7 @@ namespace GameOfGoose
 
         private void CounterControl()
         {
-            if(counter == 4)
+            if (counter == 4)
             {
                 counter = 1;
             }
@@ -105,10 +100,10 @@ namespace GameOfGoose
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void OnPropertyChanged(string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-
     }
 }
