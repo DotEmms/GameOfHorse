@@ -8,14 +8,7 @@
       d:DesignHeight="800" d:DesignWidth="800"
       Title="GameBoard">
     <Page.Resources>
-        <Style TargetType="Label">
-            <Setter Property="FontSize" Value="30"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="BorderThickness" Value="1"/>
-        </Style>
+        
         <Style TargetType="Grid">
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
@@ -35,8 +28,11 @@
                  you *can*, but the Grid won't see them.  See the Style below.  -->
             <DataTemplate DataType="{x:Type local:Player}">
                 <Image Source="{Binding DisplayedImagePath}"
-                           Width="50"
-                           Height="50" />
+                       Width="40"
+                       Height="40"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="0,0,0,10"/>
             </DataTemplate>
 
             <!-- When the ItemsControl creates its items, it wraps each item in a
