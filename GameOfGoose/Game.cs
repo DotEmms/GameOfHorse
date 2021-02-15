@@ -135,12 +135,14 @@ namespace GameOfGoose
         {
             if ((die1 == 5 && die2 == 4) || (die1 == 4 && die2 == 5))
             {
+                MessageBox.Show("Moving to tile 26.", "First throw contains 4 and 5.");
                 currentPlayer.PawnLocation = 26;
                 currentSquare = GetSquare(currentPlayer.PawnLocation);
                 UpdateCoordinates();
             }
             else if ((die1 == 6 && die2 == 3) || (die1 == 3 && die2 == 6))
             {
+                MessageBox.Show("Moving to tile 53.", "First throw contains 3 and 6.");
                 currentPlayer.PawnLocation = 53;
                 currentSquare = GetSquare(currentPlayer.PawnLocation);
                 UpdateCoordinates();

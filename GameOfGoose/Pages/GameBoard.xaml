@@ -25,11 +25,11 @@
 
             <DataTemplate DataType="{x:Type local:Player}">
                 <Image Source="{Binding DisplayedImagePath}"
-                       Width="40"
-                       Height="40"
+                       Width="80"
+                       Height="80"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Bottom"
-                       Margin="0,0,0,10" />
+                       Margin="0,0,0,5" />
             </DataTemplate>
 
             <Style TargetType="{x:Type ContentPresenter}">
@@ -40,7 +40,7 @@
             </Style>
         </Grid.Resources>
         <Grid.Background>
-            <ImageBrush ImageSource="/Pages/gameboard" />
+            <ImageBrush ImageSource="/Pages/board.png" />
         </Grid.Background>
 
         <Border BorderBrush="Black"
