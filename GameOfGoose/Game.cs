@@ -173,16 +173,9 @@ namespace GameOfGoose
 
         private void CheckSquare()
         {
-            //checken op object type
-            if (currentSquare is NormalSquare)
-            {
-                NormalSquare normal = currentSquare as NormalSquare;
-                //normal.AssignPawnImage();
-            }
-            else if (currentSquare is GooseSquare)
-            {
-                GooseSquare goose = currentSquare as GooseSquare;
-                //goose.AssignPawnImage();
+            //checken op object type            
+           if (currentSquare is GooseSquare)
+            {                
                 if (movingBackwards)
                 {
                     MovePawn(diceResult * -1);
@@ -221,8 +214,7 @@ namespace GameOfGoose
 
                     default:
                         break;
-                }
-                //special.AssignPawnImage();
+                }                
             }
         }
 
