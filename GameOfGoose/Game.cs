@@ -254,6 +254,7 @@ namespace GameOfGoose
 
         public void ResetPlayers()
         {
+            currentPlayer.ResetId();
             players.Clear();
         }
 

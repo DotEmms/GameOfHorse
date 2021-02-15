@@ -31,8 +31,8 @@ namespace GameOfGoose
         }
 
         private void MenuItemRestartGame_Click(object sender, RoutedEventArgs e)
-        {     
-            game.ResetPlayers();
+        {            
+            game.ResetPlayers();            
             ResetHeaderState();
             GenerateNewPlayerSelectionScreen();
         }
@@ -115,6 +115,33 @@ namespace GameOfGoose
                     break;
             }
         }
+        
+        private void btnRollDice_Click(object sender, RoutedEventArgs e)
+        {
+            game.TurnFlow();
+
+            if(game.currentSquare.ID == 31)
+            {
+                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to {game.currentSquare.Name}. You're stuck in the Well. Sucks to be you.");
+            }
+            else if(game.currentSquare.ID == 52 || game.currentSquare.ID == 19)
+            {
+                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to { game.currentSquare.Name}. \n Wait {game.previousPlayer.TurnPenalty} more turns to continue playing!");
+            }
+            else
+            {
+                MessageBox.Show($"{game.previousPlayer.Name} rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
+            } 
+
+            if(game.isGameOver)
+            {
+                btnRollDice.IsEnabled = false;
+                mainWindow.NavigationService.Navigate(new VictoryScreen(game));
+            }
+        }
+
+
+
         private string SetAbout()
         {
             string about = "Game of the Goose\n\nThe Game of Goose, sometimes known as the Royal Game of Goose, is the earliest commercially produced board game - recorded in Italy as early as the end of the 15th Century.Over hundreds of years, it has appeared in a myriad variations of rules and illustrative designs.\nMany of the boards reflect politics or social situations of the time and some are incredibly beautiful and creative. \nThe basic form of the rules has remained remarkably consistent over the years.\nWe give the standard basic rules that are as applicable to boards produced today as they are to boards produced 400 years ago.\nWith thanks to board games historian, Adrian Seville.";
@@ -139,29 +166,7 @@ namespace GameOfGoose
                 $"\nIf a player throws too many, the piece counts the extra points backwards from the winning space.If you then land on a goose space, you must continue moving backwards by the amount of your throw until you land on a space with no goose space.If you land on the Death space, you must start again.";
             return rules;
         }
-        private void btnRollDice_Click(object sender, RoutedEventArgs e)
-        {
-            game.TurnFlow();
 
-            if(game.currentSquare.ID == 31)
-            {
-                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to {game.currentSquare.Name}. You're stuck in the Well. Sucks to be you.");
-            }
-            else if(game.currentSquare.ID == 52 || game.currentSquare.ID == 19)
-            {
-                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to { game.currentSquare.Name}. \n Wait {game.previousPlayer.TurnPenalty} more turns to continue playing!");
-            }
-            else
-            {
-                MessageBox.Show($"{game.previousPlayer.Name} rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
-            } 
 
-            if(game.isGameOver)
-            {
-                mainWindow.NavigationService.Navigate(new VictoryScreen(game));
-            }
-        }
-
-        
     }
 }
