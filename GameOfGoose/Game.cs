@@ -135,12 +135,14 @@ namespace GameOfGoose
         {
             if ((die1 == 5 && die2 == 4) || (die1 == 4 && die2 == 5))
             {
+                MessageBox.Show("Moving to tile 26.", "First throw contains 4 and 5.");
                 currentPlayer.PawnLocation = 26;
                 currentSquare = GetSquare(currentPlayer.PawnLocation);
                 UpdateCoordinates();
             }
             else if ((die1 == 6 && die2 == 3) || (die1 == 3 && die2 == 6))
             {
+                MessageBox.Show("Moving to tile 53.", "First throw contains 3 and 6.");
                 currentPlayer.PawnLocation = 53;
                 currentSquare = GetSquare(currentPlayer.PawnLocation);
                 UpdateCoordinates();
@@ -184,12 +186,12 @@ namespace GameOfGoose
             {
                 if (movingBackwards)
                 {
-                    MessageBox.Show($"Moving backwards with {diceResult}!", "Landed on 'GOOSE!'"); //vervangen door event handler
+                    MessageBox.Show($"Moving backwards with {diceResult}!", "Landed on 'HORSE!'"); //vervangen door event handler
                     MovePawn(diceResult * -1);
                 }
                 else 
                 {
-                    MessageBox.Show($"Moving forward with {diceResult}!", "Landed on 'GOOSE!'"); //vervangen door event handler
+                    MessageBox.Show($"Moving forward with {diceResult}!", "Landed on 'HORSE!'"); //vervangen door event handler
                     MovePawn(diceResult);
                 }
                 
@@ -272,46 +274,46 @@ namespace GameOfGoose
                 new NormalSquare(21, 0, 0, "21"),
                 new NormalSquare(20, 0, 1,"20"),
                 new SpecialSquare(19,0, 2, "Inn", "Skip one turn", "./Images/inn.jpg"),
-                new GooseSquare(18,0,3,  "GOOSE!"),
+                new GooseSquare(18,0,3,  "HORSE!"),
                 new NormalSquare(17,0,4, "17"),
                 new NormalSquare(16, 0,5,"16"),
                 new NormalSquare(15, 0,6,"15"),
-                new GooseSquare(14, 0,7,"GOOSE!"),
+                new GooseSquare(14, 0,7,"HORSE!"),
 
                 // Row 2
                 new NormalSquare(22, 1,0,"22"),
                 new NormalSquare(43, 1,1,"Going Steady"),
                 new SpecialSquare(42, 1,2,"Maze","Go back to square 39","./Images/maze.jpg"),
-                new GooseSquare(41, 1,3,"GOOSE!"),
+                new GooseSquare(41, 1,3,"HORSE!"),
                 new NormalSquare(40, 1,4,"40"),
                 new NormalSquare(39, 1,5,"39"),
                 new NormalSquare(38, 1,6,"38"),
                 new NormalSquare(13, 1,7,"13"),
 
                 // Row 3
-                new GooseSquare(23, 2,0,"GOOSE!"),
+                new GooseSquare(23, 2,0,"HORSE!"),
                 new NormalSquare(44, 2,1,"44"),
                 new NormalSquare(57, 2,2,"57"),
                 new NormalSquare(56, 2,3,"56"),
                 new NormalSquare(55, 2,4,"55"),
-                new GooseSquare(54, 2,5,"GOOSE!"),
+                new GooseSquare(54, 2,5,"HORSE!"),
                 new NormalSquare(37, 2,6,"37"),
                 new NormalSquare(12, 2,7,"12"),
 
                 // Row 4
                 new NormalSquare(24, 3,0,"24"),
-                new GooseSquare(45, 3,1,"GOOSE!"),
+                new GooseSquare(45, 3,1,"HORSE!"),
                 new SpecialSquare(58, 3,2,"Death","Go back to start","./Images/death.jpg"),
                 new SpecialSquare(63, 3,3,"The End","YOU WIN!","./Images/end.jpg"),
                 new NormalSquare(62, 3,4,"62"),
                 new NormalSquare(53, 3,5,"53"),
-                new GooseSquare(36, 3,6,"GOOSE!"),
+                new GooseSquare(36, 3,6,"HORSE!"),
                 new NormalSquare(11, 3,7,"11"),
 
                 // Row 5
                 new NormalSquare(25, 4,0,"25"),
                 new NormalSquare(46, 4,1,"46"),
-                new GooseSquare(59, 4,2,"GOOSE!"),
+                new GooseSquare(59, 4,2,"HORSE!"),
                 new NormalSquare(60, 4,3,"60"),
                 new NormalSquare(61, 4,4,"61"),
                 new SpecialSquare(52, 4,5,"Prison","Skip 3 turns","./Images/prison.jpg"),
@@ -323,18 +325,18 @@ namespace GameOfGoose
                 new NormalSquare(47, 5,1,"47"),
                 new NormalSquare(48, 5,2,"48"),
                 new NormalSquare(49, 5,3,"49"),
-                new GooseSquare(50, 5,4,"GOOSE!"),
+                new GooseSquare(50, 5,4,"HORSE!"),
                 new NormalSquare(51, 5,5,"51"),
                 new NormalSquare(34, 5,6,"34"),
-                new GooseSquare(9, 5,7,"GOOSE!"),
+                new GooseSquare(9, 5,7,"HORSE!"),
 
                 // Row 7
-                new GooseSquare(27, 6,0,"GOOSE!"),
+                new GooseSquare(27, 6,0,"HORSE!"),
                 new NormalSquare(28, 6,1,"28"),
                 new NormalSquare(29, 6,2,"29"),
                 new NormalSquare(30, 6,3,"30"),
                 new SpecialSquare(31, 6,4,"Well", "Wait for another player" , "./Images/well.jpg"),
-                new GooseSquare(32, 6,5,"GOOSE!"),
+                new GooseSquare(32, 6,5,"HORSE!"),
                 new NormalSquare(33, 6,6,"33"),
                 new NormalSquare(8, 6,7,"8"),
 
@@ -344,7 +346,7 @@ namespace GameOfGoose
                 new NormalSquare(2, 7, 2, "2"),
                 new NormalSquare(3, 7, 3, "3"),
                 new NormalSquare(4, 7, 4, "4"),
-                new GooseSquare(5, 7, 5, "GOOSE!"),
+                new GooseSquare(5, 7, 5, "HORSE!"),
                 new SpecialSquare(6, 7, 6, "Bridge", "Move to square 12", "./Images/bridge.jpg"),
                 new NormalSquare(7, 7, 7, "7"),
             };
