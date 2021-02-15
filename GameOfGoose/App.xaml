@@ -36,6 +36,14 @@
             
         </Style>
         
+        <!-- Victory Screen Elements-->
+
+        <Style x:Key="Victory" TargetType="Label" BasedOn="{StaticResource playerselectionTitle}">
+            <Setter Property="FontSize" Value="24"/>
+            
+        </Style>
+        
+
 
 
     </Application.Resources>
