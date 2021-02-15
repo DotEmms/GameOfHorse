@@ -96,7 +96,7 @@ namespace GameOfGoose
             IsFirstRound = true;
             Row = 7;
             Column = 0;
-            Fill = new SolidColorBrush(Colors.BlueViolet);
+            
 
             CounterControl();
         }

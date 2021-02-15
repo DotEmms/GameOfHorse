@@ -71,8 +71,10 @@ namespace GameOfGoose
             switch (amountOfPlayers)
             {
                 case 2:
-                    lblPlayer1.Content = game.GetPlayer(1).Name;
+                    lblPlayer1.Content = game.GetPlayer(1).Name;                    
                     lblPlayer2.Content = game.GetPlayer(2).Name;
+                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Orange);
+                    lblPlayer2.Foreground = new SolidColorBrush(Colors.BlueViolet);
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
 
@@ -81,6 +83,9 @@ namespace GameOfGoose
                     lblPlayer1.Content = game.GetPlayer(1).Name;
                     lblPlayer2.Content = game.GetPlayer(2).Name;
                     lblPlayer3.Content = game.GetPlayer(3).Name;
+                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Orange);
+                    lblPlayer2.Foreground = new SolidColorBrush(Colors.BlueViolet);
+                    lblPlayer3.Foreground = new SolidColorBrush(Colors.LightSeaGreen);
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
                     lblPlayer3.Visibility = Visibility.Visible;
@@ -90,6 +95,10 @@ namespace GameOfGoose
                     lblPlayer2.Content = game.GetPlayer(2).Name;
                     lblPlayer3.Content = game.GetPlayer(3).Name;
                     lblPlayer4.Content = game.GetPlayer(4).Name;
+                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Orange);
+                    lblPlayer2.Foreground = new SolidColorBrush(Colors.BlueViolet);
+                    lblPlayer3.Foreground = new SolidColorBrush(Colors.LightSeaGreen);
+                    lblPlayer4.Foreground = new SolidColorBrush(Colors.PaleVioletRed);
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
                     lblPlayer3.Visibility = Visibility.Visible;
@@ -103,6 +112,7 @@ namespace GameOfGoose
         private void btnRollDice_Click(object sender, RoutedEventArgs e)
         {
             game.TurnFlow();
+            MessageBox.Show($"You rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
         }
     }
 }

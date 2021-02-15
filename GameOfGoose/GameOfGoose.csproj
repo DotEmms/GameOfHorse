@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\gameboard" />
     <None Remove="Pages\normal.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Pages\gameboard" />
     <Resource Include="Pages\normal.jpg" />
   </ItemGroup>
 

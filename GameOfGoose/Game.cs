@@ -10,9 +10,9 @@ namespace GameOfGoose
         public ObservableCollection<ISquare> squares;
         private Dice dice;
         public Player currentPlayer;
-        private ISquare currentSquare;
+        public ISquare currentSquare;
         
-        private int totalRounds;
+        public int totalRounds = 0;
         public int diceResult;     
         private bool movingBackwards = false;
 
@@ -59,6 +59,7 @@ namespace GameOfGoose
             movingBackwards = false;
             //assign player for next turn
             currentPlayer = GetPlayer(GetNextPlayerId());
+            totalRounds++;
         }
 
         public Player GetPlayer(int id)
@@ -159,7 +160,14 @@ namespace GameOfGoose
 
             currentPlayer.PawnLocation += remainingSteps;
             currentSquare = GetSquare(currentPlayer.PawnLocation);
+            UpdateCoordinates();
             CheckSquare();
+        }
+
+        private void UpdateCoordinates()
+        {
+            currentPlayer.Column = currentSquare.Column;
+            currentPlayer.Row = currentSquare.Row;
         }
 
         private void CheckSquare()
@@ -190,16 +198,20 @@ namespace GameOfGoose
                     case "Maze":
                     case "Death":
                         currentPlayer.PawnLocation = special.MoveToSpecificSquare(currentPlayer.PawnLocation);
+                        currentSquare = GetSquare(currentPlayer.PawnLocation);
+                        UpdateCoordinates();
                         break;
 
                     case "Inn":
                     case "Prison":
                         currentPlayer.TurnPenalty = special.SkipTurns(currentPlayer.PawnLocation);
+                        
                         break;
 
                     case "Well":
                         ResetWellPenalty();
                         currentPlayer.TurnPenalty = special.WaitForOtherPlayer();
+                        
                         break;
 
                     case "End":
@@ -262,7 +274,7 @@ namespace GameOfGoose
                 // Row 1
                 new NormalSquare(21, 0, 0, "Going Steady"),
                 new NormalSquare(20, 0, 1,"Going Steady"),
-                new SpecialSquare(19,0, 2, "Inn", "", "./Images/inn.jpg"),
+                new SpecialSquare(19,0, 2, "Inn", "Skip one turn", "./Images/inn.jpg"),
                 new GooseSquare(18,0,3,  "GOOSE!"),
                 new NormalSquare(17,0,4, "Going Steady"),
                 new NormalSquare(16, 0,5,"Going Steady"),
@@ -272,7 +284,7 @@ namespace GameOfGoose
                 // Row 2
                 new NormalSquare(22, 1,0,"Going Steady"),
                 new NormalSquare(43, 1,1,"Going Steady"),
-                new SpecialSquare(42, 1,2,"Maze","","./Images/maze.jpg"),
+                new SpecialSquare(42, 1,2,"Maze","Go back to square 39","./Images/maze.jpg"),
                 new GooseSquare(41, 1,3,"GOOSE!"),
                 new NormalSquare(40, 1,4,"Going Steady"),
                 new NormalSquare(39, 1,5,"Going Steady"),
@@ -292,8 +304,8 @@ namespace GameOfGoose
                 // Row 4
                 new NormalSquare(24, 3,0,"Going Steady"),
                 new GooseSquare(45, 3,1,"GOOSE!"),
-                new SpecialSquare(58, 3,2,"Death","","./Images/death.jpg"),
-                new SpecialSquare(63, 3,3,"The End","","./Images/end.jpg"),
+                new SpecialSquare(58, 3,2,"Death","Go back to start","./Images/death.jpg"),
+                new SpecialSquare(63, 3,3,"The End","YOU WIN!","./Images/end.jpg"),
                 new NormalSquare(62, 3,4,"Going Steady"),
                 new NormalSquare(53, 3,5,"Going Steady"),
                 new GooseSquare(36, 3,6,"GOOSE!"),
@@ -305,7 +317,7 @@ namespace GameOfGoose
                 new GooseSquare(59, 4,2,"GOOSE!"),
                 new NormalSquare(60, 4,3,"Going Steady"), //60
                 new NormalSquare(61, 4,4,"Going Steady"),
-                new SpecialSquare(52, 4,5,"Prison","","./Images/prison.jpg"),
+                new SpecialSquare(52, 4,5,"Prison","Skip 3 turns","./Images/prison.jpg"),
                 new NormalSquare(35, 4,6,"Going Steady"),
                 new NormalSquare(10, 4,7,"Going Steady"),
 
@@ -324,7 +336,7 @@ namespace GameOfGoose
                 new NormalSquare(28, 6,1,"Going Steady"),
                 new NormalSquare(29, 6,2,"Going Steady"),
                 new NormalSquare(30, 6,3,"Going Steady"), //30
-                new SpecialSquare(31, 6,4,"Well", "" , "./Images/well.jpg"),
+                new SpecialSquare(31, 6,4,"Well", "Wait for another player" , "./Images/well.jpg"),
                 new GooseSquare(32, 6,5,"GOOSE!"),
                 new NormalSquare(33, 6,6,"Going Steady"),
                 new NormalSquare(8, 6,7,"Going Steady"),
@@ -336,7 +348,7 @@ namespace GameOfGoose
                 new NormalSquare(3, 7, 3, "Going Steady"),
                 new NormalSquare(4, 7, 4, "Going Steady"),
                 new GooseSquare(5, 7, 5, "GOOSE!"), //5
-                new SpecialSquare(6, 7, 6, "Bridge", "", "./Images/bridge.jpg"),
+                new SpecialSquare(6, 7, 6, "Bridge", "Move to square 12", "./Images/bridge.jpg"),
                 new NormalSquare(7, 7, 7, "Going Steady"),
             };
 

@@ -50,6 +50,9 @@
             </Style>
 
         </Grid.Resources>
+        <Grid.Background >
+            <ImageBrush ImageSource="/Pages/gameboard"/>
+        </Grid.Background>
 
         <Border BorderBrush="Black"
                 BorderThickness="1">
