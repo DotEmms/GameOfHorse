@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GameOfGoose\GameOfGoose.csproj" />
+    <ProjectReference Include="..\GameOfGoose\GameOfHorse.csproj" />
   </ItemGroup>
 
 </Project>
