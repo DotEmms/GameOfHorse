@@ -98,7 +98,7 @@ namespace GameOfGoose
             IsFirstRound = true;
             Row = 7;
             Column = 0;
-            DisplayedImagePath = @"D:/emmad/Downloads/bluePawn.png";
+            DisplayedImagePath = @"";
             CounterControl();
         }
 

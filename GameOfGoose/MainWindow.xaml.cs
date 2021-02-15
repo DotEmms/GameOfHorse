@@ -41,7 +41,14 @@ namespace GameOfGoose
         {
             Application.Current.Shutdown();
         }
-
+        private void MenuItemRules_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(SetRules(), "Game Rules", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(SetAbout(), "About the game", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
         private void StartButtonClickedInPanel(object sender, EventArgs e)
         {
             btnRollDice.IsEnabled = true;            
@@ -73,8 +80,8 @@ namespace GameOfGoose
                 case 2:
                     lblPlayer1.Content = game.GetPlayer(1).Name;                    
                     lblPlayer2.Content = game.GetPlayer(2).Name;
-                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Orange);
-                    lblPlayer2.Foreground = new SolidColorBrush(Colors.BlueViolet);
+                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Blue);
+                    lblPlayer2.Foreground = new SolidColorBrush(Colors.Red);
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
 
@@ -83,9 +90,9 @@ namespace GameOfGoose
                     lblPlayer1.Content = game.GetPlayer(1).Name;
                     lblPlayer2.Content = game.GetPlayer(2).Name;
                     lblPlayer3.Content = game.GetPlayer(3).Name;
-                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Orange);
-                    lblPlayer2.Foreground = new SolidColorBrush(Colors.BlueViolet);
-                    lblPlayer3.Foreground = new SolidColorBrush(Colors.LightSeaGreen);
+                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Blue);
+                    lblPlayer2.Foreground = new SolidColorBrush(Colors.Red);
+                    lblPlayer3.Foreground = new SolidColorBrush(Colors.Green);
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
                     lblPlayer3.Visibility = Visibility.Visible;
@@ -95,10 +102,10 @@ namespace GameOfGoose
                     lblPlayer2.Content = game.GetPlayer(2).Name;
                     lblPlayer3.Content = game.GetPlayer(3).Name;
                     lblPlayer4.Content = game.GetPlayer(4).Name;
-                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Orange);
-                    lblPlayer2.Foreground = new SolidColorBrush(Colors.BlueViolet);
-                    lblPlayer3.Foreground = new SolidColorBrush(Colors.LightSeaGreen);
-                    lblPlayer4.Foreground = new SolidColorBrush(Colors.PaleVioletRed);
+                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Blue);
+                    lblPlayer2.Foreground = new SolidColorBrush(Colors.Red);
+                    lblPlayer3.Foreground = new SolidColorBrush(Colors.Green);
+                    lblPlayer4.Foreground = new SolidColorBrush(Colors.Gold);
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
                     lblPlayer3.Visibility = Visibility.Visible;
@@ -108,7 +115,30 @@ namespace GameOfGoose
                     break;
             }
         }
-
+        private string SetAbout()
+        {
+            string about = "Game of the Goose\n\nThe Game of Goose, sometimes known as the Royal Game of Goose, is the earliest commercially produced board game - recorded in Italy as early as the end of the 15th Century.Over hundreds of years, it has appeared in a myriad variations of rules and illustrative designs.\nMany of the boards reflect politics or social situations of the time and some are incredibly beautiful and creative. \nThe basic form of the rules has remained remarkably consistent over the years.\nWe give the standard basic rules that are as applicable to boards produced today as they are to boards produced 400 years ago.\nWith thanks to board games historian, Adrian Seville.";
+            return about;
+        }
+        private string SetRules()
+        {
+            string rules = $"Play\n\nPlayers take turns to roll the dice and moved their piece forward by the sum of the two dice." +
+                $"\nIf your first throw is six and three, move to space 26." +
+                $"\nIf your first throw is five and four, move to space 53." +
+                $"\nIf a piece lands on an enemy piece, the enemy piece is returned to the space that the piece started from in that turn(i.e.the two pieces swap places)." +
+                $"\nIf a piece lands on a space with a picture of a goose, it moves forward by same amount again.If this causes the piece to land on another goose, it moves forward again in the same way." +
+                $"\nThe following spaces are called Hazard spaces and are usually illustrated to match their name.If a piece lands on the space indicated, that piece must follow the stated rule." +
+                $"\n\n6 - The Bridge - Go to space 12" +
+                $"\n19 - The Hotel - Stay for one turn" +
+                $"\n31 - The Well - Wait until someone comes to pull you out (they then take your place)" +
+                $"\n42 - The Maze - Go back to space 39" +
+                $"\n52 - The Prison - Stay for three turns" +
+                $"\n58 - Death - Return your piece to start" +
+                $"\n\nWinning the Game\n" +
+                $"\nTo win the game, a piece must land exactly on space 63." +
+                $"\nIf a player throws too many, the piece counts the extra points backwards from the winning space.If you then land on a goose space, you must continue moving backwards by the amount of your throw until you land on a space with no goose space.If you land on the Death space, you must start again.";
+            return rules;
+        }
         private void btnRollDice_Click(object sender, RoutedEventArgs e)
         {
             game.TurnFlow();
@@ -131,5 +161,7 @@ namespace GameOfGoose
                 mainWindow.NavigationService.Navigate(new VictoryScreen(game));
             }
         }
+
+        
     }
 }
