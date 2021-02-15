@@ -17,11 +17,6 @@ namespace GameOfGoose
             Image = "./Images/goose.png";
         }
 
-        public void AssignPawnImage()
-        {
-            throw new NotImplementedException();
-        }
-
         //public int CheckGooseSquare(int dice, int location)
         //{
         //    switch (location)

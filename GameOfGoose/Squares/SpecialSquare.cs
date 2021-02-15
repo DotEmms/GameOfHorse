@@ -54,10 +54,5 @@ namespace GameOfGoose
         {
             //game.GameOver();
         }
-
-        public void AssignPawnImage()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
