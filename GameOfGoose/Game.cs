@@ -11,31 +11,33 @@ namespace GameOfGoose
         private Dice dice;
         public Player currentPlayer;
         public ISquare currentSquare;
-        
+
         public int totalTurns = 0;
         public int totalRounds = 0;
-        public int diceResult;     
+        public int diceResult;
         private bool movingBackwards = false;
         public bool isGameOver = false;
         public Player winningPlayer;
 
         public Game()
         {
-            players = new ObservableCollection<Player>(); 
+            players = new ObservableCollection<Player>();
             squares = GenerateGameBoard();
             dice = new Dice();
         }
 
         public void StartGame()
-        {            
-            currentPlayer = GetPlayer(1);            
+        {
+            currentPlayer = GetPlayer(1);
         }
 
         // button event, starts this method for each turn
         public void TurnFlow()
         {
+            totalTurns++;
+
             //First turn only
-                if (currentPlayer.IsFirstRound)
+            if (currentPlayer.IsFirstRound)
             {
                 diceResult = dice.RollDice();
                 FirstThrowCheck(dice.firstDie, dice.secondDie);
@@ -54,13 +56,15 @@ namespace GameOfGoose
                 }
                 else
                 {
-                    //sux to be u
+                    //message to frontend? 
                 }
             }
             movingBackwards = false;
             //assign player for next turn
-            currentPlayer = GetPlayer(GetNextPlayerId());
-            totalTurns++;
+            if(isGameOver != true)
+            {
+                currentPlayer = GetPlayer(GetNextPlayerId());
+            }
         }
 
         public Player GetPlayer(int id)
@@ -80,7 +84,7 @@ namespace GameOfGoose
                 {
                     player = null;
                 }
-            }               
+            }
 
             return player;
         }
@@ -120,9 +124,9 @@ namespace GameOfGoose
 
         private void GameOver()
         {
-            CalculateTotalRounds();
-            winningPlayer = currentPlayer;
             isGameOver = true;
+            winningPlayer = currentPlayer;
+            CalculateTotalRounds();
         }
 
         private void FirstThrowCheck(int die1, int die2)
@@ -169,7 +173,7 @@ namespace GameOfGoose
 
         private void CheckSquare()
         {
-            //checken op object type 
+            //checken op object type
             if (currentSquare is NormalSquare)
             {
                 NormalSquare normal = currentSquare as NormalSquare;
@@ -202,16 +206,16 @@ namespace GameOfGoose
                     case "Inn":
                     case "Prison":
                         currentPlayer.TurnPenalty = special.SkipTurns(currentPlayer.PawnLocation);
-                        
+
                         break;
 
                     case "Well":
                         ResetWellPenalty();
                         currentPlayer.TurnPenalty = special.WaitForOtherPlayer();
-                        
+
                         break;
 
-                    case "End":
+                    case "The End":
                         GameOver();
                         break;
 
@@ -232,15 +236,16 @@ namespace GameOfGoose
                 }
             }
         }
-       
+
         private int CalculateTotalRounds()
         {
             double result = (totalTurns / players.Count);
-            return (int)Math.Ceiling(result);     
+            return (int)Math.Ceiling(result);
         }
+
         public Player CreatePlayer(string name)
         {
-            var player = new Player(name);            
+            var player = new Player(name);
             return player;
         }
 
@@ -267,7 +272,7 @@ namespace GameOfGoose
                 new NormalSquare(16, 0,5,"Going Steady"),
                 new NormalSquare(15, 0,6,"Going Steady"),
                 new GooseSquare(14, 0,7,"GOOSE!"),
-                
+
                 // Row 2
                 new NormalSquare(22, 1,0,"Going Steady"),
                 new NormalSquare(43, 1,1,"Going Steady"),
@@ -277,7 +282,7 @@ namespace GameOfGoose
                 new NormalSquare(39, 1,5,"Going Steady"),
                 new NormalSquare(38, 1,6,"Going Steady"),
                 new NormalSquare(13, 1,7,"Going Steady"),
-                
+
                 // Row 3
                 new GooseSquare(23, 2,0,"GOOSE!"),
                 new NormalSquare(44, 2,1,"Going Steady"),
