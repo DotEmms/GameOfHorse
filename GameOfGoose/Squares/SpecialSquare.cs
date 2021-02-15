@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 
 namespace GameOfGoose
 {
@@ -27,10 +28,13 @@ namespace GameOfGoose
             switch (locatie)
             {
                 case 6:
+                    MessageBox.Show("Moving to 12.", "Landed on 'Bridge'");
                     return 12;
                 case 42:
+                    MessageBox.Show("Moving to 39.", "Landed on 'Maze'");
                     return 39;
                 case 58:
+                    MessageBox.Show("Moving to start.", "Landed on 'Death'");
                     return 0;
                 default:
                     return -1;
