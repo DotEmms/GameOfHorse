@@ -29,6 +29,15 @@
                     <MenuItem Header="_Exit"
                               Click="MenuItemExit_Click"/>
                 </MenuItem>
+                <MenuItem Header="_Info">
+                    <MenuItem Header="_About"
+                              Click="MenuItemAbout_Click"/>
+                    <MenuItem Header="_Rules"
+                          Click="MenuItemRules_Click"/>
+                </MenuItem>
+                
+
+
             </Menu>
         </DockPanel>
 
