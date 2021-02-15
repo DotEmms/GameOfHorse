@@ -34,7 +34,7 @@
                  the Grid.Row and Grid.Column properties on this Rectangle - well,
                  you *can*, but the Grid won't see them.  See the Style below.  -->
             <DataTemplate DataType="{x:Type local:Player}">
-                <Rectangle Fill="{Binding Fill}"
+                <Image Source="{Binding DisplayedImagePath}"
                            Width="50"
                            Height="50" />
             </DataTemplate>

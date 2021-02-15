@@ -59,25 +59,29 @@ namespace GameOfGoose
             if(game.GetPlayer(1) == null && (txtPlayerOne.Text != ""))
             {
                 var newPlayer1 = game.CreatePlayer(txtPlayerOne.Text);
-                newPlayer1.Fill = new SolidColorBrush(Colors.Orange);
+                //newPlayer1.Fill = new SolidColorBrush(Colors.Orange);
+                newPlayer1.DisplayedImagePath = @"D:/emmad/Downloads/bluePawn.png";
                 game.AddPlayerToGame(newPlayer1);
             }            
             if(game.GetPlayer(2) == null && (txtPlayerTwo.Text != ""))
             {
                 var newPlayer2 = game.CreatePlayer(txtPlayerTwo.Text);
-                newPlayer2.Fill = new SolidColorBrush(Colors.BlueViolet);
+                //newPlayer2.Fill = new SolidColorBrush(Colors.BlueViolet);
+                newPlayer2.DisplayedImagePath = @"D:/emmad/Downloads/redPawn.png";
                 game.AddPlayerToGame(newPlayer2);
             }
             if (game.GetPlayer(3) == null && (txtPlayerThree.Text != ""))
             {
                 var newPlayer3 = game.CreatePlayer(txtPlayerThree.Text);
-                newPlayer3.Fill = new SolidColorBrush(Colors.LightSeaGreen);
+                //newPlayer3.Fill = new SolidColorBrush(Colors.LightSeaGreen);
+                newPlayer3.DisplayedImagePath = @"D:/emmad/Downloads/greenPawn.png";
                 game.AddPlayerToGame(newPlayer3);
             }            
             if (game.GetPlayer(4) == null && (txtPlayerFour.Text != ""))
             {
                 var newPlayer4 = game.CreatePlayer(txtPlayerFour.Text);
-                newPlayer4.Fill = new SolidColorBrush(Colors.PaleVioletRed);
+                //newPlayer4.Fill = new SolidColorBrush(Colors.PaleVioletRed);
+                newPlayer4.DisplayedImagePath = @"D:/emmad/Downloads/yellowPawn.png";
                 game.AddPlayerToGame(newPlayer4);
             }               
         }
