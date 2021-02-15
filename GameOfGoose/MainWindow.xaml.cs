@@ -146,9 +146,8 @@ namespace GameOfGoose
         {
             string rules = $"Play\n\nPlayers take turns to roll the dice and moved their piece forward by the sum of the two dice." +
                 $"\nIf your first throw is six and three, move to space 26." +
-                $"\nIf your first throw is five and four, move to space 53." +
-                $"\nIf a piece lands on an enemy piece, the enemy piece is returned to the space that the piece started from in that turn(i.e.the two pieces swap places)." +
-                $"\nIf a piece lands on a space with a picture of a goose, it moves forward by same amount again.If this causes the piece to land on another goose, it moves forward again in the same way." +
+                $"\nIf your first throw is five and four, move to space 53." + 
+                $"\nIf a piece lands on a space with a picture of a horse, it moves forward by same amount again.If this causes the piece to land on another horse, it moves forward again in the same way." +
                 $"\nThe following spaces are called Hazard spaces and are usually illustrated to match their name.If a piece lands on the space indicated, that piece must follow the stated rule." +
                 $"\n\n6 - The Bridge - Go to space 12" +
                 $"\n19 - The Hotel - Stay for one turn" +
