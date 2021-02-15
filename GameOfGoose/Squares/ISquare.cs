@@ -6,6 +6,7 @@
         string Name { get; set; }
         string Description { get; set; }
         string Image { get; set; }
-        void AssignPawnImage();
+        int Row { get; set; }
+        int Column { get; set; }
     }
 }

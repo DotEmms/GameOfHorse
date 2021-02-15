@@ -8,18 +8,17 @@ namespace GameOfGoose
         public string Name { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public int Row { get; set; }
+        public int Column { get; set; }
 
-        public GooseSquare(int id, string name)
+        public GooseSquare(int id, int row, int column, string name)
         {
             ID = id;
             Name = name;
             Description = "";
             Image = "./Images/goose.png";
-        }
-
-        public void AssignPawnImage()
-        {
-            throw new NotImplementedException();
+            Row = row;
+            Column = column;
         }
 
         //public int CheckGooseSquare(int dice, int location)
