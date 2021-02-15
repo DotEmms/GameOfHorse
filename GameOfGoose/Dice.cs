@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GameOfGoose
 {
@@ -9,6 +7,7 @@ namespace GameOfGoose
         public int firstDie { get; set; }
         public int secondDie { get; set; }
         public int diceResult { get; set; }
+
         public int RollDice()
         {
             Random random1 = new Random();

@@ -57,12 +57,12 @@ namespace GameOfGoose
                 }
                 else
                 {
-                    //message to frontend? 
+                    //message to frontend?
                 }
             }
             movingBackwards = false;
             //assign player for next turn
-            if(isGameOver != true)
+            if (isGameOver != true)
             {
                 previousPlayer = currentPlayer;
                 currentPlayer = GetPlayer(GetNextPlayerId());
@@ -179,9 +179,9 @@ namespace GameOfGoose
 
         private void CheckSquare()
         {
-            //checken op object type            
-           if (currentSquare is GooseSquare)
-            {                
+            //checken op object type
+            if (currentSquare is GooseSquare)
+            {
                 if (movingBackwards)
                 {
                     MessageBox.Show($"Moving backwards with {diceResult}!", "Landed on 'GOOSE!'");
@@ -222,7 +222,7 @@ namespace GameOfGoose
 
                     default:
                         break;
-                }                
+                }
             }
         }
 
@@ -318,7 +318,7 @@ namespace GameOfGoose
                 new NormalSquare(47, 5,1,"47"),
                 new NormalSquare(48, 5,2,"48"),
                 new NormalSquare(49, 5,3,"49"),
-                new GooseSquare(50, 5,4,"GOOSE!"), 
+                new GooseSquare(50, 5,4,"GOOSE!"),
                 new NormalSquare(51, 5,5,"51"),
                 new NormalSquare(34, 5,6,"34"),
                 new GooseSquare(9, 5,7,"GOOSE!"),
@@ -327,19 +327,19 @@ namespace GameOfGoose
                 new GooseSquare(27, 6,0,"GOOSE!"),
                 new NormalSquare(28, 6,1,"28"),
                 new NormalSquare(29, 6,2,"29"),
-                new NormalSquare(30, 6,3,"30"), 
+                new NormalSquare(30, 6,3,"30"),
                 new SpecialSquare(31, 6,4,"Well", "Wait for another player" , "./Images/well.jpg"),
                 new GooseSquare(32, 6,5,"GOOSE!"),
                 new NormalSquare(33, 6,6,"33"),
                 new NormalSquare(8, 6,7,"8"),
 
                 // Row 8
-                new NormalSquare(0, 7, 0,  "Start"), 
+                new NormalSquare(0, 7, 0,  "Start"),
                 new NormalSquare(1, 7, 1, "1"),
                 new NormalSquare(2, 7, 2, "2"),
                 new NormalSquare(3, 7, 3, "3"),
                 new NormalSquare(4, 7, 4, "4"),
-                new GooseSquare(5, 7, 5, "GOOSE!"), 
+                new GooseSquare(5, 7, 5, "GOOSE!"),
                 new SpecialSquare(6, 7, 6, "Bridge", "Move to square 12", "./Images/bridge.jpg"),
                 new NormalSquare(7, 7, 7, "7"),
             };

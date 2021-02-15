@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Windows.Controls;
+﻿using System.ComponentModel;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace GameOfGoose
 {
@@ -17,11 +12,11 @@ namespace GameOfGoose
 
         public int Column
         {
-            get 
-            { 
-                return _col; 
+            get
+            {
+                return _col;
             }
-            set 
+            set
             {
                 _col = value;
                 OnPropertyChanged();
@@ -32,12 +27,12 @@ namespace GameOfGoose
 
         public int Row
         {
-            get 
-            { 
+            get
+            {
                 return _row;
             }
-            set 
-            { 
+            set
+            {
                 _row = value;
                 OnPropertyChanged();
             }
@@ -45,7 +40,6 @@ namespace GameOfGoose
 
         public Brush Fill { get; set; }
         public string DisplayedImagePath { get; set; }
-
 
         public int Id
         {
@@ -59,7 +53,7 @@ namespace GameOfGoose
         {
             get { return _name; }
             set { _name = value; }
-        }        
+        }
 
         //int value for position on the board
         private int _pawnLocation;
@@ -80,14 +74,11 @@ namespace GameOfGoose
 
         private bool _isFirstRound;
 
-       
-
         public bool IsFirstRound
         {
             get { return _isFirstRound; }
             set { _isFirstRound = value; }
         }
-
 
         public Player(string name)
         {
@@ -104,7 +95,7 @@ namespace GameOfGoose
 
         private void CounterControl()
         {
-            if(counter == 4)
+            if (counter == 4)
             {
                 counter = 1;
             }
@@ -115,10 +106,10 @@ namespace GameOfGoose
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void OnPropertyChanged(string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-
     }
 }
