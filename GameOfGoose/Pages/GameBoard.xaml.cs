@@ -16,56 +16,57 @@ namespace GameOfGoose
         {
             InitializeComponent();
             this.game = game;
-            SetLabels();
-            var grid = GenerateGrid(game.squares);
-            MyPanel.Children.Add(grid);
+
+            //var grid = GenerateGrid(game.squares);
+            //MyPanel.Children.Add(grid);
+
+            Board.DataContext = game.players;
+
 
         }
 
-        private void SetLabels()
-        {
-            var content = game.squares.FirstOrDefault(x => x.ID == 1);
-
-        }
+        
 
 
-        private Grid GenerateGrid(IList<ISquare> squares, int amountOfColumns = 8)
-        {
-            var dynamicGrid = new Grid();
-            int amountOfRows = squares.Count / amountOfColumns;
 
-            for (int i = 0; i < amountOfRows; i++)
-            {
-                var row = new RowDefinition();
-                dynamicGrid.RowDefinitions.Add(row);
-            }
 
-            for (int i = 0; i < amountOfColumns; i++)
-            {
-                var column = new ColumnDefinition();
-                dynamicGrid.ColumnDefinitions.Add(column);
-            }
+        //private Grid GenerateGrid(IList<ISquare> squares, int amountOfColumns = 8)
+        //{
+        //    var dynamicGrid = new Grid();
+        //    int amountOfRows = squares.Count / amountOfColumns;
 
-            dynamicGrid = SetGridParameters(dynamicGrid, squares, amountOfColumns);
-            return dynamicGrid;
-        }
+        //    for (int i = 0; i < amountOfRows; i++)
+        //    {
+        //        var row = new RowDefinition();
+        //        dynamicGrid.RowDefinitions.Add(row);
+        //    }
 
-        private Grid SetGridParameters(Grid grid, IList<ISquare> squares, int amountOfColumns)
-        {
-            for (int i = 0; i < grid.RowDefinitions.Count; i++)
-            {
-                ISquare[] squaresInRow = squares.Skip(i * amountOfColumns).Take(amountOfColumns).ToArray();
+        //    for (int i = 0; i < amountOfColumns; i++)
+        //    {
+        //        var column = new ColumnDefinition();
+        //        dynamicGrid.ColumnDefinitions.Add(column);
+        //    }
 
-                for (int j = 0; j < grid.ColumnDefinitions.Count; j++)
-                {
-                    var myLabel = new Label { Content = squaresInRow[j].ID };                    
-                    Grid.SetRow(myLabel, i);
-                    Grid.SetColumn(myLabel, j);
-                    grid.Children.Add(myLabel);
-                }
-            }
+        //    dynamicGrid = SetGridParameters(dynamicGrid, squares, amountOfColumns);
+        //    return dynamicGrid;
+        //}
+
+        //private Grid SetGridParameters(Grid grid, IList<ISquare> squares, int amountOfColumns)
+        //{
+        //    for (int i = 0; i < grid.RowDefinitions.Count; i++)
+        //    {
+        //        ISquare[] squaresInRow = squares.Skip(i * amountOfColumns).Take(amountOfColumns).ToArray();
+
+        //        for (int j = 0; j < grid.ColumnDefinitions.Count; j++)
+        //        {
+        //            var myLabel = new Label { Content = squaresInRow[j].ID };                    
+        //            Grid.SetRow(myLabel, i);
+        //            Grid.SetColumn(myLabel, j);
+        //            grid.Children.Add(myLabel);
+        //        }
+        //    }
             
-            return grid;
-        }
+        //    return grid;
+        //}
     }
 }

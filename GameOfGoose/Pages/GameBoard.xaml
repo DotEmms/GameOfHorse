@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GameOfGoose"
       mc:Ignorable="d" 
-      d:DesignHeight="850" d:DesignWidth="850"
+      d:DesignHeight="800" d:DesignWidth="800"
       Title="GameBoard">
     <Page.Resources>
         <Style TargetType="Label">
@@ -26,10 +26,62 @@
             <Setter Property="Width" Value="100"/>
         </Style>
     </Page.Resources>
-    
-    <StackPanel x:Name="MyPanel" >
-        <StackPanel.Background>
-            <ImageBrush ImageSource="/Pages/normal.jpg"/>
-        </StackPanel.Background>
-    </StackPanel>
+
+    <Grid>
+        <Grid.Resources>
+
+            <!-- This template presents the Piece object.  Note that you can't set
+                 the Grid.Row and Grid.Column properties on this Rectangle - well,
+                 you *can*, but the Grid won't see them.  See the Style below.  -->
+            <DataTemplate DataType="{x:Type local:Player}">
+                <Rectangle Fill="{Binding Fill}"
+                           Width="50"
+                           Height="50" />
+            </DataTemplate>
+
+            <!-- When the ItemsControl creates its items, it wraps each item in a
+                 ContentPresenter.  You have to set Grid.Row and Grid.Column
+                 on this ContentPresenter in order for the Grid to see them. -->
+            <Style TargetType="{x:Type ContentPresenter}">
+                <Setter Property="Grid.Row"
+                        Value="{Binding Row}" />
+                <Setter Property="Grid.Column"
+                        Value="{Binding Column}" />
+            </Style>
+
+        </Grid.Resources>
+
+        <Border BorderBrush="Black"
+                BorderThickness="1">
+            <ItemsControl x:Name="Board"
+                          ItemsSource="{Binding}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Border>
+    </Grid>
 </Page>

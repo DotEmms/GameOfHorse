@@ -42,6 +42,7 @@ namespace GameOfGoose
         }
 
         public Brush Fill { get; set; }
+        //public Image Fill { get; set; }
 
 
         public int Id
@@ -93,6 +94,9 @@ namespace GameOfGoose
             PawnLocation = 0;
             TurnPenalty = 0;
             IsFirstRound = true;
+            Row = 7;
+            Column = 0;
+            Fill = new SolidColorBrush(Colors.BlueViolet);
 
             CounterControl();
         }

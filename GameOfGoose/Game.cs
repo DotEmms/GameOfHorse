@@ -260,84 +260,84 @@ namespace GameOfGoose
             var squares = new ObservableCollection<ISquare>
             {
                 // Row 1
-                new NormalSquare(21, "Going Steady"),
-                new NormalSquare(20, "Going Steady"),
-                new SpecialSquare(19, "Inn", "", "./Images/inn.jpg"),
-                new GooseSquare(18, "GOOSE!"),
-                new NormalSquare(17, "Going Steady"),
-                new NormalSquare(16, "Going Steady"),
-                new NormalSquare(15, "Going Steady"),
-                new GooseSquare(14, "GOOSE!"),
+                new NormalSquare(21, 0, 0, "Going Steady"),
+                new NormalSquare(20, 0, 1,"Going Steady"),
+                new SpecialSquare(19,0, 2, "Inn", "", "./Images/inn.jpg"),
+                new GooseSquare(18,0,3,  "GOOSE!"),
+                new NormalSquare(17,0,4, "Going Steady"),
+                new NormalSquare(16, 0,5,"Going Steady"),
+                new NormalSquare(15, 0,6,"Going Steady"),
+                new GooseSquare(14, 0,7,"GOOSE!"),
                 
                 // Row 2
-                new NormalSquare(22, "Going Steady"),
-                new NormalSquare(43, "Going Steady"),
-                new SpecialSquare(42, "Maze","","./Images/maze.jpg"),
-                new GooseSquare(41, "GOOSE!"),
-                new NormalSquare(40, "Going Steady"),
-                new NormalSquare(39, "Going Steady"),
-                new NormalSquare(38, "Going Steady"),
-                new NormalSquare(13, "Going Steady"),
+                new NormalSquare(22, 1,0,"Going Steady"),
+                new NormalSquare(43, 1,1,"Going Steady"),
+                new SpecialSquare(42, 1,2,"Maze","","./Images/maze.jpg"),
+                new GooseSquare(41, 1,3,"GOOSE!"),
+                new NormalSquare(40, 1,4,"Going Steady"),
+                new NormalSquare(39, 1,5,"Going Steady"),
+                new NormalSquare(38, 1,6,"Going Steady"),
+                new NormalSquare(13, 1,7,"Going Steady"),
                 
                 // Row 3
-                new GooseSquare(23, "GOOSE!"),
-                new NormalSquare(44, "Going Steady"),
-                new NormalSquare(57, "Going Steady"),
-                new NormalSquare(56, "Going Steady"),
-                new NormalSquare(55, "Going Steady"),
-                new GooseSquare(54, "GOOSE!"),
-                new NormalSquare(37, "Going Steady"),
-                new NormalSquare(12, "Going Steady"),
+                new GooseSquare(23, 2,0,"GOOSE!"),
+                new NormalSquare(44, 2,1,"Going Steady"),
+                new NormalSquare(57, 2,2,"Going Steady"),
+                new NormalSquare(56, 2,3,"Going Steady"),
+                new NormalSquare(55, 2,4,"Going Steady"),
+                new GooseSquare(54, 2,5,"GOOSE!"),
+                new NormalSquare(37, 2,6,"Going Steady"),
+                new NormalSquare(12, 2,7,"Going Steady"),
 
                 // Row 4
-                new NormalSquare(24, "Going Steady"),
-                new GooseSquare(45, "GOOSE!"),
-                new SpecialSquare(58, "Death","","./Images/death.jpg"),
-                new SpecialSquare(63, "The End","","./Images/end.jpg"),
-                new NormalSquare(62, "Going Steady"),
-                new NormalSquare(53, "Going Steady"),
-                new GooseSquare(36, "GOOSE!"),
-                new NormalSquare(11, "Going Steady"),
+                new NormalSquare(24, 3,0,"Going Steady"),
+                new GooseSquare(45, 3,1,"GOOSE!"),
+                new SpecialSquare(58, 3,2,"Death","","./Images/death.jpg"),
+                new SpecialSquare(63, 3,3,"The End","","./Images/end.jpg"),
+                new NormalSquare(62, 3,4,"Going Steady"),
+                new NormalSquare(53, 3,5,"Going Steady"),
+                new GooseSquare(36, 3,6,"GOOSE!"),
+                new NormalSquare(11, 3,7,"Going Steady"),
 
                 // Row 5
-                new NormalSquare(25, "Going Steady"),
-                new NormalSquare(46, "Going Steady"),
-                new GooseSquare(59, "GOOSE!"),
-                new NormalSquare(60, "Going Steady"), //60
-                new NormalSquare(61, "Going Steady"),
-                new SpecialSquare(52, "Prison","","./Images/prison.jpg"),
-                new NormalSquare(35, "Going Steady"),
-                new NormalSquare(10, "Going Steady"),
+                new NormalSquare(25, 4,0,"Going Steady"),
+                new NormalSquare(46, 4,1,"Going Steady"),
+                new GooseSquare(59, 4,2,"GOOSE!"),
+                new NormalSquare(60, 4,3,"Going Steady"), //60
+                new NormalSquare(61, 4,4,"Going Steady"),
+                new SpecialSquare(52, 4,5,"Prison","","./Images/prison.jpg"),
+                new NormalSquare(35, 4,6,"Going Steady"),
+                new NormalSquare(10, 4,7,"Going Steady"),
 
                 // Row 6
-                new NormalSquare(26, "Going Steady"),
-                new NormalSquare(47, "Going Steady"),
-                new NormalSquare(48, "Going Steady"),
-                new NormalSquare(49, "Going Steady"),
-                new GooseSquare(50, "GOOSE!"), //50
-                new NormalSquare(51, "Going Steady"),
-                new NormalSquare(34, "Going Steady"),
-                new GooseSquare(9, "GOOSE!"),
+                new NormalSquare(26, 5,0, "Going Steady"),
+                new NormalSquare(47, 5,1,"Going Steady"),
+                new NormalSquare(48, 5,2,"Going Steady"),
+                new NormalSquare(49, 5,3,"Going Steady"),
+                new GooseSquare(50, 5,4,"GOOSE!"), //50
+                new NormalSquare(51, 5,5,"Going Steady"),
+                new NormalSquare(34, 5,6,"Going Steady"),
+                new GooseSquare(9, 5,7,"GOOSE!"),
 
                 // Row 7
-                new GooseSquare(27, "GOOSE!"),
-                new NormalSquare(28, "Going Steady"),
-                new NormalSquare(29, "Going Steady"),
-                new NormalSquare(30, "Going Steady"), //30
-                new SpecialSquare(31, "Well", "" , "./Images/well.jpg"),
-                new GooseSquare(32, "GOOSE!"),
-                new NormalSquare(33, "Going Steady"),
-                new NormalSquare(8, "Going Steady"),
+                new GooseSquare(27, 6,0,"GOOSE!"),
+                new NormalSquare(28, 6,1,"Going Steady"),
+                new NormalSquare(29, 6,2,"Going Steady"),
+                new NormalSquare(30, 6,3,"Going Steady"), //30
+                new SpecialSquare(31, 6,4,"Well", "" , "./Images/well.jpg"),
+                new GooseSquare(32, 6,5,"GOOSE!"),
+                new NormalSquare(33, 6,6,"Going Steady"),
+                new NormalSquare(8, 6,7,"Going Steady"),
 
                 // Row 8
-                new NormalSquare(0, "Start"), //0
-                new NormalSquare(1, "Going Steady"),
-                new NormalSquare(2, "Going Steady"),
-                new NormalSquare(3, "Going Steady"),
-                new NormalSquare(4, "Going Steady"),
-                new GooseSquare(5, "GOOSE!"), //5
-                new SpecialSquare(6, "Bridge", "", "./Images/bridge.jpg"),
-                new NormalSquare(7, "Going Steady"),
+                new NormalSquare(0, 7, 0,  "Start"), //0
+                new NormalSquare(1, 7, 1, "Going Steady"),
+                new NormalSquare(2, 7, 2, "Going Steady"),
+                new NormalSquare(3, 7, 3, "Going Steady"),
+                new NormalSquare(4, 7, 4, "Going Steady"),
+                new GooseSquare(5, 7, 5, "GOOSE!"), //5
+                new SpecialSquare(6, 7, 6, "Bridge", "", "./Images/bridge.jpg"),
+                new NormalSquare(7, 7, 7, "Going Steady"),
             };
 
             return squares;

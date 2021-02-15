@@ -10,13 +10,17 @@ namespace GameOfGoose
         public string Name { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public int Row { get; set; }
+        public int Column { get; set; }
 
-        public SpecialSquare(int id, string name, string description, string image)
+        public SpecialSquare(int id, int row, int column, string name, string description, string image)
         {
             ID = id;
             Name = name;
             Description = description;
             Image = image;
+            Row = row;
+            Column = column;
         }
         public int MoveToSpecificSquare(int locatie) //=> Bridge, Maze, Death
         {
