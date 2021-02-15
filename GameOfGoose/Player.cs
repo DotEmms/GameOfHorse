@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace GameOfGoose
 {
@@ -42,7 +44,7 @@ namespace GameOfGoose
         }
 
         public Brush Fill { get; set; }
-        //public Image Fill { get; set; }
+        public string DisplayedImagePath { get; set; }
 
 
         public int Id
@@ -96,8 +98,7 @@ namespace GameOfGoose
             IsFirstRound = true;
             Row = 7;
             Column = 0;
-            
-
+            DisplayedImagePath = @"D:/emmad/Downloads/bluePawn.png";
             CounterControl();
         }
 
@@ -112,7 +113,6 @@ namespace GameOfGoose
                 counter++;
             }
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name = null)
