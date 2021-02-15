@@ -113,6 +113,11 @@ namespace GameOfGoose
         {
             game.TurnFlow();
             MessageBox.Show($"You rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
+
+            if(game.isGameOver)
+            {
+                mainWindow.NavigationService.Navigate(new VictoryScreen(game));
+            }
         }
     }
 }

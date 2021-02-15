@@ -18,9 +18,16 @@ namespace GameOfGoose
     /// </summary>
     public partial class VictoryScreen : Page
     {
-        public VictoryScreen()
+        private Game game;
+        public VictoryScreen(Game game)
         {
             InitializeComponent();
+            this.game = game;
+
+            lblWinner.Content = game.winningPlayer.Name;
+            lblAmountOfRounds.Content = game.totalRounds;
         }
+
+
     }
 }

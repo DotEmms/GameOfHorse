@@ -12,9 +12,12 @@ namespace GameOfGoose
         public Player currentPlayer;
         public ISquare currentSquare;
         
+        public int totalTurns = 0;
         public int totalRounds = 0;
         public int diceResult;     
         private bool movingBackwards = false;
+        public bool isGameOver = false;
+        public Player winningPlayer;
 
         public Game()
         {
@@ -24,9 +27,7 @@ namespace GameOfGoose
         }
 
         public void StartGame()
-        {
-
-            //assign players to list
+        {            
             currentPlayer = GetPlayer(1);            
         }
 
@@ -59,7 +60,7 @@ namespace GameOfGoose
             movingBackwards = false;
             //assign player for next turn
             currentPlayer = GetPlayer(GetNextPlayerId());
-            totalRounds++;
+            totalTurns++;
         }
 
         public Player GetPlayer(int id)
@@ -94,7 +95,7 @@ namespace GameOfGoose
             else
             {
                 nextPlayerId = 1;
-                totalRounds++;
+                totalTurns++;
             }
             return nextPlayerId;
         }
@@ -119,14 +120,10 @@ namespace GameOfGoose
 
         private void GameOver()
         {
-           
-            VictoryScreen victory = new VictoryScreen();
-            //victory.Show();
+            CalculateTotalRounds();
+            winningPlayer = currentPlayer;
+            isGameOver = true;
         }
-
-        // button event add player
-
-        
 
         private void FirstThrowCheck(int die1, int die2)
         {
@@ -236,20 +233,11 @@ namespace GameOfGoose
             }
         }
        
-
-        ////testplayers
-        //private ObservableCollection<Player> CreatePlayers()
-        //{
-        //    var players = new ObservableCollection<Player>
-        //    {
-        //        new Player("Player 1"),
-        //        new Player("Player 2"),
-        //        new Player("Player 3"),
-        //        new Player("Player 4")
-        //    };
-        //    //players.Add(new Player("Player 4"));
-        //    return players;
-        //}
+        private int CalculateTotalRounds()
+        {
+            double result = (totalTurns / players.Count);
+            return (int)Math.Ceiling(result);     
+        }
         public Player CreatePlayer(string name)
         {
             var player = new Player(name);            
@@ -265,7 +253,6 @@ namespace GameOfGoose
         {
             players.Clear();
         }
-
 
         private ObservableCollection<ISquare> GenerateGameBoard()
         {
