@@ -4,3 +4,6 @@
 16/02/2021 14:51:23, Sammy, Number of rounds: 20
 16/02/2021 14:58:34, Seba, Number of rounds: 29
 16/02/2021 14:59:40, testtt, Number of rounds: 73
+16/02/2021 16:04:19, Nico, Number of rounds: 27
+16/02/2021 16:18:11, Nico, Number of rounds: 12
+16/02/2021 16:20:15, Samantha, Number of rounds: 19
