@@ -18,6 +18,7 @@
     <None Remove="Pages\board.png" />
     <None Remove="Pages\mainBackground.jpg" />
     <None Remove="Pages\normal.jpg" />
+    <None Remove="Pages\victory.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +33,7 @@
     <Resource Include="Pages\board.png" />
     <Resource Include="Images\mainBackground.jpg" />
     <Resource Include="Pages\normal.jpg" />
+    <Resource Include="Pages\victory.jpg" />
   </ItemGroup>
 
   <ItemGroup>
