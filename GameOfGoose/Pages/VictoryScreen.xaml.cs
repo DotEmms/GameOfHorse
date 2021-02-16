@@ -13,7 +13,6 @@ namespace GameOfGoose
         {
             InitializeComponent();
             this.game = game;
-
             lblWinner.Content = game.winningPlayer.Name;
             lblAmountOfRounds.Content = game.totalRounds;
         }

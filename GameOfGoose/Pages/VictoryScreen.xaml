@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:GameOfGoose"
       mc:Ignorable="d"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="800"
       Title="VictoryScreen">
 
     <Grid>
@@ -20,11 +20,17 @@
             <RowDefinition />
             <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="/Pages/victory.jpg"/>
+        </Grid.Background>
+        
         <!-- Row 0 -->
         <Label Grid.Column="1"
                Content="Victory!"
-               Style="{StaticResource Victory}" />
+               Style="{StaticResource Victory}"
+               Margin="0,0,0,35"
+               FontFamily="Goudy Old Style"
+               FontSize="45"/>
 
         <!-- Row 1 -->
         <StackPanel Grid.Row="1"
@@ -33,23 +39,31 @@
                     VerticalAlignment="Center"
                     Margin="10">
             <Label Content="Winning player: "
-                   Style="{StaticResource playerselectionLabels}" />
+                       Style="{StaticResource playerselectionLabels}" 
+                       FontFamily="Goudy Old Style"
+                       FontSize="30"/>
             <Label x:Name="lblWinner"
-                   HorizontalAlignment="Right"
-                   Style="{StaticResource playerselectionLabels}" />
+                       HorizontalAlignment="Right"
+                       Style="{StaticResource playerselectionLabels}" 
+                       FontFamily="Goudy Old Style"
+                       FontSize="30"/>
         </StackPanel>
 
         <!-- Row 2 -->
         <StackPanel Grid.Row="2"
                     Grid.Column="1"
                     Orientation="Horizontal"
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Top"
                     Margin="10">
             <Label Content="Amount of turns: "
-                   Style="{StaticResource playerselectionLabels}" />
+                   Style="{StaticResource playerselectionLabels}" 
+                   FontFamily="Goudy Old Style"
+                   FontSize="30"/>
             <Label x:Name="lblAmountOfRounds"
                    Style="{StaticResource playerselectionLabels}"
-                   HorizontalAlignment="Right" />
+                   HorizontalAlignment="Right" 
+                   FontFamily="Goudy Old Style"
+                   FontSize="30"/>
         </StackPanel>
     </Grid>
 </Page>

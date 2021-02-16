@@ -19,6 +19,7 @@ namespace GameOfGoose
         {
             InitializeComponent();
             this.game = game;
+
         }
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
