@@ -41,26 +41,48 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
+                <ColumnDefinition Width="0.3*"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="0.3*"/>
                 <ColumnDefinition Width="1.5*" />
                 <ColumnDefinition />
+                <ColumnDefinition Width="0.3*"/>
                 <ColumnDefinition />
+                <ColumnDefinition Width="0.3*"/>
             </Grid.ColumnDefinitions>
             <Grid.Background>
                 <ImageBrush ImageSource="./Images/wood.jpg"/>
             </Grid.Background>
+            
             <Label x:Name="lblPlayer1"
-                   Grid.Column="0"
                    Content="Player 1"
                    Style="{StaticResource headerLabels}"
-                   Visibility="Hidden" />
-            <Label x:Name="lblPlayer2"
+                   Visibility="Hidden" 
+                   FontFamily="Goudy Old Style"
+                   FontSize="25"
+                   Background="#FFDEB298"
+                   Opacity="0.6"/>
+            <Image x:Name="imgPlayer1"
+                   Source="Images/bluePawn.png"
                    Grid.Column="1"
+                   Visibility="Hidden"/>
+            
+            <Label x:Name="lblPlayer2"
+                   Grid.Column="2"
                    Content="Player 2"
                    Style="{StaticResource headerLabels}"
-                   Visibility="Hidden" />
+                   Visibility="Hidden" 
+                   FontFamily="Goudy Old Style"
+                   FontSize="25"
+                   Background="#FFDEB298"
+                   Opacity="0.6"/>
+            <Image x:Name="imgPlayer2"
+                   Source="Images/redPawn.png"
+                   Grid.Column="3"
+                   Visibility="Hidden"/>
+            
             <Button x:Name="btnRollDice"
-                    Grid.Column="2" IsEnabled="False"
+                    Grid.Column="4" IsEnabled="False"
                     Visibility="Hidden"
                     Style="{StaticResource headerButton}"
                     Click="btnRollDice_Click" >
@@ -68,16 +90,34 @@
                     <ImageBrush ImageSource="./Images/dice.png" Stretch="UniformToFill"/>
                 </Button.Background>
             </Button>
+            
             <Label x:Name="lblPlayer3"
-                   Grid.Column="3"
+                   Grid.Column="5"
                    Content="Player 3"
                    Style="{StaticResource headerLabels}"
-                   Visibility="Hidden" />
+                   Visibility="Hidden" 
+                   FontFamily="Goudy Old Style"
+                   FontSize="25"
+                   Background="#FFDEB298"
+                   Opacity="0.6"/>
+            <Image x:Name="imgPlayer3"
+                   Source="Images/greenPawn.png"
+                   Grid.Column="6"
+                   Visibility="Hidden"/>
+            
             <Label x:Name="lblPlayer4"
-                   Grid.Column="4"
+                   Grid.Column="7"
                    Content="Player 4"
                    Style="{StaticResource headerLabels}"
-                   Visibility="Hidden" />
+                   Visibility="Hidden" 
+                   FontFamily="Goudy Old Style"
+                   FontSize="25"
+                   Background="#FFDEB298"
+                   Opacity="0.6"/>
+            <Image x:Name="imgPlayer4"
+                   Source="Images/yellowPawn.png"
+                   Grid.Column="8"
+                   Visibility="Hidden"/>
         </Grid>
 
         <!-- Frame -->
