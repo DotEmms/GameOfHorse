@@ -11,7 +11,7 @@ namespace GameOfGoose
         public ObservableCollection<ISquare> squares;
         private readonly Dice dice;
         public Player currentPlayer;
-        public Player previousPlayer;
+        
         public ISquare currentSquare;
 
         public int totalTurns = 0;
@@ -41,8 +41,8 @@ namespace GameOfGoose
             if (currentPlayer.IsFirstRound)
             {
                 diceResult = dice.RollDice();
-                FirstThrowCheck(dice.firstDie, dice.secondDie);
-                CheckSquare();
+                MessageBox.Show($"{currentPlayer.Name} rolled a {diceResult}", "Dice Roll" );
+                FirstThrowCheck(dice.firstDie, dice.secondDie);                
                 currentPlayer.IsFirstRound = false;
             }
             //rest of the game
@@ -51,20 +51,28 @@ namespace GameOfGoose
                 if (CheckPenalty())
                 {
                     diceResult = dice.RollDice();
-
+                    MessageBox.Show($"{currentPlayer.Name} rolled a {diceResult}", "Dice Roll");
                     MovePawn(diceResult);
                     //does this in MovePawn -> CheckSquare();
                 }
                 else
                 {
                     //message to frontend?
+                    if (currentPlayer.PawnLocation == 31)
+                    {
+                        MessageBox.Show($"{currentPlayer.Name} is stuck in the Well!", "Well");
+                    }
+                    else if(currentSquare.ID == 52 || currentSquare.ID == 19)
+                    {
+                        MessageBox.Show($" {currentPlayer.Name} is stuck in the {(currentSquare.ID == 52 ? "Prison" : "Inn")} \nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", $"{(currentSquare.ID == 52? "Prison" : "Inn")}");
+                    }
+                    currentPlayer.TurnPenalty--;
                 }
             }
             movingBackwards = false;
             //assign player for next turn
             if (isGameOver != true)
-            {
-                previousPlayer = currentPlayer;
+            {                
                 currentPlayer = GetPlayer(GetNextPlayerId());
             }
         }
@@ -118,8 +126,7 @@ namespace GameOfGoose
                 return true;
             }
             else
-            {
-                currentPlayer.TurnPenalty--;
+            {                
                 return false;
             }
         }
@@ -135,17 +142,19 @@ namespace GameOfGoose
         {
             if ((die1 == 5 && die2 == 4) || (die1 == 4 && die2 == 5))
             {
-                MessageBox.Show("Moving to tile 26.", "First throw contains 4 and 5.");
+                MessageBox.Show("First throw contains 4 and 5. \nMoving to tile 26.", "First throw bonus");
                 currentPlayer.PawnLocation = 26;
                 currentSquare = GetSquare(currentPlayer.PawnLocation);
                 UpdateCoordinates();
+                CheckSquare();
             }
             else if ((die1 == 6 && die2 == 3) || (die1 == 3 && die2 == 6))
             {
-                MessageBox.Show("Moving to tile 53.", "First throw contains 3 and 6.");
+                MessageBox.Show("First throw contains 3 and 6.\nMoving to tile 53.", "First throw bonus");
                 currentPlayer.PawnLocation = 53;
                 currentSquare = GetSquare(currentPlayer.PawnLocation);
                 UpdateCoordinates();
+                CheckSquare();
             }
             else
                 MovePawn(diceResult);
@@ -182,19 +191,22 @@ namespace GameOfGoose
         private void CheckSquare()
         {
             //checken op object type
-            if (currentSquare is GooseSquare)
+            if (currentSquare is NormalSquare)
+            {
+                MessageBox.Show($"{currentPlayer.Name} landed on {currentSquare.Name} \n{currentSquare.Description}!", "Landed on 'Normal Square'");
+            }            
+            else if (currentSquare is GooseSquare)
             {
                 if (movingBackwards)
                 {
-                    MessageBox.Show($"Moving backwards with {diceResult}!", "Landed on 'HORSE!'"); //vervangen door event handler
+                    MessageBox.Show($"{currentPlayer.Name} landed on {currentSquare.Name} \nMoving backwards with {diceResult}!", "Landed on 'HORSE!'"); //vervangen door event handler
                     MovePawn(diceResult * -1);
                 }
                 else 
                 {
-                    MessageBox.Show($"Moving forward with {diceResult}!", "Landed on 'HORSE!'"); //vervangen door event handler
+                    MessageBox.Show($"{currentPlayer.Name} landed on {currentSquare.Name} \nMoving forward with {diceResult}!", "Landed on 'HORSE!'"); //vervangen door event handler
                     MovePawn(diceResult);
-                }
-                
+                }                
             }
             //eigen klasse maken per special square met gedeelde execute methode -> polymorph
             else if (currentSquare is SpecialSquare)
@@ -207,19 +219,17 @@ namespace GameOfGoose
                     case "Death":
                         currentPlayer.PawnLocation = special.MoveToSpecificSquare(currentPlayer.PawnLocation);
                         currentSquare = GetSquare(currentPlayer.PawnLocation);
-                        UpdateCoordinates();
+                        UpdateCoordinates();                        
                         break;
 
                     case "Inn":
                     case "Prison":
                         currentPlayer.TurnPenalty = special.SkipTurns(currentPlayer.PawnLocation);
-
                         break;
 
                     case "Well":
                         ResetWellPenalty();
                         currentPlayer.TurnPenalty = special.WaitForOtherPlayer();
-
                         break;
 
                     case "The End":
@@ -229,6 +239,8 @@ namespace GameOfGoose
                     default:
                         break;
                 }
+
+                MessageBox.Show($"{currentPlayer.Name} landed on {currentSquare.Name}\n{currentSquare.Description}!", "Landed on 'Special Square'");
             }
         }
 
@@ -260,8 +272,9 @@ namespace GameOfGoose
             players.Add(player);
         }
 
-        public void ResetPlayers()
+        public void ResetGame()
         {
+            isGameOver = false;
             currentPlayer.ResetId();
             players.Clear();
         }
