@@ -34,7 +34,7 @@
                FontFamily="Goudy Old Style"
                FontSize="45" />
         
-        <Image x:Name="imgWinner" Source="{Binding winningPlayer.DisplayedImagePath}"
+        <Image x:Name="imgWinner"
                Height="150"
                Width="150" 
                Grid.Row="1"
