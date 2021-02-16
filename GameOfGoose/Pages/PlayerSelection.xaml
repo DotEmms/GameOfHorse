@@ -5,15 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:GameOfGoose"
       mc:Ignorable="d"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="800"
       Title="PlayerSelection">
 
     <Grid>
         <Grid.Background>
-            <LinearGradientBrush>
+            <ImageBrush ImageSource="../Images/mainBackground.jpg"/>
+                <!--<LinearGradientBrush>
                 <GradientStop Color="#FFF7F7F7" />
                 <GradientStop Color="#FF767676" Offset="1" />
-            </LinearGradientBrush>
+            </LinearGradientBrush>-->
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
@@ -28,18 +29,26 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Opacity" Value="0.6"/>
+                <Setter Property="FontFamily" Value="Bradley Hand ITC"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+        </Grid.Resources>
         <!-- Row 1 -->
         <Label Grid.Row="1"
                Grid.ColumnSpan="2"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
             Content="Please enter player names"
-               Style="{StaticResource playerselectionTitle}" />
+               Style="{StaticResource playerselectionTitle}" 
+               FontFamily="Goudy Old Style"/>
         <!-- Row 2 -->
         <Label Grid.Row="2"
                Content="Player 1:"
-               Style="{StaticResource playerselectionLabels}" />
+               Style="{StaticResource playerselectionLabels}" 
+               FontFamily="Goudy Old Style"/>
         <TextBox x:Name="txtPlayerOne"
                  Grid.Row="2"
                  Grid.Column="1"
@@ -48,17 +57,19 @@
         <!-- Row 3 -->
         <Label Grid.Row="3"
                Content="Player 2:"
-               Style="{StaticResource playerselectionLabels}" />
+               Style="{StaticResource playerselectionLabels}" 
+               FontFamily="Goudy Old Style"/>
         <TextBox x:Name="txtPlayerTwo"
                  Grid.Row="3"
                  Grid.Column="1"
                  Style="{StaticResource playerselectionTextBox}"
                  IsEnabled="False"
-                 TextChanged="txtPlayerTwo_TextChanged" />
+                 TextChanged="txtPlayerTwo_TextChanged"/>
         <!-- Row 4 -->
         <Label Grid.Row="4"
                Content="Player 3:"
-               Style="{StaticResource playerselectionLabels}" />
+               Style="{StaticResource playerselectionLabels}" 
+               FontFamily="Goudy Old Style"/>
         <TextBox x:Name="txtPlayerThree"
                  Grid.Row="4"
                  Grid.Column="1"
@@ -68,12 +79,13 @@
         <!-- Row 5 -->
         <Label Grid.Row="5"
                Content="Player 4:"
-               Style="{StaticResource playerselectionLabels}" />
+               Style="{StaticResource playerselectionLabels}" 
+               FontFamily="Goudy Old Style"/>
         <TextBox x:Name="txtPlayerFour"
                  Grid.Row="5"
                  Grid.Column="1"
                  Style="{StaticResource playerselectionTextBox}"
-                 IsEnabled="False" />
+                 IsEnabled="False"/>
 
         <!-- Row 6 -->
         <Button Grid.Row="6"
@@ -82,6 +94,8 @@
                 Content="Start Game!"
                 Click="StartGameButton_Click"
                 Style="{StaticResource headerButton}"
-                IsEnabled="False" />
+                IsEnabled="False"
+                Margin="30"
+                Visibility="Hidden" FontFamily="Blackadder ITC" FontSize="50"/>
     </Grid>
 </Page>
