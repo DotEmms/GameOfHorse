@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameOfHorse;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -7,6 +8,9 @@ namespace GameOfGoose
 {
     public class Game
     {
+        private JSONWriter jSONWriter;
+        private FileManager fileManager;
+        private ReaderWriter readerWriter;
         public ObservableCollection<IPlayer> players;
         public ObservableCollection<ISquare> squares;
         private readonly Dice dice;
@@ -26,6 +30,10 @@ namespace GameOfGoose
             players = new ObservableCollection<IPlayer>();
             squares = GenerateGameBoard();
             dice = new Dice();
+            jSONWriter = new JSONWriter();
+            fileManager = new FileManager();
+            readerWriter = new ReaderWriter();
+            fileManager.CreateFile(readerWriter.PATH_LEADERBOARD);
         }
 
         public void StartGame()
@@ -139,7 +147,11 @@ namespace GameOfGoose
         {
             isGameOver = true;
             winningPlayer = currentPlayer;
-            totalRounds = CalculateTotalRounds();
+            totalRounds = CalculateTotalRounds();            
+
+            string logstring = $"{currentPlayer.Name}, Number of rounds: {totalRounds}";
+            jSONWriter.WriteTo(logstring);
+            readerWriter.WriteDataToFile(logstring);
         }
 
         private void FirstThrowCheck(int die1, int die2)

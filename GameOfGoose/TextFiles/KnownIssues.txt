@@ -2,3 +2,4 @@
 
 OnPropertyChanged => geeft van tijd tot tijd een foutmelding (stackoverflow exception)
 MessageBoxen(in back end) om een pauze te creëeren bij GOOSE/Special squares (goedgekeurd door Michiel)
+JSON Writer geprobeerd maar werkt niet helemaal zoals gehoopt -> Streamwriter werkt wel 
