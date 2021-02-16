@@ -20,7 +20,7 @@ namespace GameOfGoose
 
         private void MenuItemRestartGame_Click(object sender, RoutedEventArgs e)
         {            
-            game.ResetPlayers();            
+            game.ResetGame();            
             ResetHeaderState();
             GenerateNewPlayerSelectionScreen();
         }
@@ -61,6 +61,7 @@ namespace GameOfGoose
             lblPlayer3.Visibility = Visibility.Hidden;
             lblPlayer4.Visibility = Visibility.Hidden;
             btnRollDice.IsEnabled = false;
+            btnRollDice.Visibility = Visibility.Hidden;
         }
 
         private void SetPlayerNames(object sender, EventArgs e)
@@ -113,20 +114,7 @@ namespace GameOfGoose
         
         private void btnRollDice_Click(object sender, RoutedEventArgs e)
         {
-            game.TurnFlow();
-
-            if(game.currentSquare.ID == 31)
-            {
-                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to {game.currentSquare.Name}. You're stuck in the Well. Sucks to be you.");
-            }
-            else if(game.currentSquare.ID == 52 || game.currentSquare.ID == 19)
-            {
-                MessageBox.Show($"{ game.previousPlayer.Name} rolled a { game.diceResult} and moved to { game.currentSquare.Name}. \n Wait {game.previousPlayer.TurnPenalty} more turns to continue playing!");
-            }
-            else
-            {
-                MessageBox.Show($"{game.previousPlayer.Name} rolled a {game.diceResult} and moved to {game.currentSquare.Name}. \n{game.currentSquare.Description}.");
-            } 
+            game.TurnFlow();           
 
             if(game.isGameOver)
             {
