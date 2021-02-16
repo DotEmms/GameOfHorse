@@ -7,10 +7,10 @@ namespace GameOfGoose
 {
     public class Game
     {
-        public ObservableCollection<Player> players;
+        public ObservableCollection<IPlayer> players;
         public ObservableCollection<ISquare> squares;
         private readonly Dice dice;
-        public Player currentPlayer;
+        public IPlayer currentPlayer;
         
         public ISquare currentSquare;
 
@@ -19,11 +19,11 @@ namespace GameOfGoose
         public int diceResult;
         private bool movingBackwards = false;
         public bool isGameOver = false;
-        public Player winningPlayer;
+        public IPlayer winningPlayer;
 
         public Game()
         {
-            players = new ObservableCollection<Player>();
+            players = new ObservableCollection<IPlayer>();
             squares = GenerateGameBoard();
             dice = new Dice();
         }
@@ -64,11 +64,11 @@ namespace GameOfGoose
                     }
                     else if(currentPlayer.PawnLocation == 52)
                     {
-                        MessageBox.Show($" {currentPlayer.Name} is stuck in the Prison\nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", "Prison");
+                        MessageBox.Show($"{currentPlayer.Name} is stuck in the Prison\nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", "Prison");
                     }
                     else if(currentPlayer.PawnLocation == 19)
                     {
-                        MessageBox.Show($" {currentPlayer.Name} is stuck in the Inn \nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", $"Inn");
+                        MessageBox.Show($"{currentPlayer.Name} is stuck in the Inn \nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", $"Inn");
                     }
                     currentPlayer.TurnPenalty--;
                 }
@@ -81,9 +81,9 @@ namespace GameOfGoose
             }
         }
 
-        public Player GetPlayer(int id)
+        public IPlayer GetPlayer(int id)
         {
-            Player player;
+            IPlayer player;
             if (players == null)
             {
                 player = null;
@@ -265,13 +265,13 @@ namespace GameOfGoose
             return (int)Math.Ceiling(result);
         }
 
-        public Player CreatePlayer(string name)
+        public IPlayer CreatePlayer(string name)
         {
             var player = new Player(name);
             return player;
         }
 
-        public void AddPlayerToGame(Player player)
+        public void AddPlayerToGame(IPlayer player)
         {
             players.Add(player);
         }

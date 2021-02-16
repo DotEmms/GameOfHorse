@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace GameOfGoose
 {
-    public class Player : INotifyPropertyChanged
+    public class Player : INotifyPropertyChanged, IPlayer
     {
         private static int counter = 1;
         private int _id;
@@ -50,7 +50,7 @@ namespace GameOfGoose
         }
 
         public string DisplayedImagePath { get; set; }
-        
+
         public int PawnLocation
         {
             get { return _pawnLocation; }
