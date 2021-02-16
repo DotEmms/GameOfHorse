@@ -28,9 +28,9 @@ namespace GameOfGoose.Test
             var game = new Game();
             game.currentPlayer = new Player("test");
             game.currentPlayer.PawnLocation = 60;
-            int expectedResult = 59;
+            int expectedResult = 57;
             // Act
-            game.MovePawn(7);
+            game.MovePawn(9);
             int result = game.currentPlayer.PawnLocation;
 
             // Assert
