@@ -62,9 +62,13 @@ namespace GameOfGoose
                     {
                         MessageBox.Show($"{currentPlayer.Name} is stuck in the Well!", "Well");
                     }
-                    else if(currentSquare.ID == 52 || currentSquare.ID == 19)
+                    else if(currentPlayer.PawnLocation == 52)
                     {
-                        MessageBox.Show($" {currentPlayer.Name} is stuck in the {(currentSquare.ID == 52 ? "Prison" : "Inn")} \nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", $"{(currentSquare.ID == 52? "Prison" : "Inn")}");
+                        MessageBox.Show($" {currentPlayer.Name} is stuck in the Prison\nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", "Prison");
+                    }
+                    else if(currentPlayer.PawnLocation == 19)
+                    {
+                        MessageBox.Show($" {currentPlayer.Name} is stuck in the Inn \nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", $"Inn");
                     }
                     currentPlayer.TurnPenalty--;
                 }
