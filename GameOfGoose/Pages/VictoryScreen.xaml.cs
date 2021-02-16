@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace GameOfGoose
 {
@@ -15,6 +17,7 @@ namespace GameOfGoose
             this.game = game;
             lblWinner.Content = game.winningPlayer.Name;
             lblAmountOfRounds.Content = game.totalRounds;
+            imgWinner.Source = new BitmapImage(new Uri(game.winningPlayer.DisplayedImagePath, UriKind.RelativeOrAbsolute));
         }
     }
 }
