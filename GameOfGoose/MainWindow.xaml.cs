@@ -43,6 +43,7 @@ namespace GameOfGoose
         private void StartButtonClickedInPanel(object sender, EventArgs e)
         {
             btnRollDice.IsEnabled = true;
+            btnRollDice.Visibility = Visibility.Visible;
         }
 
         private void GenerateNewPlayerSelectionScreen()

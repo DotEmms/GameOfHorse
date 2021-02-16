@@ -4,7 +4,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Game of Horse" Height="950" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Game of Horse" Height="950" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Icon="Images/GoH.ico">
 
     <Grid>
 
@@ -17,14 +18,17 @@
         <!-- Menu -->
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_Game">
+                <Menu.Background>
+                    <ImageBrush ImageSource="Images/wood.jpg"/>
+                </Menu.Background>
+                <MenuItem Header="_Game" Background="#FFDEB298">
                     <MenuItem Header="_Restart Game"
                               Click="MenuItemRestartGame_Click" />
                     <Separator />
                     <MenuItem Header="_Exit"
                               Click="MenuItemExit_Click" />
                 </MenuItem>
-                <MenuItem Header="_Info">
+                <MenuItem Header="_Info" Background="#FFDEB298">
                     <MenuItem Header="_About"
                               Click="MenuItemAbout_Click" />
                     <MenuItem Header="_Rules"
@@ -42,7 +46,9 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-
+            <Grid.Background>
+                <ImageBrush ImageSource="./Images/wood.jpg"/>
+            </Grid.Background>
             <Label x:Name="lblPlayer1"
                    Grid.Column="0"
                    Content="Player 1"
@@ -54,9 +60,14 @@
                    Style="{StaticResource headerLabels}"
                    Visibility="Hidden" />
             <Button x:Name="btnRollDice"
-                    Grid.Column="2" Content="Roll Dice" IsEnabled="False"
+                    Grid.Column="2" IsEnabled="False"
+                    Visibility="Hidden"
                     Style="{StaticResource headerButton}"
-                    Click="btnRollDice_Click" />
+                    Click="btnRollDice_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="./Images/dice.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
             <Label x:Name="lblPlayer3"
                    Grid.Column="3"
                    Content="Player 3"

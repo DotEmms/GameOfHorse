@@ -88,6 +88,7 @@ namespace GameOfGoose
         {
             txtPlayerThree.IsEnabled = true;
             btnStartGame.IsEnabled = true;
+            btnStartGame.Visibility = Visibility.Visible;
         }
 
         private void txtPlayerThree_TextChanged(object sender, TextChangedEventArgs e)

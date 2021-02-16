@@ -8,20 +8,29 @@
 
   <ItemGroup>
     <None Remove="Images\board.png" />
+    <None Remove="Images\dice.png" />
+    <None Remove="Images\GoH.ico" />
     <None Remove="Images\greenPawn.png" />
+    <None Remove="Images\mainBackground.png" />
     <None Remove="Images\redPawn.png" />
+    <None Remove="Images\wood.jpg" />
     <None Remove="Images\yellowPawn.png" />
     <None Remove="Pages\board.png" />
+    <None Remove="Pages\mainBackground.jpg" />
     <None Remove="Pages\normal.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\board.png" />
+    <Resource Include="Images\dice.png" />
+    <Resource Include="Images\GoH.ico" />
     <Resource Include="Images\greenPawn.png" />
     <Resource Include="Images\redPawn.png" />
+    <Resource Include="Images\wood.jpg" />
     <Resource Include="Images\yellowPawn.png" />
     <Resource Include="Images\bluePawn.png" />
     <Resource Include="Pages\board.png" />
+    <Resource Include="Images\mainBackground.jpg" />
     <Resource Include="Pages\normal.jpg" />
   </ItemGroup>
 

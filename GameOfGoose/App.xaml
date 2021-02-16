@@ -11,25 +11,26 @@
         </Style>
 
         <Style TargetType="Button" x:Key="headerButton">
-            <Setter Property="Background" Value="LightSeaGreen" />
+            <Setter Property="Background" Value="#FFB29F76" />
             <Setter Property="Foreground" Value="WhiteSmoke" />
             <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Margin" Value="10" />
             <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Opacity" Value="0.8"/>
         </Style>
 
         <!-- Playerselection Elements-->
         <Style TargetType="Label" x:Key="playerselectionTitle">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontSize" Value="45" />
         </Style>
         <Style TargetType="Label" x:Key="playerselectionLabels">
             <Setter Property="HorizontalAlignment" Value="Right" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="0,0,20,0" />
+            <Setter Property="FontSize" Value="30"/>
         </Style>
-
+        
         <Style TargetType="TextBox" x:Key="playerselectionTextBox">
             <Setter Property="Margin" Value="20, 30" />
         </Style>
