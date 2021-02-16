@@ -73,23 +73,26 @@ namespace GameOfGoose
                 case 2:
                     lblPlayer1.Content = game.GetPlayer(1).Name;
                     lblPlayer2.Content = game.GetPlayer(2).Name;
-                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Blue);
-                    lblPlayer2.Foreground = new SolidColorBrush(Colors.Red);
+
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
 
+                    imgPlayer1.Visibility = Visibility.Visible;
+                    imgPlayer2.Visibility = Visibility.Visible;
                     break;
 
                 case 3:
                     lblPlayer1.Content = game.GetPlayer(1).Name;
                     lblPlayer2.Content = game.GetPlayer(2).Name;
                     lblPlayer3.Content = game.GetPlayer(3).Name;
-                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Blue);
-                    lblPlayer2.Foreground = new SolidColorBrush(Colors.Red);
-                    lblPlayer3.Foreground = new SolidColorBrush(Colors.Green);
+
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
                     lblPlayer3.Visibility = Visibility.Visible;
+
+                    imgPlayer1.Visibility = Visibility.Visible;
+                    imgPlayer2.Visibility = Visibility.Visible;
+                    imgPlayer3.Visibility = Visibility.Visible;
                     break;
 
                 case 4:
@@ -97,14 +100,16 @@ namespace GameOfGoose
                     lblPlayer2.Content = game.GetPlayer(2).Name;
                     lblPlayer3.Content = game.GetPlayer(3).Name;
                     lblPlayer4.Content = game.GetPlayer(4).Name;
-                    lblPlayer1.Foreground = new SolidColorBrush(Colors.Blue);
-                    lblPlayer2.Foreground = new SolidColorBrush(Colors.Red);
-                    lblPlayer3.Foreground = new SolidColorBrush(Colors.Green);
-                    lblPlayer4.Foreground = new SolidColorBrush(Colors.Gold);
+
                     lblPlayer1.Visibility = Visibility.Visible;
                     lblPlayer2.Visibility = Visibility.Visible;
                     lblPlayer3.Visibility = Visibility.Visible;
                     lblPlayer4.Visibility = Visibility.Visible;
+
+                    imgPlayer1.Visibility = Visibility.Visible;
+                    imgPlayer2.Visibility = Visibility.Visible;
+                    imgPlayer3.Visibility = Visibility.Visible;
+                    imgPlayer4.Visibility = Visibility.Visible;
                     break;
 
                 default:
@@ -119,6 +124,7 @@ namespace GameOfGoose
             if(game.isGameOver)
             {
                 btnRollDice.IsEnabled = false;
+                btnRollDice.Visibility = Visibility.Hidden;
                 mainWindow.NavigationService.Navigate(new VictoryScreen(game));
             }
         }
