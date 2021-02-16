@@ -96,6 +96,8 @@
                 Style="{StaticResource headerButton}"
                 IsEnabled="False"
                 Margin="30"
-                Visibility="Hidden" FontFamily="Blackadder ITC" FontSize="50"/>
+                Visibility="Hidden" 
+                FontFamily="Blackadder ITC" 
+                FontSize="50"/>
     </Grid>
 </Page>
