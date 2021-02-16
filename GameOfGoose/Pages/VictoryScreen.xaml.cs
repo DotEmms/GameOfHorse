@@ -19,7 +19,7 @@ namespace GameOfGoose
             this.game = game;
             lblWinner.Content = game.winningPlayer.Name;
             lblAmountOfRounds.Content = game.totalRounds;
-            imgWinner.Source = new BitmapImage(new Uri(game.winningPlayer.DisplayedImagePath, UriKind.RelativeOrAbsolute));
+            imgWinner.Source = new BitmapImage(new Uri(game.winningPlayer.DisplayedImagePath, UriKind.RelativeOrAbsolute));          
         }
         private void PlaySound()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameOfHorse;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -7,10 +8,13 @@ namespace GameOfGoose
 {
     public class Game
     {
-        public ObservableCollection<Player> players;
+        private JSONWriter jSONWriter;
+        private FileManager fileManager;
+        private ReaderWriter readerWriter;
+        public ObservableCollection<IPlayer> players;
         public ObservableCollection<ISquare> squares;
         private readonly Dice dice;
-        public Player currentPlayer;
+        public IPlayer currentPlayer;
         
         public ISquare currentSquare;
 
@@ -19,13 +23,17 @@ namespace GameOfGoose
         public int diceResult;
         private bool movingBackwards = false;
         public bool isGameOver = false;
-        public Player winningPlayer;
+        public IPlayer winningPlayer;
 
         public Game()
         {
-            players = new ObservableCollection<Player>();
+            players = new ObservableCollection<IPlayer>();
             squares = GenerateGameBoard();
             dice = new Dice();
+            jSONWriter = new JSONWriter();
+            fileManager = new FileManager();
+            readerWriter = new ReaderWriter();
+            fileManager.CreateFile(readerWriter.PATH_LEADERBOARD);
         }
 
         public void StartGame()
@@ -62,9 +70,13 @@ namespace GameOfGoose
                     {
                         MessageBox.Show($"{currentPlayer.Name} is stuck in the Well!", "Well");
                     }
-                    else if(currentSquare.ID == 52 || currentSquare.ID == 19)
+                    else if(currentPlayer.PawnLocation == 52)
                     {
-                        MessageBox.Show($" {currentPlayer.Name} is stuck in the {(currentSquare.ID == 52 ? "Prison" : "Inn")} \nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", $"{(currentSquare.ID == 52? "Prison" : "Inn")}");
+                        MessageBox.Show($"{currentPlayer.Name} is stuck in the Prison\nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", "Prison");
+                    }
+                    else if(currentPlayer.PawnLocation == 19)
+                    {
+                        MessageBox.Show($"{currentPlayer.Name} is stuck in the Inn \nWait {currentPlayer.TurnPenalty} more turn(s) to continue playing!", $"Inn");
                     }
                     currentPlayer.TurnPenalty--;
                 }
@@ -77,9 +89,9 @@ namespace GameOfGoose
             }
         }
 
-        public Player GetPlayer(int id)
+        public IPlayer GetPlayer(int id)
         {
-            Player player;
+            IPlayer player;
             if (players == null)
             {
                 player = null;
@@ -135,7 +147,11 @@ namespace GameOfGoose
         {
             isGameOver = true;
             winningPlayer = currentPlayer;
-            totalRounds = CalculateTotalRounds();
+            totalRounds = CalculateTotalRounds();            
+
+            string logstring = $"{currentPlayer.Name}, Number of rounds: {totalRounds}";
+            jSONWriter.WriteTo(logstring);
+            readerWriter.WriteDataToFile(logstring);
         }
 
         private void FirstThrowCheck(int die1, int die2)
@@ -261,13 +277,13 @@ namespace GameOfGoose
             return (int)Math.Ceiling(result);
         }
 
-        public Player CreatePlayer(string name)
+        public IPlayer CreatePlayer(string name)
         {
             var player = new Player(name);
             return player;
         }
 
-        public void AddPlayerToGame(Player player)
+        public void AddPlayerToGame(IPlayer player)
         {
             players.Add(player);
         }
