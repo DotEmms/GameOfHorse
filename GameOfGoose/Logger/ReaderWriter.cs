@@ -25,7 +25,7 @@ namespace GameOfHorse
         {
             using (StreamWriter writer = new StreamWriter(path, true))
             {                
-                writer.WriteLine($"{dateTime},{textToWriteToFile}");
+                writer.WriteLine($"{dateTime}, {textToWriteToFile}");
             }
         }
 

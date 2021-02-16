@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameOfHorse;
+using System;
 using System.Windows;
 using System.Windows.Media;
 
@@ -39,6 +40,14 @@ namespace GameOfGoose
         {
             MessageBox.Show(SetAbout(), "About the game", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void MenuItemLeaderBoard_Click(object sender, RoutedEventArgs e)
+        {
+            LeaderBoard leaderBoard = new LeaderBoard(game);
+            leaderBoard.Show();
+        }
+
+
 
         private void StartButtonClickedInPanel(object sender, EventArgs e)
         {

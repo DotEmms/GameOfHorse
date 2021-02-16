@@ -34,6 +34,10 @@
                     <MenuItem Header="_Rules"
                           Click="MenuItemRules_Click" />
                 </MenuItem>
+                <MenuItem Header="_LeaderBoard" Background="#FFDEB298">
+                    <MenuItem Header="_LeaderBoard"
+                              Click="MenuItemLeaderBoard_Click" />                    
+                </MenuItem>
             </Menu>
         </DockPanel>
 
