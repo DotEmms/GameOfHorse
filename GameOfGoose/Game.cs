@@ -150,11 +150,13 @@ namespace GameOfGoose
         {
             isGameOver = true;
             winningPlayer = currentPlayer;
-            totalRounds = CalculateTotalRounds();            
+            totalRounds = CalculateTotalRounds();
 
             string logstring = $"{currentPlayer.Name}, Number of rounds: {totalRounds}";
             jSONWriter.WriteTo(logstring);
             readerWriter.WriteDataToFile(logstring);
+
+            leaderBoard = readerWriter.ReadDataFromFile(readerWriter.PATH_LEADERBOARD);
         }
 
         private void FirstThrowCheck(int die1, int die2)
@@ -294,7 +296,10 @@ namespace GameOfGoose
         public void ResetGame()
         {
             isGameOver = false;
-            currentPlayer.ResetId();
+            if(currentPlayer != null)
+            {
+                currentPlayer.ResetId();
+            }
             players.Clear();
         }
 
