@@ -1,3 +1,6 @@
 
-16/02/2021 14:48:17,sd, Number of rounds: 8
-16/02/2021 14:50:15,Pieter, Number of rounds: 1416/02/2021 14:51:23,Sammy, Number of rounds: 20
+16/02/2021 14:48:17, sd, Number of rounds: 8
+16/02/2021 14:50:15, Pieter, Number of rounds: 14
+16/02/2021 14:51:23, Sammy, Number of rounds: 20
+16/02/2021 14:58:34, Seba, Number of rounds: 29
+16/02/2021 14:59:40, testtt, Number of rounds: 73

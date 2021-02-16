@@ -1,5 +1,6 @@
 ﻿using GameOfHorse;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -13,6 +14,7 @@ namespace GameOfGoose
         private ReaderWriter readerWriter;
         public ObservableCollection<IPlayer> players;
         public ObservableCollection<ISquare> squares;
+        public List<string> leaderBoard;
         private readonly Dice dice;
         public IPlayer currentPlayer;
         
@@ -34,6 +36,7 @@ namespace GameOfGoose
             fileManager = new FileManager();
             readerWriter = new ReaderWriter();
             fileManager.CreateFile(readerWriter.PATH_LEADERBOARD);
+            leaderBoard = GetLeaderBoard();
         }
 
         public void StartGame()
@@ -293,6 +296,13 @@ namespace GameOfGoose
             isGameOver = false;
             currentPlayer.ResetId();
             players.Clear();
+        }
+
+        public List<string> GetLeaderBoard()
+        {
+            List<string> leaderBoard = readerWriter.ReadDataFromFile(readerWriter.PATH_LEADERBOARD);
+
+            return leaderBoard;
         }
 
         private ObservableCollection<ISquare> GenerateGameBoard()
