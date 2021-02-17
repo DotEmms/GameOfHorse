@@ -7,3 +7,6 @@
 16/02/2021 16:04:19, Nico, Number of rounds: 27
 16/02/2021 16:18:11, Nico, Number of rounds: 12
 16/02/2021 16:20:15, Samantha, Number of rounds: 19
+17/02/2021 08:35:28, Seba, Number of rounds: 10
+17/02/2021 08:35:28, TEst, Number of rounds: 49
+17/02/2021 08:50:38, Dries, Number of rounds: 17

@@ -11,10 +11,10 @@ namespace GameOfGoose
         public int RollDice()
         {
             Random random1 = new Random();
-            firstDie = random1.Next(1, 6);
+            firstDie = random1.Next(1, 7);
 
             Random random2 = new Random();
-            secondDie = random2.Next(1, 6);
+            secondDie = random2.Next(1, 7);
 
             diceResult = firstDie + secondDie;
             return diceResult;
